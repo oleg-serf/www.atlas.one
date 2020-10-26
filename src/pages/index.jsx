@@ -279,9 +279,9 @@ export default () => {
         </span>
 
         <div className="flex flex-wrap py-2 mt-20">
-          <div class="w-full  lg:w-1/3 md:w-2/4  sm:w-1/1  pb-4 p-2">
+          <div class="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4 p-2">
             <div className="shadow-xl flex bg-white p-2 rounded mb-4">
-              <div className="w-1/3  bg-indigo-700 rounded mx-2 flex">
+              <div className="w-1/3 bg-indigo-700 rounded mx-2 flex">
                 <RiGovernmentFill size={50} className="m-auto" color="#fff" />
               </div>
               <div className="w-2/3">
@@ -294,7 +294,7 @@ export default () => {
             </div>
 
             <div className="shadow flex bg-white p-2 rounded mb-4">
-              <div className="w-1/3  bg-indigo-700 rounded mx-2 flex">
+              <div className="w-1/3 bg-indigo-700 rounded mx-2 flex">
                 <AiOutlinePropertySafety
                   size={50}
                   className="m-auto"
@@ -311,7 +311,7 @@ export default () => {
             </div>
 
             <div className="shadow flex bg-white p-2 rounded mb-4">
-              <div className="w-1/3  bg-indigo-700 rounded mx-2 flex">
+              <div className="w-1/3 bg-indigo-700 rounded mx-2 flex">
                 <IoMdSchool size={50} className="m-auto" color="#fff" />
               </div>
               <div className="w-2/3">
@@ -325,7 +325,7 @@ export default () => {
           </div>
           <div class="w-full  lg:w-1/3 md:w-2/4  sm:w-1/1  p-2">
             <div className="shadow flex bg-white p-2 rounded mb-4">
-              <div className="w-1/3  bg-indigo-700 rounded mx-2 flex">
+              <div className="w-1/3 bg-indigo-700 rounded mx-2 flex">
                 <FaPlusSquare size={50} className="m-auto" color="#fff" />
               </div>
               <div className="w-2/3">
@@ -338,7 +338,7 @@ export default () => {
             </div>
 
             <div className="shadow flex bg-white p-2 rounded mb-4">
-              <div className="w-1/3  bg-indigo-700 rounded mx-2 flex">
+              <div className="w-1/3 bg-indigo-700 rounded mx-2 flex">
                 <IoIosAirplane size={50} className="m-auto" color="#fff" />
               </div>
               <div className="w-2/3">
@@ -351,7 +351,7 @@ export default () => {
             </div>
 
             <div className="shadow flex bg-white p-2 rounded mb-4">
-              <div className="w-1/3  bg-indigo-700 rounded mx-2 flex">
+              <div className="w-1/3 bg-indigo-700 rounded mx-2 flex">
                 <AiFillSecurityScan size={50} className="m-auto" color="#fff" />
               </div>
               <div className="w-2/3">
@@ -363,7 +363,7 @@ export default () => {
               </div>
             </div>
           </div>
-          <div class="w-full  lg:w-1/3 md:w-2/4  sm:w-1/1  pb-4 p-2">
+          <div class="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4 p-2">
             <img src={IndustriesImage} alt="Altas Logo" className="w-full" />
           </div>
         </div>
@@ -379,40 +379,40 @@ export default () => {
         </div>
 
         <div className="flex flex-wrap py-2 mt-20">
-          <div class="w-full  lg:w-1/3 md:w-2/4  sm:w-1/1  pb-4 p-2">
+          <div class="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4 p-2">
             <div className="bg-white w-full h-full rounded p-8">
               <span className="block text-3xl font-bold py-3">Essential</span>
 
               <div className="flex py-2">
                 <AiFillCheckCircle size={40} color="#19B5FE" />
-                <span className="text-1xl  pt-2 pl-1">
+                <span className="text-1xl pt-2 pl-1">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 </span>
               </div>
               <div className="flex py-2">
                 <AiFillCheckCircle size={40} color="#19B5FE" />
-                <span className="text-1xl  pt-2 pl-1">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                </span>
-              </div>
-
-              <div className="flex py-2">
-                <AiFillCheckCircle size={40} color="#19B5FE" />
-                <span className="text-1xl  pt-2 pl-1">
+                <span className="text-1xl pt-2 pl-1">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 </span>
               </div>
 
               <div className="flex py-2">
                 <AiFillCheckCircle size={40} color="#19B5FE" />
-                <span className="text-1xl  pt-2 pl-1">
+                <span className="text-1xl pt-2 pl-1">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 </span>
               </div>
 
               <div className="flex py-2">
                 <AiFillCheckCircle size={40} color="#19B5FE" />
-                <span className="text-1xl  pt-2 pl-1">
+                <span className="text-1xl pt-2 pl-1">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                </span>
+              </div>
+
+              <div className="flex py-2">
+                <AiFillCheckCircle size={40} color="#19B5FE" />
+                <span className="text-1xl pt-2 pl-1">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 </span>
               </div>
@@ -422,7 +422,7 @@ export default () => {
               </button>
             </div>
           </div>
-          <div class="w-full  lg:w-1/3 md:w-2/4  sm:w-1/1  pb-4 p-2 ">
+          <div class="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4 p-2 ">
             <div className="bg-white w-full h-full rounded p-8 shadow-2xl">
               <span className="block text-3xl font-bold py-3">
                 Proffessional
@@ -437,7 +437,7 @@ export default () => {
 
               <div className="flex py-2">
                 <AiFillCheckCircle size={40} color="#19B5FE" />
-                <span className="text-1xl  pt-2 pl-1">
+                <span className="text-1xl pt-2 pl-1">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 </span>
               </div>
@@ -451,14 +451,14 @@ export default () => {
 
               <div className="flex py-2">
                 <AiFillCheckCircle size={40} color="#19B5FE" />
-                <span className="text-1xl  pt-2 pl-1">
+                <span className="text-1xl pt-2 pl-1">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 </span>
               </div>
 
               <div className="flex py-2">
                 <AiFillCheckCircle size={40} color="#19B5FE" />
-                <span className="text-1xl  pt-2 pl-1">
+                <span className="text-1xl pt-2 pl-1">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 </span>
               </div>
@@ -468,13 +468,13 @@ export default () => {
               </button>
             </div>
           </div>
-          <div class="w-full  lg:w-1/3 md:w-2/4  sm:w-1/1  pb-4 p-2">
+          <div class="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4 p-2">
             <div className="bg-white w-full h-full rounded p-8">
               <span className="block text-3xl font-bold py-3">Enterprise</span>
 
               <div className="flex py-2">
                 <AiFillCheckCircle size={40} color="#19B5FE" />
-                <span className="text-1xl  pt-2 pl-1">
+                <span className="text-1xl pt-2 pl-1">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 </span>
               </div>
@@ -488,7 +488,7 @@ export default () => {
 
               <div className="flex py-2">
                 <AiFillCheckCircle size={40} color="#19B5FE" />
-                <span className="text-1xl  pt-2 pl-1">
+                <span className="text-1xl pt-2 pl-1">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 </span>
               </div>
