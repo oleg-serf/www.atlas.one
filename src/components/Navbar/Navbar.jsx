@@ -2,10 +2,10 @@ import React, { useState } from "react"
 import Logo from "./../../images/logo.png"
 
 export default function Header() {
-  const [isExpanded, toggleExpansion] = useState(false);
-  const [navLinks, setNavLinks] = useState(["Case Studies", "Benefits", "Solutions", "Industries", "Pricing", "Resources" , "Contact Us"]);
+  const [isExpanded, toggleExpansion] = useState(false)
+  const [navLinks, setNavLinks] = useState(["Case Studies", "Benefits", "Solutions", "Industries", "Pricing", "Resources" , "Contact Us"])
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-gray-800 p-5 lg:px-10">
+    <nav className="flex items-center justify-between flex-wrap bg-gray-800 p-5 lg:px-10 border-b border-gray-700">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <img src={Logo} alt="Altas Logo" />
       </div>

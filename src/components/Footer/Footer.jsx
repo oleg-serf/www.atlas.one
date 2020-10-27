@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Logo from "./../../images/logo.png"
-import { FaFacebookSquare, FaTwitterSquare, FaInstagram } from "react-icons/fa"
-
+import { FaFacebookSquare, FaTwitterSquare, FaInstagram } from "react-icons/fa";
+import { Link } from "gatsby";
 export default function Footer() {
   const [isExpanded, toggleExpansion] = useState(false)
   const [navLinks, setNavLinks] = useState([
@@ -73,12 +73,16 @@ export default function Footer() {
         <span className="text-xl px-4 text-gray-400 border-r-2 border-gray-400">
           @ 2020 Atlas One. All right reserved. 
         </span>
+        <Link to="/privacy-policy">
         <span className="text-xl px-4 text-gray-400 border-r-2 border-gray-400">
           Privacy Policy
         </span>
+        </Link>
+        <Link to="/privacy-policy">
         <span className="text-xl px-4 text-gray-400 ">
           Terms of Services
         </span>
+        </Link>
       </div>
     </div>
   )
