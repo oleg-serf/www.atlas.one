@@ -1,8 +1,9 @@
 import React from "react"
+
 export default function GetStart() {
   return (
     <>
-      <div className="text-center py-40 ">
+      <div className="text-center py-40 container m-auto">
         <span className="block font-bold text-blue-500 text-xl uppercase">
           start today
         </span>
@@ -17,7 +18,7 @@ export default function GetStart() {
           </span>
         </div>
 
-        <button class="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-3 px-8 border bg-blue-500 hover:border-transparent">
+        <button className="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-3 px-8 border bg-blue-500 hover:border-transparent">
           Book a demo
         </button>
       </div>

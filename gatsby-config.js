@@ -10,6 +10,14 @@ module.exports = {
     description: "A Gatsby starter to set you up with Tailwind CSS",
   },
   plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `hv5gzgthqwih`,
+        accessToken: `Vr1qT4pl8A_G251KjAIFftTuz1UwyQAjMs7wroaDx0Q`,
+      },
+    }, 
+    `gatsby-plugin-sass`,
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-manifest",
@@ -22,6 +30,7 @@ module.exports = {
         icon: "static/icon.svg",
       },
     },
+    
     {
       resolve: "gatsby-plugin-postcss",
       options: {

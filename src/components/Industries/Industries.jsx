@@ -1,113 +1,113 @@
 import React from "react"
-import IndustriesImage from "./../../images/Rectangle 168.png"
-import { IoIosAirplane, IoMdSchool } from "react-icons/io"
 import { RiGovernmentFill } from "react-icons/ri"
-import { AiOutlinePropertySafety, AiFillSecurityScan } from "react-icons/ai"
-import { FaPlusSquare } from "react-icons/fa"
+import { graphql, useStaticQuery } from "gatsby"
 
 export default function Industries() {
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulIndustries {
+        edges {
+          node {
+            title
+            subTitle
+            images {
+              file {
+                url
+              }
+            }
+            description {
+              description
+            }
+            industries {
+              title
+              iconBg
+              description
+            }
+          }
+        }
+      }
+    }
+  `)
+
   return (
-    <>
-      <div className="p-10 lg:px-40 py-10 bg-gray-100">
-        <span className="font-bold text-blue-500 block uppercase">
-          Industries
+    <div className="p-5 py-10 bg-gray-100">
+      <div className="container max-w-6xl m-auto">
+        <h2 className="font-bold text-blue-500 block uppercase">
+          {data.allContentfulIndustries.edges[0].node.title}
+        </h2>
+
+        <h2 className="font-bold text-45xl">
+          {data.allContentfulIndustries.edges[0].node.subTitle}
+        </h2>
+
+        <span className="block text-18xl pt-5 max-w-2xl">
+          {data.allContentfulIndustries.edges[0].node.description.description}
         </span>
 
-        <span className="font-bold text-4xl">Industries We Serve</span>
-
-        <span className="block text-1xl pt-5 text-2xl">
-          Seprated they live in Boakmarks right at the coast of
-          <br /> the famous Semantics, large language.
-        </span>
-
-        <div className="flex flex-wrap py-2 mt-20">
+        <div className="flex flex-wrap mt-20">
+          <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4">
+            {data.allContentfulIndustries.edges[0].node.industries.map(
+              (v, i) => {
+                if (i % 2 === 0) {
+                  return (
+                    <div className="shadow-base flex bg-white p-2 rounded mb-4">
+                      <div
+                        className="w-1/3 rounded mx-2 flex py-6"
+                        style={{ backgroundColor: v.iconBg }}
+                      >
+                        <RiGovernmentFill
+                          size={50}
+                          className="m-auto"
+                          color="#fff"
+                        />
+                      </div>
+                      <div className="w-2/3">
+                        <span className="font-bold text-18xl">{v.title}</span>
+                        <span className="block">{v.description}</span>
+                      </div>
+                    </div>
+                  )
+                }
+              }
+            )}
+          </div>
+          <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 px-1">
+            {data.allContentfulIndustries.edges[0].node.industries.map(
+              (v, i) => {
+                if (i % 2 === 1) {
+                  return (
+                    <div className="shadow-base flex bg-white p-2 rounded mb-4">
+                      <div
+                        className="w-1/3 rounded mx-2 flex py-6"
+                        style={{ backgroundColor: v.iconBg }}
+                      >
+                        <RiGovernmentFill
+                          size={50}
+                          className="m-auto"
+                          color="#fff"
+                        />
+                      </div>
+                      <div className="w-2/3">
+                        <span className="font-bold text-18xl">{v.title}</span>
+                        <span className="block">{v.description}</span>
+                      </div>
+                    </div>
+                  )
+                }
+              }
+            )}
+          </div>
           <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4 p-2">
-            <div className="shadow-xl flex bg-white p-2 rounded mb-4">
-              <div className="w-1/3  bg-indigo-700 rounded mx-2 flex">
-                <RiGovernmentFill size={50} className="m-auto" color="#fff" />
-              </div>
-              <div className="w-2/3">
-                <span className="font-bold">Government</span>
-                <span className="block">
-                  The group of people with the authority to govern a country or state
-                </span>
-              </div>
-            </div>
-
-            <div className="shadow flex bg-white p-2 rounded mb-4">
-              <div className="w-1/3  bg-indigo-700 rounded mx-2 flex">
-                <AiOutlinePropertySafety
-                  size={50}
-                  className="m-auto"
-                  color="#fff"
-                />
-              </div>
-              <div className="w-2/3">
-                <span className="font-bold">Government</span>
-                <span className="block">
-                  The group of people with the authority to govern a country or
-                  state
-                </span>
-              </div>
-            </div>
-
-            <div className="shadow flex bg-white p-2 rounded mb-4">
-              <div className="w-1/3  bg-indigo-700 rounded mx-2 flex">
-                <IoMdSchool size={50} className="m-auto" color="#fff" />
-              </div>
-              <div className="w-2/3">
-                <span className="font-bold">Government</span>
-                <span className="block">
-                  The group of people with the authority to govern a country or
-                  state
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="w-full  lg:w-1/3 md:w-2/4  sm:w-1/1  p-2">
-            <div className="shadow flex bg-white p-2 rounded mb-4">
-              <div className="w-1/3  bg-indigo-700 rounded mx-2 flex">
-                <FaPlusSquare size={50} className="m-auto" color="#fff" />
-              </div>
-              <div className="w-2/3">
-                <span className="font-bold">Government</span>
-                <span className="block">
-                  The group of people with the authority to govern a country or
-                  state
-                </span>
-              </div>
-            </div>
-
-            <div className="shadow flex bg-white p-2 rounded mb-4">
-              <div className="w-1/3  bg-indigo-700 rounded mx-2 flex">
-                <IoIosAirplane size={50} className="m-auto" color="#fff" />
-              </div>
-              <div className="w-2/3">
-                <span className="font-bold">Government</span>
-                <span className="block">
-                  The group of people with the authority to govern a country or
-                  state
-                </span>
-              </div>
-            </div>
-
-            <div className="shadow flex bg-white p-2 rounded mb-4">
-              <div className="w-1/3  bg-indigo-700 rounded mx-2 flex">
-                <AiFillSecurityScan size={50} className="m-auto" color="#fff" />
-              </div>
-              <div className="w-2/3">
-                <span className="font-bold">Government</span>
-                <span className="block">
-                  The group of people with the authority to govern a country or state
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="w-full  lg:w-1/3 md:w-2/4  sm:w-1/1  pb-4 p-2">
-            <img src={IndustriesImage} alt="Altas Logo" className="w-full" />
+            <img
+              src={
+                data.allContentfulIndustries.edges[0].node.images[0].file.url
+              }
+              alt="Altas Logo"
+              className="w-full"
+            />
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

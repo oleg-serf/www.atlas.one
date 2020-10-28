@@ -3,7 +3,16 @@ import Logo from "./../../images/logo.png"
 
 export default function Header() {
   const [isExpanded, toggleExpansion] = useState(false)
-  const [navLinks, setNavLinks] = useState(["Case Studies", "Benefits", "Solutions", "Industries", "Pricing", "Resources" , "Contact Us"])
+  const [navLinks, setNavLinks] = useState([
+    "Case Studies", 
+    "Benefits", 
+    "Solutions", 
+    "Industries", 
+    "Pricing", 
+    "Resources", 
+    "Contact Us"
+  ]);
+
   return (
     <nav className="flex items-center justify-between flex-wrap bg-gray-800 p-5 lg:px-10 border-b border-gray-700">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
@@ -40,7 +49,7 @@ export default function Header() {
               <span className="text-white">{v}</span>
             </a>
           ))
-        }      
+        }         
         </div>
         <div>
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ">

@@ -4,8 +4,9 @@ import BlogImage from "./../../images/blog.png"
 
 export default function Resources() {
   return (
-    <>
-      <div className="p-10 lg:px-40 py-10 bg-gray-100">
+      <div className="p-4 py-10 bg-gray-100">
+        <div className="container m-auto max-w-6xl ">
+
         <span className="font-bold text-blue-500 block uppercase">
           Recourses
         </span>
@@ -20,13 +21,13 @@ export default function Resources() {
         </span>
 
         <div className="flex flex-wrap py-2 mt-20">
-          <div className="w-full  lg:w-1/3 md:w-2/4  sm:w-1/1  pb-4 p-8">
+          <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4 p-8">
             <div className="bg-white w-full h-full rounded">
               <div className="pb-5">
                 <img src={BlogImage} alt="Altas Logo" />
               </div>
               <div className="px-2">
-                <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-8 border border-blue-500 hover:border-transparent">
+                <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-8 border border-blue-500 hover:border-transparent">
                   Try Now
                 </button>
 
@@ -42,13 +43,13 @@ export default function Resources() {
             </div>
           </div>
 
-          <div className="w-full  lg:w-1/3 md:w-2/4  sm:w-1/1  pb-4 p-8">
+          <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4 p-8">
             <div className="bg-white w-full h-full rounded">
               <div className="pb-5">
                 <img src={BlogImage} alt="Altas Logo" />
               </div>
               <div className="px-2">
-                <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-8 border border-blue-500 hover:border-transparent">
+                <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-8 border border-blue-500 hover:border-transparent">
                   Try Now
                 </button>
 
@@ -64,13 +65,13 @@ export default function Resources() {
             </div>
           </div>
 
-          <div className="w-full  lg:w-1/3 md:w-2/4  sm:w-1/1  pb-4 p-8">
+          <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4 p-8">
             <div className="bg-white w-full h-full rounded">
               <div className="pb-5">
                 <img src={BlogImage} alt="Altas Logo" />
               </div>
               <div className="px-2">
-                <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-8 border border-blue-500 hover:border-transparent">
+                <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-8 border border-blue-500 hover:border-transparent">
                   Try Now
                 </button>
 
@@ -87,6 +88,6 @@ export default function Resources() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
