@@ -18,7 +18,7 @@ module.exports = {
       },
     }, 
     `gatsby-plugin-sass`,
-    "gatsby-plugin-react-helmet",
+    `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -29,13 +29,18 @@ module.exports = {
         theme_color: theme.colors.teal[500],
         icon: "static/icon.svg",
       },
-    },
-    
+    },    
     {
       resolve: "gatsby-plugin-postcss",
       options: {
         postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
       },
     },
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -100
+      }
+    }
   ],
 }

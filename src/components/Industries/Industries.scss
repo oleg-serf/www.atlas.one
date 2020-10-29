@@ -1,0 +1,19 @@
+.fadein {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+  /* -moz-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out; */
+}
+
+.fadeout {
+  opacity: 0;
+}
+
+.industry-box {
+  width: 49%;
+}
+@media (max-width: 1199px) {
+  .industry-box {
+    width: 100%;
+  }
+}

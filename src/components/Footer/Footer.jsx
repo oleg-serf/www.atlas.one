@@ -1,11 +1,10 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import { FaFacebookSquare, FaTwitterSquare, FaInstagram } from "react-icons/fa"
 import Logo from "./../../images/logo.png"
 
 export default function Footer() {
-  // const [isExpanded, toggleExpansion] = useState(false)
-  const [navLinks, setNavLinks] = useState([
+  const navLinks = [
     "Case Studies",
     "Benefits",
     "Solutions",
@@ -13,7 +12,8 @@ export default function Footer() {
     "Pricing",
     "Resources",
     "Contact Us",
-  ])
+  ]
+
   return (
     <div className="bg-gray-800 py-10 ">
       <div className="container m-auto">
@@ -28,17 +28,15 @@ export default function Footer() {
             } w-full block flex-grow lg:flex lg:items-center lg:w-auto`}
           >
             <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-1 justify-center flex-col lg:h-auto">
-              {navLinks.map((v, i) => {
-                return (
-                  <a
-                    key={i}
-                    href="#"
-                    className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
-                  >
-                    <span className="text-white">{v}</span>
-                  </a>
-                )
-              })}
+              {navLinks.map((v, i) => (
+                <Link
+                  key={i}
+                  to="#"
+                  className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+                >
+                  <span className="text-white">{v}</span>
+                </Link>
+              ))}
             </div>
 
             <div className="flex">
@@ -67,7 +65,7 @@ export default function Footer() {
             </span>
           </Link>
           <Link to="/privacy-policy">
-            <span className="text-xl px-4 text-gray-400 ">
+            <span className="text-xl px-4 text-gray-400">
               Terms of Services
             </span>
           </Link>

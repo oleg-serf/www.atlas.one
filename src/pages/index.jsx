@@ -1,7 +1,7 @@
 import React from "react"
 import {
   Header,
-  // Navbar,
+  Navbar,
   Brands,
   Footer,
   Benifits,
@@ -13,12 +13,16 @@ import {
   Resources,
   Communication,
   ContentCreation,
+  Reporting,
   Apply,
 } from "../components"
 
 export default () => {
   return (
     <div>
+      <div className="fixed w-full z-10 top-0">
+        <Navbar />
+      </div>
       {/*  ********************* Header Section  ********************* */}
       <Header />
       {/*   *******************  BRANDS SECTION   *******************  */}
@@ -31,6 +35,8 @@ export default () => {
       <Solutions />
       {/********************* COMMUNICATION SECTION *********************/}
       <Communication />
+      {/********************* Reporting SECTION *********************/}
+      <Reporting />
       {/* ContentCreation Section */}
       <ContentCreation />
       {/* ***************** INDUSTRIES SECTION *************  */}

@@ -4,3 +4,9 @@
 
 @import "../../static/fonts/font.css";
 @import "../css/typography.scss";
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+

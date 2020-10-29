@@ -1,23 +1,73 @@
-import React, { useState } from "react"
-import Logo from "./../../images/logo.png"
+import React, { useState, useRef, useEffect } from "react"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
+import LogoWhite from "./../../images/logo.png"
+import LogoBlack from "../../images/black-blue.png"
+import "./navbar.scss"
 
 export default function Header() {
   const [isExpanded, toggleExpansion] = useState(false)
-  const [navLinks, setNavLinks] = useState([
-    "Case Studies", 
-    "Benefits", 
-    "Solutions", 
-    "Industries", 
-    "Pricing", 
-    "Resources", 
-    "Contact Us"
-  ]);
+  const [currentLogo, setLogo] = useState(LogoWhite)
+  const navLinks = [
+    {
+      name: "Case Studies",
+      path: "#case-studies",
+    },
+    {
+      name: "Benefits",
+      path: "#benifits",
+    },
+    {
+      name: "Solutions",
+      path: "#solutions",
+    },
+    {
+      name: "Industries",
+      path: "#industries",
+    },
+    {
+      name: "Pricing",
+      path: "#pricing",
+    },
+    {
+      name: "Resources",
+      path: "#resources",
+    },
+    {
+      name: "Contact Us",
+      path: "#contact-us",
+    },
+  ]
+
+  const nav = useRef(null)
+
+  useEffect(() => {
+    if (typeof window != "undefined") {
+      window.addEventListener("scroll", function () {
+        if (nav) {
+          if (window.pageYOffset > 0) {
+            nav.current.classList.add("active")
+            setLogo(LogoBlack)
+          } else {
+            //remove the background property so it comes transparent again (defined in your css)
+            nav.current.classList.remove("active")
+            setLogo(LogoWhite)
+          }
+        }
+      })
+    }
+  }, [])
 
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-gray-800 p-5 lg:px-10 border-b border-gray-700">
-      <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <img src={Logo} alt="Altas Logo" />
-      </div>
+    <nav
+      ref={nav}
+      className="flex nav items-center justify-between absolute w-full z-30 flex-wrap p-5 lg:px-10 border-b border-gray-700"
+    >
+      <AnchorLink
+        to="/"
+        className="flex items-center flex-shrink-0 text-white mr-6"
+      >
+        <img src={currentLogo} alt="Altas Logo" />
+      </AnchorLink>
       <div className="block lg:hidden">
         <button
           onClick={() => toggleExpansion(!isExpanded)}
@@ -39,17 +89,15 @@ export default function Header() {
         } w-full block flex-grow lg:flex lg:items-center lg:w-auto`}
       >
         <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-1 justify-center flex-col lg:h-auto">
-        {
-          navLinks.map((v, i)=> (
-            <a
+          {navLinks.map((item, i) => (
+            <AnchorLink
               key={i}
-              href="#"
-              className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+              to={item.path}
+              className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded items-center justify-center hover:bg-gray-900 hover:text-white"
             >
-              <span className="text-white">{v}</span>
-            </a>
-          ))
-        }         
+              <span>{item.name}</span>
+            </AnchorLink>
+          ))}
         </div>
         <div>
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ">

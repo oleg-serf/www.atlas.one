@@ -1,0 +1,18 @@
+.nav {
+  color: #fff;
+  transition: background-color 0.2s ease-in;
+  &.active {
+    background-color: #fff;
+
+    color: #141414;
+  }
+}
+
+@media (max-width: 1023px) {
+  .nav {
+    background: linear-gradient(107.23deg, #0d1835 0%, #16375f 100%);
+    &.active {
+      background: #fff;
+    }
+  }
+}
