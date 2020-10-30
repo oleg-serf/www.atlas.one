@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { AiFillCheckCircle } from "react-icons/ai"
+import "./pricing.scss"
 
 export default function Pricing() {
   const data = useStaticQuery(graphql`
@@ -25,44 +26,46 @@ export default function Pricing() {
   `)
 
   const componentData = data.allContentfulPricing.edges[0].node
-  
+
   return (
-    <div className="p-5 py-10 bg-gray-200" id="pricing">
+    <div className="px-5 py-24" id="pricing">
       <div className="container max-w-6xl m-auto">
         <div className="text-center">
-          <h2 className="text-blue-500 block uppercase">
+          <h2 className="text-blue block uppercase">
             {componentData.title}
           </h2>
-          <h2 className="font-bold text-4xl">
+          <h2 className=" text-4xl">
             {componentData.subtitle}
           </h2>
         </div>
 
-        <div className="flex flex-wrap  mt-20">
-          {componentData.packages.map((v, i) => (
-            <div className="w-full  lg:w-1/3 md:w-2/4  sm:w-1/1  pb-4 p-1">
-              <div className="bg-white w-full h-full rounded p-5">
-                <span className="block text-3xl font-bold py-3">
-                  {v.title}
-                </span>
-
-                {v.properties.map((v, i) => (
-                  <div className="flex py-2">
-                    <AiFillCheckCircle size={40} color="#19B5FE" />
-                    <span className="text-1xl  pt-2 pl-1">{v}</span>
-                  </div>
-                ))}
-
-                <button
-                  style={{
-                    backgroundColor: v.bg,
-                    color: v.color,
-                    borderColor: v.borderColor,
-                  }}
-                  className="bg-transparent hover:bg-blue-500 font-semibold  py-3 px-8 border border-blue-500 hover:border-transparent"
-                >
-                  {v.buttonText}
-                </button>
+        <div className="flex flex-wrap pricing-main mt-20">
+          {componentData.packages.map((item, i) => (
+            <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4 rounded-md border-r">
+              <div className="bg-white w-full h-full rounded ">
+                <h2 className="block text-3xl border-b p-5">
+                  {item.title}
+                </h2>
+                <div className="p-5">
+                  {item.properties.map(property => (
+                    <div className="flex py-2 ">
+                      <AiFillCheckCircle size={40} color="00AEEF" />
+                      <span className="text-1xl pl-3">
+                        {property}
+                      </span>
+                    </div>
+                  ))}
+                  <button
+                    style={{
+                      backgroundColor: item.bg,
+                      color: item.color,
+                      borderColor: item.borderColor,
+                    }}
+                    className="bg-transparent hover:bg-blue-500 font-semibold mt-4 py-3 px-8 border border-blue-500 hover:border-transparent"
+                  >
+                    {item.buttonText}
+                  </button>
+                </div>
               </div>
             </div>
           ))}

@@ -11,10 +11,20 @@ module.exports = {
       backgroundColor: {
         industry: "#F6F7FB",
         hero: "#0D1835",
+        apply: "#0D1835",
+        blue: "#00AEEF",
+        ebook: "#D4F2FE",
+        lightblue: "#1F76FF",
       },
       textColor: {
         blue: "#00AEEF",
         black: "#141414",
+        lightblue: "#1F76FF",
+        grey: "#999DB2",
+        menu: "#CBD0EC",
+      },
+      fontWeight: {
+        600: "600",
       },
     },
   },

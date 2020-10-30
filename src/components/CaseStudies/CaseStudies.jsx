@@ -27,8 +27,9 @@ export default function CaseStudies() {
     }
   `)
 
-  const detail = data.allContentfulCaseStudies.edges[0].node.caseStudies  
-
+  const detail = data.allContentfulCaseStudies.edges[0].node.caseStudies
+  const images = data.allContentfulCaseStudies.edges[0].node.images
+  
   const slideRight = () => {
     if (index + 1 !== detail.length) {
       setIndex((index + 1) % detail.length) // increases index by 1
@@ -45,19 +46,19 @@ export default function CaseStudies() {
       }
     }
   }
-
+  
   return (
-    <div className="bg-industry py-24" id="case-studies">
+    <div className="py-12 md:py-24" id="case-studies">
       {data.allContentfulCaseStudies.edges.map(edge => (
-        <div className="flex flex-wrap mb-4 container m-auto max-w-6xl px-5">
+        <div className="flex flex-wrap-reverse mb-4 container m-auto max-w-6xl px-5">
           <div className="xl:w-1/3 lg:w-1/2 lg:justify-center">
             <img
-              src={edge.node.images[0].file.url}
+              src={images[index].file.url}
               alt="Altas Logo"
-              className="rounded-lg"
+              className="rounded-lg h-full"
             />
           </div>
-          <div className="xl:w-2/3 lg:w-1/2 pl-16">
+          <div className="xl:w-2/3 lg:w-1/2 lg:pl-16 mb-8 lg:mb-0">
             <div className="flex">
               <h2 className="py-3 font-bold text-blue flex-1 uppercase">
                 {edge.node.title}
@@ -90,9 +91,7 @@ export default function CaseStudies() {
                 <span className="block font-bold">
                   {detail[index].author}
                 </span>
-                <span>
-                  {detail[index].position}
-                </span>
+                <span>{detail[index].position}</span>
               </div>
             </div>
             <br />

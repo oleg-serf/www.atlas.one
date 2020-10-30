@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { IoIosCreate } from "react-icons/io"
-import { FaTelegramPlane, FaComments } from "react-icons/fa"
+import "./solutions.scss"
 
 export default function Solutions() {
   const data = useStaticQuery(graphql`
@@ -12,10 +11,16 @@ export default function Solutions() {
             title
             subtitle
             description
+            featuredSubtitle
             solutions {
               title
             }
             images {
+              file {
+                url
+              }
+            }
+            icons {
               file {
                 url
               }
@@ -27,82 +32,50 @@ export default function Solutions() {
   `)
 
   const componentData = data.allContentfulSolutions.edges[0].node
-  
+
   return (
-    <div className="bg-industry py-24" id="solutions">
-      <div className="flex flex-wrap container m-auto max-w-6xl px-5">
-        <div className="xl:w-1/1 lg:w-1/2 lg:justify-center">
-          <div
-            style={{
-              position: "relative",
-              maxHeight: "500px",
-              height: "100%",
-              maxWidth: "500px",
-              width: "100%",
-            }}
-          >
-            <div
-              style={{
-                position: "absolute",
-                left: 0,
-                top: 0,
-                maxWidth: "300px",
-                width: "100%",
-              }}
-            >
-              <img
-                src={componentData.images[0].file.url}
-                alt="Altas Logo"
-                style={{ minWidth: "100px" }}
-              />
-            </div>
-            <div
-              style={{
-                position: "absolute",
-                right: 0,
-                bottom: 0,
-                maxWidth: "300px",
-                width: "100%",
-              }}
-            >
-              <img
-                src={componentData.images[1].file.url}
-                alt="Altas Logo"
-                style={{ minWidth: "100px" }}
-              />
-            </div>
+    <div className="py-12 lg:py-24" id="solutions">
+      <div className="flex flex-wrap-reverse container m-auto max-w-6xl px-5 ">
+        <div className="w-full lg:w-1/2 images-parent mt-8 lg:mt-0">
+          <div className="relative ">
+            <img
+              className="absolute image1"
+              src={componentData.images[0].file.url}
+              alt="image1"
+            />
+            <img
+              className="absolute image2"
+              src={componentData.images[1].file.url}
+              alt="image2"
+            />
           </div>
         </div>
-        <div className="xl:w-1/1 lg:w-1/2">
-          <h2 className="block font-bold text-blue-500">
+        <div className="w-full lg:w-1/2">
+          <h2 className="block font-bold text-blue uppercase">
             {componentData.title}
           </h2>
-          <h2 className="block md:text-45xl text-25xl font-bold pt-5 tracking-tigh">
+          <h2 className="block md:text-45xl text-25xl pt-5 tracking-tigh">
             {componentData.subtitle}
+            <h2 className="text-blue inline-block">
+              {componentData.featuredSubtitle}
+            </h2>
           </h2>
-          <span className="block md:text-18xl text-lg pt-5 border-b-2 pb-5">
+          <span className="block md:text-18xl text-lg pt-5 font-medium border-b-2 pb-5">
             {componentData.description}
           </span>
 
           <div className="pt-5">
-            <div className="flex py-1">
-              <FaTelegramPlane size={28} color="#19B5FE" />{" "}
-              <span className="font-bold pl-1 text-xl">
-                {componentData.solutions[0].title}
-              </span>
-            </div>
-            <div className="flex py-1">
-              <FaComments size={28} color="#19B5FE" />{" "}
-              <span className="font-bold pl-1 text-xl">
-                {componentData.solutions[1].title}
-              </span>
-            </div>
-            <div className="flex py-1">
-              <IoIosCreate size={28} color="#19B5FE" />{" "}
-              <span className="font-bold pl-1 text-xl">
-                {componentData.solutions[2].title}
-              </span>
-            </div>
+            {componentData.solutions.map((solution, index) => (
+              <div className="flex py-2">
+                <img
+                  src={componentData.icons[index].file.url}
+                  alt = "icons"
+                />
+                <span className="font-bold pl-5 text-xl">
+                  {solution.title}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

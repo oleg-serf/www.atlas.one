@@ -24,10 +24,10 @@ export default function Brands() {
     <>
       <div className="xl:h-40"> </div>
       <div className="justify-center text-center p-5">
-        <p style={{color: "#B5C7DC"}}>Trusted over 2300+ companies</p>
-        <div className="flex flex-wrap justify-center p-6">
+        <p style={{ color: "#B5C7DC" }}>Trusted over 2300+ companies</p>
+        <div className="flex flex-wrap justify-center p-6 w-full lg:w-auto">
           {componentData.partnersImages.map((v, i) => (
-            <div className="p-5 mx-5">
+            <div className="p-5 lg:mx-5">
               <img src={v.file.url} alt="Altas Logo" />
             </div>
           ))}

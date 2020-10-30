@@ -1,7 +1,10 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
+import { GiHamburgerMenu } from "react-icons/gi"
+import { AiOutlineClose } from "react-icons/ai"
 import LogoWhite from "./../../images/logo.png"
 import LogoBlack from "../../images/black-blue.png"
+import AnnoucementIcon from "../../images/annoucement-icon.png"
 import "./navbar.scss"
 
 export default function Header() {
@@ -37,13 +40,11 @@ export default function Header() {
       path: "#contact-us",
     },
   ]
-
   const nav = useRef(null)
-
   useEffect(() => {
     if (typeof window != "undefined") {
       window.addEventListener("scroll", function () {
-        if (nav) {
+        if (nav && nav.current) {
           if (window.pageYOffset > 0) {
             nav.current.classList.add("active")
             setLogo(LogoBlack)
@@ -56,55 +57,95 @@ export default function Header() {
       })
     }
   }, [])
+  const checkOffset = () => {
+    if (typeof window != "undefined") {
+      if (window.pageYOffset > 0) {
+        setLogo(LogoBlack)
+      } else {
+        setLogo(LogoWhite)
+      }
+    }
+  }
 
   return (
-    <nav
-      ref={nav}
-      className="flex nav items-center justify-between absolute w-full z-30 flex-wrap p-5 lg:px-10 border-b border-gray-700"
-    >
-      <AnchorLink
-        to="/"
-        className="flex items-center flex-shrink-0 text-white mr-6"
+    <React.Fragment>
+      <div className="w-full hidden lg:flex h-auto py-3 bg-lightblue text-white font-medium items-center justify-center">
+        <div className="flex items-center">
+          <img src={AnnoucementIcon} alt="Annoucement Icon" />
+          <span className="ml-2">
+            Keep the community informed of nearby public safety alerts.
+          </span>
+        </div>
+        <button className="mx-1">Book a demo today!</button>
+      </div>
+      <nav
+        ref={nav}
+        className={`flex nav items-center justify-between absolute w-full z-30 flex-wrap px-0 py-5 lg:px-10 border-b border-gray-700 ${
+          isExpanded && "expanded"
+        }`}
       >
-        <img src={currentLogo} alt="Altas Logo" />
-      </AnchorLink>
-      <div className="block lg:hidden">
-        <button
-          onClick={() => toggleExpansion(!isExpanded)}
-          className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+        <AnchorLink
+          to="/"
+          className="flex items-center flex-shrink-0 text-white mr-6 pl-3 lg:pl-0"
         >
-          <svg
-            className="fill-current h-3 w-3"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </button>
-      </div>
-      <div
-        className={`${
-          isExpanded ? `block` : `hidden`
-        } w-full block flex-grow lg:flex lg:items-center lg:w-auto`}
-      >
-        <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-1 justify-center flex-col lg:h-auto">
-          {navLinks.map((item, i) => (
-            <AnchorLink
-              key={i}
-              to={item.path}
-              className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded items-center justify-center hover:bg-gray-900 hover:text-white"
+          <img src={currentLogo} alt="Altas Logo" />
+        </AnchorLink>
+        <div className="block lg:hidden">
+          {!isExpanded ? (
+            <button
+              onClick={() => {
+                toggleExpansion(!isExpanded)
+                setLogo(LogoBlack)
+              }}
+              className="flex items-center pr-6 py-2 border rounded border-none outline-none hover:text-white hover:border-white focus:outline-none"
             >
-              <span>{item.name}</span>
-            </AnchorLink>
-          ))}
+              <GiHamburgerMenu
+                size={24}
+                fill={currentLogo === LogoBlack ? "#000000" : "#ffffff"}
+              />
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                toggleExpansion(!isExpanded)
+                checkOffset()
+              }}
+              className="flex items-center pr-6 py-2 border rounded border-none outline-none hover:text-white hover:border-white focus:outline-none"
+            >
+              <AiOutlineClose
+                size={24}
+                fill={`${currentLogo === LogoBlack ? "#000000" : "#ffffff"}`}
+              />
+            </button>
+          )}
         </div>
-        <div>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ">
-            Book a demo
-          </button>{" "}
+        <div
+          className={`${
+            isExpanded ? `block` : `hidden`
+          } w-full block flex-grow lg:flex lg:items-center lg:w-auto p-5 lg:p-0`}
+        >
+          <div className="lg:inline-flex border-t py-4 lg:py-0 lg:border-0 mt-2 lg:mt-0 lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-1 justify-center flex-col lg:h-auto">
+            {navLinks.map((item, i) => (
+              <AnchorLink
+                key={i}
+                to={item.path}
+                className="lg:inline-flex lg:w-auto w-full font-600 px-3 py-2 rounded items-center justify-center"
+                activeClassName="activeLink"
+              >
+                {/* eslint-disable-next-line */}
+                <span onClick={() => toggleExpansion(false)}>
+                  {item.name}
+                </span>
+              </AnchorLink>
+            ))}
+          </div>
+          <div>
+            <button className="bg-blue hover:bg-blue text-white font-medium lg:mx-0 w-full lg:w-auto py-3 px-6 mt-8 lg:mt-0">
+              Book a demo
+            </button>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </React.Fragment>
   )
 }

@@ -20,21 +20,29 @@ export default function Brands() {
   const componentData = data.contentfulApply
 
   return (
-    <div className="text-center py-32 bg-gray-900">
-      <div className="container max-w-6xl m-auto">
-        <img src={componentData.icon.file.url} alt="" className="m-auto" />
-        <h2 className="block font-bold pt-5  md:text-4xl text-2xl text-white">
-          {componentData.title}
-        </h2>
-        <div className="flex justify-center">
-          <span className="block text-xl md:text-3xl py-6 max-w-3xl text-white">
-            {componentData.description}
-          </span>
+    <div className="text-center py-32 bg-apply">
+      <div className="container max-w-6xl m-auto flex">
+        <div className="w-2/3 flex items-start">
+          <img
+            src={componentData.icon.file.url}
+            alt="annoucement-icon"
+          />
+          <div className="px-6">
+            <h2 className="block md:text-5xl text-2xl text-white text-left">
+              {componentData.title}
+            </h2>
+            <div>
+              <span className="block text-2xl py-6 max-w-3xl text-white text-left">
+                {componentData.description}
+              </span>
+            </div>
+          </div>
         </div>
-
-        <button className="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-3 px-8  bg-blue-500 hover:border-transparent">
-          {componentData.buttonText}
-        </button>
+        <div className="w-1/3 flex justify-end">
+          <button className="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-3 px-16 bg-blue hover:border-transparent h-16 rounded-md">
+            {componentData.buttonText}
+          </button>
+        </div>
       </div>
     </div>
   )

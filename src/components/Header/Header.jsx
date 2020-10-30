@@ -29,23 +29,22 @@ export default function Header() {
   return (
     <div
       className="header relative"
-      style={{ maxHeight: "830px", minHeight: "600px" }}
+      style={{ maxHeight: "880px", minHeight: "600px" }}
     >
-      <div className="container px-5 m-auto pt-24">
+      <div className="container px-5 m-auto pt-24 lg:pt-40">
         <div className="text-center max-w-4xl m-auto">
           <h1 className="xl:text-54xl md:text-5xl text-3xl font-bold text-white pt-5">
             {componentData.title}
           </h1>
-          <br />
-          <br />
-          <span className="mt-2 xl:text-1xl md:text-2xl text-lg text-white">
+
+          <p className="mt-8 xl:text-1xl md:text-2xl text-lg text-white">
             {componentData.description.description}
-          </span>
+          </p>
           <br />
           <div className="mt-6">
             {componentData.heroButtons.map((v, i) => (
               <button
-                className="w-40 m-2 bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-3 px-4 border hover:border-transparent rounded"
+                className="w-full lg:w-40 m-2 bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-3 px-4 border hover:border-transparent"
                 style={{
                   border: "1px solid",
                   borderColor: v.boderColor,
@@ -55,11 +54,7 @@ export default function Header() {
                 {v.text}
               </button>
             ))}
-            <img
-              alt="HeroImage"
-              src={HeroImage}
-              className="m-auto h-auto"
-            />
+            <img src={HeroImage} alt="Hero" className="m-auto h-auto" />
           </div>
         </div>
       </div>

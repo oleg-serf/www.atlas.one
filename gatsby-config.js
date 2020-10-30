@@ -5,7 +5,7 @@ const { theme } = resolveConfig(tailwindConfig)
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Starter Tailwind CSS",
+    title: "Atlas One",
     author: "Melanie Nolan",
     description: "A Gatsby starter to set you up with Tailwind CSS",
   },

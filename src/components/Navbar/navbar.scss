@@ -1,16 +1,32 @@
 .nav {
-  color: #fff;
+  color: #CBD0EC;
   transition: background-color 0.2s ease-in;
+  a{
+    &:hover{
+      color: #Ffffff;
+    }
+  }
   &.active {
     background-color: #fff;
-
     color: #141414;
+    a{
+      &:hover{
+        color: #00AEEF;
+      }
+      &:focus{
+        color: #00AEEF;
+      }
+    }
   }
 }
 
 @media (max-width: 1023px) {
-  .nav {
-    background: linear-gradient(107.23deg, #0d1835 0%, #16375f 100%);
+  .nav {  
+    &.expanded{
+      background: white;
+      color : #141414
+
+    }
     &.active {
       background: #fff;
     }

@@ -9,4 +9,6 @@ html,
 body {
   scroll-behavior: smooth;
 }
-
+.footer{
+  background: linear-gradient(107.23deg, #0d1835 0%, #16375f 100%);
+}
