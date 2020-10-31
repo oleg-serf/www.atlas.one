@@ -12,6 +12,7 @@ export default function Resources() {
           node {
             title
             subtitle
+            featuredSubtitle
             description
             resources {
               description
@@ -26,13 +27,16 @@ export default function Resources() {
   const componentData = data.allContentfulResources.edges[0].node
 
   return (
-    <div className="px-5 py-24 bg-industry" id="resources">
+    <div className="px-5 py-24 resources-main" id="resources">
       <div className="container m-auto max-w-6xl ">
         <h2 className="text-blue uppercase pl-2">
           {componentData.title}
         </h2>
         <h2 className="text-4xl pl-2">
-          {componentData.subtitle}
+          {componentData.subtitle}{" "}
+          <h2 className="inline-block text-blue">
+            {componentData.featuredSubtitle}
+          </h2>
         </h2>
 
         <span className="block font-medium text-xl pt-5 max-w-2xl pl-2">
@@ -61,7 +65,7 @@ export default function Resources() {
                     </h2>
 
                     <button className="flex py-5 outline-none">
-                      <span className="font-bold text-lightblue pr-1 ">Explore</span>{" "}
+                      <span className="font-bold text-lightblue pr-1">Explore </span>
                       <BsArrowRight size={28} color="#1F76FF" />
                     </button>
                   </div>

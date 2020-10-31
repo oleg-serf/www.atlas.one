@@ -27,12 +27,9 @@ export default function Header() {
   const componentData = data.allContentfulLandingHero.edges[0].node
 
   return (
-    <div
-      className="header relative"
-      style={{ maxHeight: "880px", minHeight: "600px" }}
-    >
+    <div className="header relative" style={{ minHeight: "600px" }}>
       <div className="container px-5 m-auto pt-24 lg:pt-40">
-        <div className="text-center max-w-4xl m-auto">
+        <div className="text-center max-w-4xl m-auto content">
           <h1 className="xl:text-54xl md:text-5xl text-3xl font-bold text-white pt-5">
             {componentData.title}
           </h1>
@@ -42,7 +39,7 @@ export default function Header() {
           </p>
           <br />
           <div className="mt-6">
-            {componentData.heroButtons.map((v, i) => (
+            {componentData.heroButtons.map(v => (
               <button
                 className="w-full lg:w-40 m-2 bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-3 px-4 border hover:border-transparent"
                 style={{
@@ -54,7 +51,11 @@ export default function Header() {
                 {v.text}
               </button>
             ))}
-            <img src={HeroImage} alt="Hero" className="m-auto h-auto" />
+            <img
+              src={HeroImage}
+              className="m-auto h-auto heroimage absolute right-0 left-0 bottom-0"
+              alt="Hero"
+            />
           </div>
         </div>
       </div>

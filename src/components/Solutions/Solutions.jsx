@@ -40,12 +40,12 @@ export default function Solutions() {
           <div className="relative ">
             <img
               className="absolute image1"
-              src={componentData.images[0].file.url}
+              src={componentData.images[0]?.file?.url}
               alt="image1"
             />
             <img
               className="absolute image2"
-              src={componentData.images[1].file.url}
+              src={componentData.images[1]?.file?.url}
               alt="image2"
             />
           </div>
@@ -68,8 +68,9 @@ export default function Solutions() {
             {componentData.solutions.map((solution, index) => (
               <div className="flex py-2">
                 <img
-                  src={componentData.icons[index].file.url}
-                  alt = "icons"
+                  style={{ height: "30px", width: "30px" }}
+                  src={componentData.icons[index]?.file?.url}
+                  alt="icons"
                 />
                 <span className="font-bold pl-5 text-xl">
                   {solution.title}

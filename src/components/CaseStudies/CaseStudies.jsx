@@ -53,7 +53,7 @@ export default function CaseStudies() {
         <div className="flex flex-wrap-reverse mb-4 container m-auto max-w-6xl px-5">
           <div className="xl:w-1/3 lg:w-1/2 lg:justify-center">
             <img
-              src={images[index].file.url}
+              src={images[index]?.file?.url}
               alt="Altas Logo"
               className="rounded-lg h-full"
             />

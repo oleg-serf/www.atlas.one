@@ -1,6 +1,6 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import { BsArrowRight } from "react-icons/bs"
+import { graphql, useStaticQuery } from "gatsby"
 
 export default function Reporting() {
   const data = useStaticQuery(graphql`
@@ -23,14 +23,14 @@ export default function Reporting() {
 
   return (
     <div className="flex flex-wrap-reverse container m-auto max-w-6xl py-12 lg:py-24 px-5">
-      <div className="lg:w-1/2 w-full pr-5">
+      <div className="lg:w-1/2 w-full lg:pr-8">
         <img
-          src={componentData.image.file.url}
+          src={componentData.image?.file?.url}
           alt="Altas Logo"
           className="w-full"
         />
       </div>
-      <div className="lg:w-1/2 w-full">
+      <div className="lg:w-1/2 w-full lg:p-5">
         <h1 className="block text-blue uppercase">
           {componentData.title}
         </h1>
@@ -44,7 +44,7 @@ export default function Reporting() {
           {componentData.description}
         </span>
         <button className="flex py-5">
-          <span className="font-bold text-lightblue pr-2">Learn More</span>{" "}
+          <span className="font-bold text-lightblue pr-2">Learn about our chat </span>
           <BsArrowRight size={28} color="#1F76FF" />
         </button>
       </div>

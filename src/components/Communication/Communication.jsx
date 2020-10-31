@@ -37,13 +37,13 @@ export default function Communication() {
           {componentData.description}
         </span>
         <button className="flex py-5">
-          <span className="font-bold text-lightblue pr-2">Learn More</span>{" "}
+          <span className="font-bold text-lightblue pr-2">Learn More </span>
           <BsArrowRight size={28} color="#1F76FF" />
         </button>
       </div>
       <div className="xl:w-1/2 max-w-2xl m-auto">
         <img
-          src={componentData.image.file.url}
+          src={componentData.image?.file?.url}
           alt="Altas Logo"
           className="w-full"
         />

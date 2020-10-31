@@ -51,15 +51,12 @@ export default function Industries() {
         <h2 className="text-blue block uppercase">
           {contentData.title}
         </h2>
-
         <h2 className="lg:text-45xl text-25xl">
           {contentData.subTitle}
         </h2>
-
         <span className="block text-18xl font-medium pt-5 max-w-2xl">
           {contentData.description.description}
         </span>
-
         <div className="flex flex-wrap mt-20">
           <div className="w-full flex flex-wrap justify-between lg:w-2/3 py-1">
             {contentData.industries.map((v, i) => (
@@ -71,10 +68,12 @@ export default function Industries() {
                     verticalAlign: "middle",
                   }}
                 >
-                  <img src={contentData.icons[i]?.file?.url} alt="icons"/>
+                  <img src={contentData.icons[i]?.file?.url} alt="icons" />
                 </div>
                 <div className="w-2/3 pl-4">
-                  <span className="font-600 text-lg">{v.title}</span>
+                  <span className="font-600 text-lg">
+                    {v.title}
+                  </span>
                   <span className="block pt-1 font-medium text-grey text-16xl md:text-md">
                     {v.description}
                   </span>

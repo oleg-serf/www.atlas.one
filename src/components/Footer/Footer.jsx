@@ -1,17 +1,44 @@
 import React from "react"
 import { Link } from "gatsby"
-import { FaFacebookSquare, FaTwitterSquare, FaInstagram } from "react-icons/fa"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
+import {
+  FaFacebookSquare,
+  FaTwitterSquare,
+  FaInstagram
+} from "react-icons/fa"
 import Logo from "./../../images/logo.png"
+import "./footer.scss"
 
 export default function Footer() {
   const navLinks = [
-    "Case Studies",
-    "Benefits",
-    "Solutions",
-    "Industries",
-    "Pricing",
-    "Resources",
-    "Contact Us",
+    {
+      name: "Case Studies",
+      path: "#case-studies",
+    },
+    {
+      name: "Benefits",
+      path: "#benifits",
+    },
+    {
+      name: "Solutions",
+      path: "#solutions",
+    },
+    {
+      name: "Industries",
+      path: "#industries",
+    },
+    {
+      name: "Pricing",
+      path: "#pricing",
+    },
+    {
+      name: "Resources",
+      path: "#resources",
+    },
+    {
+      name: "Contact Us",
+      path: "#contact-us",
+    },
   ]
 
   return (
@@ -27,15 +54,18 @@ export default function Footer() {
               true ? `block` : `hidden`
             } w-full block flex-grow lg:flex lg:items-center lg:w-auto`}
           >
-            <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-1 justify-center flex-col lg:h-auto">
-              {navLinks.map((v, i) => (
-                <Link
+            <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-1 justify-center flex-col lg:h-auto my-8 lg:my-0">
+              {navLinks.map((item, i) => (
+                <AnchorLink
                   key={i}
-                  to="#"
-                  className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+                  to={item.path}
+                  className="lg:inline-flex lg:w-auto w-full font-600 px-3 py-2 rounded items-center justify-center"
+                  activeClassName="activeLink"
                 >
-                  <span className="text-white">{v}</span>
-                </Link>
+                  <span className="text-white hover:text-blue">
+                    {item.name}
+                  </span>
+                </AnchorLink>
               ))}
             </div>
 
@@ -55,17 +85,17 @@ export default function Footer() {
           </div>
         </nav>
 
-        <div className="flex flex-wrap justify-center">
-          <span className="text-xl px-4 text-gray-400 border-r-2 border-gray-400">
+        <div className="flex flex-wrap lg:justify-center p-5">
+          <span className="text-md px-4 text-gray-400 border-r-2 border-gray-400">
             @ 2020 Atlas One. All right reserved.
           </span>
           <Link to="/privacy-policy">
-            <span className="text-xl px-4 text-gray-400 border-r-2 border-gray-400">
+            <span className="text-md px-4 text-gray-400 border-r-2 border-gray-400 hover:text-blue">
               Privacy Policy
             </span>
           </Link>
           <Link to="/privacy-policy">
-            <span className="text-xl px-4 text-gray-400">
+            <span className="text-md px-4 text-gray-400 hover:text-blue">
               Terms of Services
             </span>
           </Link>

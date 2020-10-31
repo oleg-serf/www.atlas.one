@@ -13,6 +13,7 @@ export default function Pricing() {
             subtitle
             packages {
               title
+              subTitle
               properties
               buttonText
               borderColor
@@ -34,23 +35,26 @@ export default function Pricing() {
           <h2 className="text-blue block uppercase">
             {componentData.title}
           </h2>
-          <h2 className=" text-4xl">
+          <h2 className="lg:text-45xl text-25xl">
             {componentData.subtitle}
           </h2>
         </div>
 
         <div className="flex flex-wrap pricing-main mt-20">
-          {componentData.packages.map((item, i) => (
-            <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4 rounded-md border-r">
-              <div className="bg-white w-full h-full rounded ">
-                <h2 className="block text-3xl border-b p-5">
+          {componentData.packages.map(item => (
+            <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4 rounded-md lg:border-r border-b lg:border-b-0">
+              <div className="bg-white w-full h-full rounded">
+                <h2 className="block text-3xl text-center lg:text-left border-b p-5">
                   {item.title}
                 </h2>
                 <div className="p-5">
+                  <h3 className="block text-1xl font-600 mb-2">
+                    {item.subTitle}
+                  </h3>
                   {item.properties.map(property => (
-                    <div className="flex py-2 ">
-                      <AiFillCheckCircle size={40} color="00AEEF" />
-                      <span className="text-1xl pl-3">
+                    <div className="flex justify-center lg:justify-start py-2">
+                      <AiFillCheckCircle size={30} color="00AEEF" />
+                      <span className="text-1xl font-medium pl-3">
                         {property}
                       </span>
                     </div>
@@ -61,7 +65,7 @@ export default function Pricing() {
                       color: item.color,
                       borderColor: item.borderColor,
                     }}
-                    className="bg-transparent hover:bg-blue-500 font-semibold mt-4 py-3 px-8 border border-blue-500 hover:border-transparent"
+                    className="bg-transparent hover:bg-blue-500 font-semibold mt-4 py-3 px-8 border border-blue-500 hover:border-transparent w-full lg:w-auto"
                   >
                     {item.buttonText}
                   </button>
