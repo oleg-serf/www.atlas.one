@@ -15,7 +15,7 @@ export default function Header() {
             }
             heroButtons {
               text
-              boderColor
+              borderColor
               bg
             }
           }
@@ -44,7 +44,7 @@ export default function Header() {
                 className="w-full lg:w-40 m-2 bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-3 px-4 border hover:border-transparent"
                 style={{
                   border: "1px solid",
-                  borderColor: v.boderColor,
+                  borderColor: v.borderColor,
                   background: v.bg,
                 }}
               >
