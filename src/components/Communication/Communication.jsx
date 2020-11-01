@@ -22,7 +22,7 @@ export default function Communication() {
   const componentData = data.contentfulCommmunications
 
   return (
-    <div className="lg:flex flex-warp container m-auto max-w-6xl py-12 lg:py-24 px-5">
+    <div className="lg:flex flex-warp container m-auto max-w-6xl py-12 lg:py-24 px-5 items-center">
       <div className="xl:w-1/2 md:pr-8">
         <h2 className="block text-blue uppercase">
           {componentData.title}

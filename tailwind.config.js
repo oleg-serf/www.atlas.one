@@ -9,12 +9,12 @@ module.exports = {
         "54xl": "3.375rem",
       },
       backgroundColor: {
-        industry: "#F6F7FB",
         hero: "#0D1835",
         apply: "#0D1835",
         blue: "#00AEEF",
         ebook: "#D4F2FE",
         lightblue: "#1F76FF",
+        even: "#F6F7FB",
       },
       textColor: {
         blue: "#00AEEF",

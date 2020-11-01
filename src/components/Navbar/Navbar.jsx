@@ -8,8 +8,6 @@ import AnnoucementIcon from "../../images/annoucement-icon.png"
 import "./navbar.scss"
 
 export default function Header() {
-  const [isExpanded, toggleExpansion] = useState(false)
-  const [currentLogo, setLogo] = useState(LogoWhite)
   const navLinks = [
     {
       name: "Case Studies",
@@ -41,15 +39,20 @@ export default function Header() {
     },
   ]
   const nav = useRef(null)
+  const [isExpanded, toggleExpansion] = useState(false)
+  const [currentLogo, setLogo] = useState(LogoWhite)
+  const [isOffset, setIsOffset] = useState(false)
   useEffect(() => {
     if (typeof window != "undefined") {
       window.addEventListener("scroll", function () {
         if (nav && nav.current) {
           if (window.pageYOffset > 0) {
+            setIsOffset(true)
             nav.current.classList.add("active")
             setLogo(LogoBlack)
           } else {
             //remove the background property so it comes transparent again (defined in your css)
+            setIsOffset(false)
             nav.current.classList.remove("active")
             setLogo(LogoWhite)
           }
@@ -60,8 +63,10 @@ export default function Header() {
   const checkOffset = () => {
     if (typeof window != "undefined") {
       if (window.pageYOffset > 0) {
+        setIsOffset(true)
         setLogo(LogoBlack)
       } else {
+        setIsOffset(false)
         setLogo(LogoWhite)
       }
     }
@@ -81,8 +86,8 @@ export default function Header() {
       <nav
         ref={nav}
         className={`flex nav items-center justify-between absolute w-full z-30 flex-wrap px-0 py-5 lg:px-10 border-b border-gray-700 ${
-          isExpanded && "expanded"
-        }`}
+          isExpanded ? "expanded" : ""
+        } ${isOffset ? "active" : ""}`}
       >
         <AnchorLink
           to="/"

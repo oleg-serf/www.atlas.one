@@ -22,7 +22,7 @@ export default function Reporting() {
   const componentData = data.contentfulReporting
 
   return (
-    <div className="flex flex-wrap-reverse container m-auto max-w-6xl py-12 lg:py-24 px-5">
+    <div className="flex flex-wrap-reverse container m-auto max-w-6xl py-12 lg:py-24 px-5 flex items-center">
       <div className="lg:w-1/2 w-full lg:pr-8">
         <img
           src={componentData.image?.file?.url}

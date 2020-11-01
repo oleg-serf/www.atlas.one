@@ -6,7 +6,7 @@ const { theme } = resolveConfig(tailwindConfig)
 module.exports = {
   siteMetadata: {
     title: "Atlas One",
-    author: "Melanie Nolan",
+    author: "Oleg Pristaskin",
     description: "A Gatsby starter to set you up with Tailwind CSS",
   },
   plugins: [
@@ -16,7 +16,7 @@ module.exports = {
         spaceId: `hv5gzgthqwih`,
         accessToken: `Vr1qT4pl8A_G251KjAIFftTuz1UwyQAjMs7wroaDx0Q`,
       },
-    }, 
+    },
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
@@ -25,11 +25,9 @@ module.exports = {
         name: "Gatsby Starter Tailwind CSS",
         short_name: "Gatsby Starter Tailwind CSS",
         start_url: "/",
-        background_color: theme.colors.white,
-        theme_color: theme.colors.teal[500],
         icon: "static/icon.svg",
       },
-    },    
+    },
     {
       resolve: "gatsby-plugin-postcss",
       options: {
@@ -39,8 +37,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {
-        offset: -100
-      }
-    }
+        offset: 200,
+      },
+    },
   ],
 }

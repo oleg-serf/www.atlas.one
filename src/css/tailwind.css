@@ -9,6 +9,23 @@ html,
 body {
   scroll-behavior: smooth;
 }
+
 .footer{
   background: linear-gradient(107.23deg, #0d1835 0%, #16375f 100%);
+}
+
+.activeButton{
+  transition: opacity .2s ease-in;
+  opacity: 1;
+}
+
+.scrolltop{
+  right: 30px;
+  bottom: 30px; 
+}
+@media (max-width:1024px) {
+  .scrolltop{
+    right: 15px;
+    bottom : 15px;
+  }  
 }

@@ -48,7 +48,7 @@ export default function CaseStudies() {
   }
   
   return (
-    <div className="py-12 md:py-24" id="case-studies">
+    <div className="py-12 md:py-24 bg-even" id="case-studies">
       {data.allContentfulCaseStudies.edges.map(edge => (
         <div className="flex flex-wrap-reverse mb-4 container m-auto max-w-6xl px-5">
           <div className="xl:w-1/3 lg:w-1/2 lg:justify-center">

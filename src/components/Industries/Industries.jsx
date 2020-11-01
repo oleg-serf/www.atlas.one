@@ -46,7 +46,7 @@ export default function Industries() {
   const images = contentData.images.map(v => v.file.url)
 
   return (
-    <div className="bg-industry px-5 py-24" id="industries">
+    <div className="bg-even px-5 py-24" id="industries">
       <div className="container max-w-6xl m-auto">
         <h2 className="text-blue block uppercase">
           {contentData.title}

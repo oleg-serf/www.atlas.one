@@ -9,6 +9,8 @@
   &.active {
     background-color: #fff;
     color: #141414;
+    border: 0 !important;
+    box-shadow: 0px 2px 10px rgba(15, 32, 64, 0.06);
     a{
       &:hover{
         color: #00AEEF;
@@ -29,6 +31,8 @@
     }
     &.active {
       background: #fff;
+      border: 0 !important;
+      box-shadow: 0px 2px 10px rgba(15, 32, 64, 0.06);
     }
   }
 }
