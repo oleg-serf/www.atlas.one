@@ -118,7 +118,7 @@ export default function Industries() {
             ))}
           </div>
 
-          <div className="w-full lg:w-1/3 px-2">            
+          <div className="w-full lg:w-1/3 px-2 flex">            
             <Swiper {...params} ref={node => {if (node) setSwiper(node.swiper)}}>
               {images.map(image=>(
                 <div className="bg-even h-full">

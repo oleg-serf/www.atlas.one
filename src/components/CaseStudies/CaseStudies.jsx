@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Swiper from 'react-id-swiper'
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs"
@@ -24,18 +24,14 @@ export default function CaseStudies() {
     runCallbacksOnInit: true,
     onInit: (swiper) => {
       setSwiper(swiper)
-    }    
-  }
-
-  let timer;
-  const autoPlayer = () => {
-    if(swiper) {
-      swiper.slideNext(1000)
-      setIndex(index+1)
     }
   }
+ 
+  const intervalRef = useRef();
+
   useEffect(() => {
-    timer = setInterval(autoPlayer, 10000)
+    intervalRef.current = setInterval(autoPlayer, 10000);
+    return() => clearInterval(intervalRef.current);
   })
 
   const data = useStaticQuery(graphql`
@@ -59,32 +55,39 @@ export default function CaseStudies() {
       }
     }
   `)
-  
+ 
+  const detail = data.allContentfulCaseStudies.edges[0].node.caseStudies
+  const images = data.allContentfulCaseStudies.edges[0].node.images
+ 
+  const autoPlayer = () => {
+    if(swiper) {
+      swiper.slideNext(1000)
+      if(index < detail.length - 1) setIndex(index+1)
+    }
+  }
+
   const slideRight = () => {
     if(index < detail.length - 1)
     {
       swiper.slideTo(index + 1,1000)
       setIndex(index + 1)
-      clearInterval(timer);
-      timer = setInterval(autoPlayer, 10000);
+      clearInterval(intervalRef.current);
+      intervalRef.current = setInterval(autoPlayer, 10000);
     }
   }
   const slideLeft = () => {
     if(index > 0){
       swiper.slideTo(index - 1,1000)
       setIndex(index - 1)
-      clearInterval(timer);
-      timer = setInterval(autoPlayer, 10000);
+      clearInterval(intervalRef.current);
+      intervalRef.current = setInterval(autoPlayer, 10000);
     }
   }
-  
-  const detail = data.allContentfulCaseStudies.edges[0].node.caseStudies
-  const images = data.allContentfulCaseStudies.edges[0].node.images
   
   return (
     <div className="py-12 md:py-24 bg-even" id="case-studies">
       <div className="max-w-6xl container mx-auto">
-        <Swiper {...params} ref={node => { if (node) setSwiper(node.swiper)}}> 
+        <Swiper {...params} ref={node => {if (node) setSwiper(node.swiper)}}> 
           {detail.map((edge,index) => (
             <div className="flex flex-wrap-reverse mb-4 px-5 w-full">
               <div className="xl:w-1/3 lg:w-1/2 lg:justify-center">
