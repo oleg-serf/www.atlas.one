@@ -15,7 +15,7 @@ button {
 }
 
 .font-medium {
-  font-family: "Gilroy-medium";
+  line-height: 1.5625;
 }
 
 .blue-button {
@@ -36,4 +36,9 @@ button {
 }
 .transparent-button:hover {
   background-color: #0098d1;
+}
+
+.sub-title {
+  line-height: 1.17 !important;
+  letter-spacing: -0.3px;
 }

@@ -35,7 +35,7 @@ export default function Pricing() {
           <h2 className="text-blue block uppercase">
             {componentData.title}
           </h2>
-          <h2 className="lg:text-45xl text-25xl">
+          <h2 className="lg:text-45xl text-25xl sub-title font-bold">
             {componentData.subtitle}
           </h2>
         </div>
@@ -53,7 +53,7 @@ export default function Pricing() {
                   </h3>
                   {item.properties.map(property => (
                     <div className="flex justify-center lg:justify-start py-2">
-                      <AiFillCheckCircle size={30} color="00AEEF" />
+                      <AiFillCheckCircle size={30} fill="#00AEEF" />
                       <span className="text-1xl font-medium pl-3">
                         {property}
                       </span>

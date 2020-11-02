@@ -31,16 +31,16 @@ export default function Reporting() {
         />
       </div>
       <div className="lg:w-1/2 w-full lg:p-5">
-        <h1 className="block text-blue uppercase">
+        <h2 className="block text-blue uppercase">
           {componentData.title}
-        </h1>
-        <h2 className="block md:text-45xl text-25xl pt-5">
+        </h2>
+        <h2 className="block md:text-45xl text-25xl pt-5 sub-title font-bold">
           {componentData.subtitle}{" "}
           <h2 className="text-blue inline-block">
             {componentData.featuredSubtitle}
           </h2>
         </h2>
-        <span className="block font-medium text-18xl pt-5 md:text-2xl">
+        <span className="block text-18xl pt-5 font-medium md:text-base">
           {componentData.description}
         </span>
         <button className="flex py-5">

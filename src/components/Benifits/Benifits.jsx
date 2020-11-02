@@ -38,7 +38,7 @@ export default function Benifits() {
         {content.title}
       </h2>
 
-      <h2 className="block text-3xl lg:text-5xl max-w-3xl mt-4">
+      <h2 className="block text-3xl lg:text-5xl max-w-3xl mt-4 sub-title font-bold">
         {content.description.description}{" "}
         <h2 className="text-blue inline-block">
           {content.featuredSubtitle}
@@ -53,7 +53,7 @@ export default function Benifits() {
               {v.title} <span className="text-blue">{v.featuredTitle}</span>
             </h3>
             <div className="py-3 pr-6">
-              <span className="text-1xl font-medium">
+              <span className="text-base" style={{lineHeight: 1.5625}}>
                 {v.description}
               </span>
             </div>

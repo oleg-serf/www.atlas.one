@@ -54,13 +54,13 @@ export default function Solutions() {
           <h2 className="block font-bold text-blue uppercase">
             {componentData.title}
           </h2>
-          <h2 className="block md:text-45xl text-25xl pt-5 tracking-tigh">
+          <h2 className="block md:text-45xl text-25xl pt-5 sub-title font-bold">
             {componentData.subtitle}
             <h2 className="text-blue inline-block">
               {componentData.featuredSubtitle}
             </h2>
           </h2>
-          <span className="block md:text-18xl text-lg pt-5 font-medium border-b-2 pb-5">
+          <span className="block md:text-base text-lg pt-5 font-medium border-b-2 pb-5">
             {componentData.description}
           </span>
 
@@ -72,7 +72,10 @@ export default function Solutions() {
                   src={componentData.icons[index]?.file?.url}
                   alt="icons"
                 />
-                <span className="font-bold pl-5 text-xl">
+                <span
+                  style={{letterSpacing: "-0.3px"}}
+                  className="font-600 pl-5 text-base"
+                >
                   {solution.title}
                 </span>
               </div>

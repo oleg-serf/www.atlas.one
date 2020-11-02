@@ -33,7 +33,7 @@ export default function Brands() {
               {componentData.title}
             </h2>
             <div>
-              <span className="block text-xl py-6 max-w-3xl text-white text-center lg:text-left">
+              <span className="block text-xl py-6 max-w-3xl text-white text-center lg:text-left md:text-base">
                 {componentData.description}
               </span>
             </div>

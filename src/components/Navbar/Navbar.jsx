@@ -77,7 +77,7 @@ export default function Header() {
       <div className="w-full hidden lg:flex h-auto py-3 bg-lightblue text-white font-medium items-center justify-center">
         <div className="flex items-center">
           <img src={AnnoucementIcon} alt="Annoucement Icon" />
-          <span className="ml-2">
+          <span className="ml-2 text-white">
             Keep the community informed of nearby public safety alerts.
           </span>
         </div>

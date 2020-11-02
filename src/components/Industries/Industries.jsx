@@ -79,10 +79,10 @@ export default function Industries() {
         <h2 className="text-blue block uppercase">
           {contentData.title}
         </h2>
-        <h2 className="lg:text-45xl text-25xl">
+        <h2 className="lg:text-45xl text-25xl sub-title font-bold">
           {contentData.subTitle}
         </h2>
-        <span className="block text-18xl font-medium pt-5 max-w-2xl">
+        <span className="block text-18xl font-medium pt-5 max-w-2xl md:text-base">
           {contentData.description.description}
         </span>
         <div className="flex flex-wrap mt-20">

@@ -1,17 +1,19 @@
 .header {
   background: url(../../images/bgimg.png) no-repeat,linear-gradient(107.23deg, #0d1835 0%, #16375f 100%);
-  background-size: cover !important;
- 
+  background-size: cover !important; 
 }
-.heroimage{
+.heroimage {
   transform: translateY(50%);
   @media (max-width:767px) {
     width: 90%;
   }
 }
-.content{
+.content {
   padding-bottom: 300px;
   @media (max-width:767px) {
     padding-bottom: 200px;
   }
+}
+h1 {
+  line-height: 1.16;
 }

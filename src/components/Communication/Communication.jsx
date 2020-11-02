@@ -27,13 +27,13 @@ export default function Communication() {
         <h2 className="block text-blue uppercase">
           {componentData.title}
         </h2>
-        <h2 className="block md:text-45xl text-25xl pt-5 tracking-tigh">
+        <h2 className="block md:text-45xl text-25xl pt-5 sub-title font-bold">
           {componentData.subtitle}{" "}
           <h2 className="text-blue inline-flex">
             {componentData.featuredSubtitle}
           </h2>
         </h2>
-        <span className="block text-18xl pt-5 font-medium md:text-xl">
+        <span className="block pt-5 font-medium md:text-base">
           {componentData.description}
         </span>
         <button className="flex py-5">

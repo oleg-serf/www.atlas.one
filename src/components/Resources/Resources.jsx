@@ -32,14 +32,14 @@ export default function Resources() {
         <h2 className="text-blue uppercase pl-2">
           {componentData.title}
         </h2>
-        <h2 className="text-4xl pl-2">
+        <h2 className="pl-2 lg:text-45xl text-25xl sub-title font-bold">
           {componentData.subtitle}{" "}
           <h2 className="inline-block text-blue">
             {componentData.featuredSubtitle}
           </h2>
         </h2>
 
-        <span className="block font-medium text-xl pt-5 max-w-2xl pl-2">
+        <span className="block font-medium text-xl pt-5 max-w-2xl pl-2 md:text-base">
           {componentData.description}
         </span>
 
@@ -60,7 +60,7 @@ export default function Resources() {
                       {v.buttonText}
                     </button>
 
-                    <h2 className="block font-bold py-3 text-2xl">
+                    <h2 className="block font-bold py-3 text-xl resource-description">
                       {v.description}
                     </h2>
 

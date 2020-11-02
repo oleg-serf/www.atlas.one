@@ -17,14 +17,14 @@ export default function GetStart() {
 
   return (
     <div className="text-center py-12 lg:py-24 container m-auto px-12" id="contact-us">
-      <h2 className="block text-blue text-xl">
+      <h2 className="block text-blue uppercase">
         {componentData.title}
       </h2>
-      <h2 className="block lg:text-5xl text-3xl pt-5">
+      <h2 className="block lg:text-45xl text-3xl pt-5 sub-title font-bold">
         {componentData.subtitle}
       </h2>
       <div className="flex justify-center">
-        <span className="block text-1xl pt-5 text-xl pb-6 max-w-3xl font-medium">
+        <span className="block md:text-18xl pt-5 pb-6 max-w-3xl">
           {componentData.description}
         </span>
       </div>
