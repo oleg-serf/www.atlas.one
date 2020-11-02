@@ -65,22 +65,24 @@ export default function CaseStudies() {
       if(index < detail.length - 1) setIndex(index+1)
     }
   }
-
-  const slideRight = () => {
-    if(index < detail.length - 1)
-    {
-      swiper.slideTo(index + 1,1000)
-      setIndex(index + 1)
+  const clearPlayer = (i) => {
+    if(swiper && swiper.params){
+      swiper.slideTo(i,1000)
+      setIndex(i)
       clearInterval(intervalRef.current);
       intervalRef.current = setInterval(autoPlayer, 10000);
     }
   }
+
+  const slideRight = () => {
+    if(index < detail.length - 1)
+    {
+      clearPlayer(index + 1);
+    }
+  }
   const slideLeft = () => {
     if(index > 0){
-      swiper.slideTo(index - 1,1000)
-      setIndex(index - 1)
-      clearInterval(intervalRef.current);
-      intervalRef.current = setInterval(autoPlayer, 10000);
+      clearPlayer(index - 1);
     }
   }
   
@@ -142,11 +144,7 @@ export default function CaseStudies() {
                       className={`h-3 w-3 cursor-pointer border rounded-full m-1 ${
                         index === i ? "bg-black" : "bg-white"
                       }`}
-                      onClick={()=>{
-                        if(swiper && swiper.params){
-                          swiper.slideTo(i,1000)
-                        }
-                      }}
+                      onClick={()=>{ clearPlayer(i) }}
                     />
                   ))}
                 </div>
