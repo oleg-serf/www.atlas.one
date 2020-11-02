@@ -11,31 +11,31 @@ export default function Header() {
   const navLinks = [
     {
       name: "Case Studies",
-      path: "#case-studies",
+      path: "case-studies",
     },
     {
       name: "Benefits",
-      path: "#benifits",
+      path: "benifits",
     },
     {
       name: "Solutions",
-      path: "#solutions",
+      path: "solutions",
     },
     {
       name: "Industries",
-      path: "#industries",
+      path: "industries",
     },
     {
       name: "Pricing",
-      path: "#pricing",
+      path: "pricing",
     },
     {
       name: "Resources",
-      path: "#resources",
+      path: "resources",
     },
     {
       name: "Contact Us",
-      path: "#contact-us",
+      path: "contact-us",
     },
   ]
   const nav = useRef(null)
@@ -133,7 +133,7 @@ export default function Header() {
             {navLinks.map((item, i) => (
               <AnchorLink
                 key={i}
-                to={item.path}
+                to={`/#${item.path}`}
                 className="lg:inline-flex lg:w-auto w-full font-600 px-3 py-2 rounded items-center justify-center"
                 activeClassName="activeLink"
               >
@@ -145,7 +145,7 @@ export default function Header() {
             ))}
           </div>
           <div>
-            <button className="bg-blue hover:bg-blue text-white font-medium lg:mx-0 w-full lg:w-auto py-3 px-6 mt-8 lg:mt-0">
+            <button className="blue-button text-white font-medium lg:mx-0 w-full lg:w-auto py-3 px-6 mt-8 lg:mt-0">
               Book a demo
             </button>
           </div>

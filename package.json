@@ -24,6 +24,7 @@
     "gatsby-source-contentful": "^3.0.5",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
+    "react-crossfade-image": "^1.2.0",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "react-icons": "^3.11.0",

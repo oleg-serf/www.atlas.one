@@ -40,7 +40,7 @@ export default function Brands() {
           </div>
         </div>
         <div className="w-full lg:w-1/3 flex justify-end p-5 lg:p-0">
-          <button className="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-3 px-16 bg-blue hover:border-transparent h-12 rounded-sm w-full lg:w-auto">
+          <button className="text-white font-semibold blue-button py-3 px-16 h-12 rounded-sm w-full lg:w-auto">
             {componentData.buttonText}
           </button>
         </div>

@@ -29,7 +29,7 @@ export default function GetStart() {
         </span>
       </div>
 
-      <button className="hover:bg-blue text-white font-semibold hover:text-white py-3 px-8 border bg-blue hover:border-transparent w-full lg:w-auto">
+      <button className="blue-button text-white font-semibold py-3 px-8 w-full lg:w-auto">
         {componentData.buttonText}
       </button>
     </div>

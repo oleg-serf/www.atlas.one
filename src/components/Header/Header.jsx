@@ -41,12 +41,9 @@ export default function Header() {
           <div className="mt-6">
             {componentData.heroButtons.map(v => (
               <button
-                className="w-full lg:w-40 m-2 bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-3 px-4 border hover:border-transparent"
-                style={{
-                  border: "1px solid",
-                  borderColor: v.borderColor,
-                  background: v.bg,
-                }}
+                className={`${
+                  v.bg === "#00AEEF" ? "blue-button" : "transparent-button"
+                } w-full lg:w-40 m-2 text-white font-semibold py-3 px-4 border`}
               >
                 {v.text}
               </button>

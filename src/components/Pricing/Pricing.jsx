@@ -60,12 +60,9 @@ export default function Pricing() {
                     </div>
                   ))}
                   <button
-                    style={{
-                      backgroundColor: item.bg,
-                      color: item.color,
-                      borderColor: item.borderColor,
-                    }}
-                    className="bg-transparent hover:bg-blue-500 font-semibold mt-4 py-3 px-8 border border-blue-500 hover:border-transparent w-full lg:w-auto"
+                    className={`${
+                      item.bg === "#00AEEF" ? "blue-button" : "transparent-button"
+                    } hover:text-white font-semibold mt-4 py-3 px-8 border border-blue-500 w-full lg:w-auto`}
                   >
                     {item.buttonText}
                   </button>

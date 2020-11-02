@@ -1,9 +1,43 @@
 import React, { useState, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import Swiper from 'react-id-swiper'
+import SwiperCore, { EffectFade } from 'swiper'
 import "./Industries.scss"
 
 export default function Industries() {
-  const [sliderclass, setsliderclass] = useState(false)
+  const [swiper, setSwiper] = useState(null);
+
+  const params = {
+    slidesPerView: 1,
+    effect : "fade",
+    slidesPerGroup: 1,
+    fadeEffect: {
+      crossFade: true
+    },
+    speed : 1000,
+    loop : true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    spaceBetween: 30,
+    runCallbacksOnInit: true,
+    onInit: (swiper) => {     
+      setSwiper(swiper)
+    }    
+  }
+
+  SwiperCore.use([EffectFade])
+  useEffect(()=>{
+    setInterval(()=>{
+      if(swiper && swiper.params)
+      swiper.slideNext(1000)
+    },10000)
+  })
 
   const data = useStaticQuery(graphql`
     query {
@@ -35,16 +69,10 @@ export default function Industries() {
       }
     }
   `)
-
-  useEffect(() => {
-    setInterval(() => {
-      setsliderclass(s => !s)
-    }, 5000)
-  }, [])
-
+  
   const contentData = data.allContentfulIndustries.edges[0].node
-  const images = contentData.images.map(v => v.file.url)
-
+  const images = contentData.images.map(v => v.file?.url)
+  
   return (
     <div className="bg-even px-5 py-24" id="industries">
       <div className="container max-w-6xl m-auto">
@@ -59,8 +87,16 @@ export default function Industries() {
         </span>
         <div className="flex flex-wrap mt-20">
           <div className="w-full flex flex-wrap justify-between lg:w-2/3 py-1">
-            {contentData.industries.map((v, i) => (
-              <div className="shadow-base flex items-center bg-white rounded my-2 industry-box p-3">
+            {contentData.industries.map((v,i) => (
+              /* eslint-disable-next-line */
+              <div
+                className="shadow-base flex items-center bg-white rounded my-2 industry-box p-3 cursor-pointer"
+                onClick={()=>{
+                  if(swiper && swiper.params){
+                    swiper.slideTo(i,1000)
+                  }
+                }}
+              >
                 <div
                   className="box rounded-md flex items-center justify-center"
                   style={{
@@ -82,16 +118,20 @@ export default function Industries() {
             ))}
           </div>
 
-          <div className="w-full lg:w-1/3 px-2">
-            <img
-              src={images[0]}
-              alt="Altas Logo"
-              className={`w-full rounded my-2 ${
-                sliderclass ? "fadein" : "fadeout"
-              }`}
-            />
-          </div>
+          <div className="w-full lg:w-1/3 px-2">            
+            <Swiper {...params} ref={node => {if (node) setSwiper(node.swiper)}}>
+              {images.map(image=>(
+                <div className="bg-even h-full">
+                  <img
+                    src={image}
+                    alt="Altas Logo"
+                    className={`w-full h-full  rounded p-4 `}
+                  />
+                </div>
+              ))}
+            </Swiper>
         </div>
+      </div>
       </div>
     </div>
   )

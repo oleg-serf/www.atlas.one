@@ -9,10 +9,31 @@ h5,
 h6 {
   font-family: "Gilroy-Bold";
 }
+
 button {
   font-family: "Gilroy-medium";
 }
 
-.font-medium{
+.font-medium {
   font-family: "Gilroy-medium";
+}
+
+.blue-button {
+  transition: all 0.2s ease-in;
+  background-color: #00aeef;
+  border: none;
+  color: white;
+}
+.blue-button:hover {
+  background-color: #0098d1;
+}
+
+.transparent-button {
+  color: #141414;
+  transition: all 0.2s ease-in;
+  background-color: transparent;
+  border: 1px solid #00aeef;
+}
+.transparent-button:hover {
+  background-color: #0098d1;
 }
