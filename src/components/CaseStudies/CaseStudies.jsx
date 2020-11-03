@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import Swiper from 'react-id-swiper'
+import Swiper from "react-id-swiper"
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs"
 
 export default function CaseStudies() {
@@ -11,18 +11,18 @@ export default function CaseStudies() {
     slidesPerView: 1,
     speed : 1000,
     pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
+      el: ".swiper-pagination",
+      type: "bullets",
       clickable: true
     },
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
     },
     spaceBetween: 30,
     autoplay: true,
     runCallbacksOnInit: true,
-    onInit: (swiper) => {
+    onInit: swiper => {
       setSwiper(swiper)
     }
   }
@@ -46,8 +46,8 @@ export default function CaseStudies() {
               position
             }
             images {
-              file {
-                url
+              fixed {
+                srcSet
               }
             }
           }
@@ -94,7 +94,7 @@ export default function CaseStudies() {
             <div className="flex flex-wrap-reverse mb-4 px-5 w-full">
               <div className="xl:w-1/3 lg:w-1/2 lg:justify-center">
                 <img
-                  src={images[index].file.url}
+                  srcSet={images[index].fixed.srcSet}
                   alt="Altas Logo"
                   className="rounded-lg h-full"
                 />
@@ -125,14 +125,16 @@ export default function CaseStudies() {
                 </div>
                 <hr />
                 <div>
-                  <div className="text-base font-bold md:text-25xl py-10 ">
+                  <div className="font-bold md:text-3xl py-10 text-xl">
                     {edge.comment}
                   </div>
                   <div>
-                    <span className="block font-bold">
+                    <span className="block font-bold md:text-xl">
                       {edge.author}
                     </span>
-                    <span>{edge.position}</span>
+                    <span className="text-16xl" style={{color: "#809AA9"}}>
+                      {edge.position}
+                    </span>
                   </div>
                 </div>
                 <br />
@@ -141,8 +143,8 @@ export default function CaseStudies() {
                   {detail.map((item,i)=>(
                     /* eslint-disable-next-line */
                     <div
-                      className={`h-3 w-3 cursor-pointer border rounded-full m-1 ${
-                        index === i ? "bg-black" : "bg-white"
+                      className={`h-2 w-2 cursor-pointer border rounded-full m-1 ${
+                        index === i ? "bg-lightblue" : "bg-white"
                       }`}
                       onClick={()=>{ clearPlayer(i) }}
                     />

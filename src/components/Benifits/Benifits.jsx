@@ -34,7 +34,7 @@ export default function Benifits() {
       className="px-5 py-12 lg:py-24 container m-auto max-w-6xl"
       id="benifits"
     >
-      <h2 className="text-blue uppercase">
+      <h2 className="text-blue uppercase tracking-title text-sm">
         {content.title}
       </h2>
 

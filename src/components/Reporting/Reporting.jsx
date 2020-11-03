@@ -11,8 +11,8 @@ export default function Reporting() {
         featuredSubtitle
         description
         image {
-          file {
-            url
+          fixed {
+            srcSet
           }
         }
       }
@@ -25,13 +25,13 @@ export default function Reporting() {
     <div className="flex flex-wrap-reverse container m-auto max-w-6xl py-12 lg:py-24 px-5 flex items-center">
       <div className="lg:w-1/2 w-full lg:pr-8">
         <img
-          src={componentData.image?.file?.url}
+          srcSet={componentData.image?.fixed?.srcSet}
           alt="Altas Logo"
           className="w-full"
         />
       </div>
       <div className="lg:w-1/2 w-full lg:p-5">
-        <h2 className="block text-blue uppercase">
+        <h2 className="block text-blue uppercase tracking-title text-sm">
           {componentData.title}
         </h2>
         <h2 className="block md:text-45xl text-25xl pt-5 sub-title font-bold">

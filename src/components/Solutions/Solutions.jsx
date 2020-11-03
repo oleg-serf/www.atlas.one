@@ -51,7 +51,7 @@ export default function Solutions() {
           </div>
         </div>
         <div className="w-full lg:w-1/2">
-          <h2 className="block font-bold text-blue uppercase">
+          <h2 className="block font-bold text-blue uppercase tracking-title text-sm">
             {componentData.title}
           </h2>
           <h2 className="block md:text-45xl text-25xl pt-5 sub-title font-bold">

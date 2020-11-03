@@ -32,7 +32,7 @@ export default function Pricing() {
     <div className="px-5 py-24" id="pricing">
       <div className="container max-w-6xl m-auto">
         <div className="text-center">
-          <h2 className="text-blue block uppercase">
+          <h2 className="text-blue block uppercase tracking-title text-sm">
             {componentData.title}
           </h2>
           <h2 className="lg:text-45xl text-25xl sub-title font-bold">

@@ -2,7 +2,7 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        "16xl": "0.875rem",
+        "16xl": "1rem",
         "18xl": "1.125rem",
         "25xl": "1.5625rem",
         "45xl": "2.8125rem",
@@ -26,6 +26,10 @@ module.exports = {
       fontWeight: {
         600: "600",
       },
+      letterSpacing: {
+        title: "1px",
+        subtitle: "-0.3px"
+      }
     },
   },
 

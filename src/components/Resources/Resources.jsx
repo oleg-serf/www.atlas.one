@@ -29,7 +29,7 @@ export default function Resources() {
   return (
     <div className="px-5 py-24 resources-main" id="resources">
       <div className="container m-auto max-w-6xl ">
-        <h2 className="text-blue uppercase pl-2">
+        <h2 className="text-blue uppercase pl-2 tracking-title text-sm">
           {componentData.title}
         </h2>
         <h2 className="pl-2 lg:text-45xl text-25xl sub-title font-bold">

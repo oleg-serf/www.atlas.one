@@ -17,7 +17,7 @@ export default function GetStart() {
 
   return (
     <div className="text-center py-12 lg:py-24 container m-auto px-12" id="contact-us">
-      <h2 className="block text-blue uppercase">
+      <h2 className="block text-blue uppercase tracking-title text-sm">
         {componentData.title}
       </h2>
       <h2 className="block lg:text-45xl text-3xl pt-5 sub-title font-bold">

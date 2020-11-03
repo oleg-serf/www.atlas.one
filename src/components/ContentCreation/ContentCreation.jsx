@@ -11,8 +11,8 @@ export default function ContentCreation() {
         featuredSubtitle
         description
         image {
-          file {
-            url
+          fixed {
+            srcSet
           }
         }
       }
@@ -24,7 +24,7 @@ export default function ContentCreation() {
   return (
     <div className="lg:flex flex-warp container m-auto max-w-6xl py-12 lg:py-24 px-5 items-center">
       <div className="xl:w-1/2 lg:pr-8">
-        <h2 className="block text-blue uppercase">
+        <h2 className="block text-blue uppercase tracking-title text-sm">
           {componentData.title}
         </h2>
         <h2 className="block md:text-45xl text-25xl pt-5 sub-title font-bold">
@@ -43,7 +43,7 @@ export default function ContentCreation() {
       </div>
       <div className="xl:w-1/2 max-w-2xl m-auto p-2">
         <img
-          src={componentData.image?.file?.url}
+          srcSet={componentData.image?.fixed?.srcSet}
           alt="Altas Logo"
           className="w-full"
         />

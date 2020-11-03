@@ -76,7 +76,7 @@ export default function Industries() {
   return (
     <div className="bg-even px-5 py-24" id="industries">
       <div className="container max-w-6xl m-auto">
-        <h2 className="text-blue block uppercase">
+        <h2 className="text-blue block uppercase tracking-title text-sm">
           {contentData.title}
         </h2>
         <h2 className="lg:text-45xl text-25xl sub-title font-bold">
