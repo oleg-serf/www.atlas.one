@@ -34,11 +34,5 @@ module.exports = {
         postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
       },
     },
-    {
-      resolve: "gatsby-plugin-anchor-links",
-      options: {
-        offset: -100,
-      },
-    },
   ],
 }

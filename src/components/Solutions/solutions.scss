@@ -1,6 +1,7 @@
 .images-parent{
+    min-height: 600px;
     .image1,.image2{
-        max-width: 300px;
+        max-width: 280px;
     }
     .image2{
         transform: translate(50%,50%);
@@ -9,9 +10,9 @@
 
 @media(max-width:767px){
     .images-parent{
-        min-height: 400px;
+        min-height: 120vw;
         .image1,.image2{
-            max-width: 220px;
+            max-width: 60vw;
         }
     }
 }

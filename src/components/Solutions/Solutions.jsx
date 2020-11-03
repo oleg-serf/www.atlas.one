@@ -16,13 +16,13 @@ export default function Solutions() {
               title
             }
             images {
-              file {
-                url
+              fixed {
+                srcSet
               }
             }
             icons {
-              file {
-                url
+              fluid {
+                srcSet
               }
             }
           }
@@ -35,20 +35,18 @@ export default function Solutions() {
 
   return (
     <div className="py-12 lg:py-24" id="solutions">
-      <div className="flex flex-wrap-reverse container m-auto max-w-6xl px-5 ">
-        <div className="w-full lg:w-1/2 images-parent mt-8 lg:mt-0">
-          <div className="relative ">
+      <div className="flex flex-wrap-reverse items-center container m-auto max-w-6xl px-5 ">
+        <div className="w-full lg:w-1/2 images-parent mt-8 lg:mt-0 relative">
             <img
               className="absolute image1"
-              src={componentData.images[0]?.file?.url}
+              srcSet={componentData.images[0]?.fixed?.srcSet}
               alt="image1"
             />
             <img
               className="absolute image2"
-              src={componentData.images[1]?.file?.url}
+              srcSet={componentData.images[1]?.fixed?.srcSet}
               alt="image2"
             />
-          </div>
         </div>
         <div className="w-full lg:w-1/2">
           <h2 className="block font-bold text-blue uppercase tracking-title text-sm">
@@ -66,11 +64,11 @@ export default function Solutions() {
 
           <div className="pt-5">
             {componentData.solutions.map((solution, index) => (
-              <div className="flex py-2">
+              <div className="flex py-2" key={index}>
                 <img
                   style={{ height: "30px", width: "30px" }}
-                  src={componentData.icons[index]?.file?.url}
-                  alt="icons"
+                  srcSet={componentData.icons[index]?.fluid?.srcSet}
+                  alt="icon"
                 />
                 <span
                   style={{letterSpacing: "-0.3px"}}

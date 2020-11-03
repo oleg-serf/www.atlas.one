@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react"
-import { AnchorLink } from "gatsby-plugin-anchor-links"
+import { Link } from "gatsby"
 import { BsArrowUpShort } from "react-icons/bs"
 import SEO from "./seo"
 import Navbar from "./Navbar/Navbar"
@@ -26,14 +26,14 @@ const Layout = ({ children }) => {
     <>
       <SEO />
       <div className="flex flex-col min-h-screen">
-        <AnchorLink to="/">
+        <Link to="/">
           <div
             ref={button}
-            className="fixed scrolltop w-12 h-12 bg-white flex items-center justify-center border opacity-0"
+            className="fixed scrolltop w-12 h-12 bg-white flex items-center justify-center border opacity-0 cursor-pointer"
           >
             <BsArrowUpShort size={40} fill="#00AEEF" />
           </div>
-        </AnchorLink>
+        </Link>
         <div className="fixed w-full z-10 top-0">
           <Navbar />
         </div>

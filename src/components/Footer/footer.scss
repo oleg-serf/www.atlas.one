@@ -1,4 +1,11 @@
-.footer{
+.footer {
     background: url('../../images/footer-bg.png') no-repeat;
     background-size: cover !important;
+}
+
+.social-icon {
+    color: #CBD0EC;;
+    &:hover {
+        color: #19B5FE;
+    }
 }

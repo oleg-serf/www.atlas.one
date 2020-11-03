@@ -1,36 +1,39 @@
 .nav {
   color: #CBD0EC;
   transition: background-color 0.2s ease-in;
-  a{
-    &:hover{
-      color: #Ffffff;
+  a {
+    &:hover {
+      color: #FFFFFF;
     }
   }
   &.active {
-    background-color: #fff;
+    background-color: #FFFFFF;
     color: #141414;
     border: 0 !important;
     box-shadow: 0px 2px 10px rgba(15, 32, 64, 0.06);
     a{
-      &:hover{
+      &:hover {
         color: #00AEEF;
       }
-      &:focus{
+      &:focus {
         color: #00AEEF;
       }
     }
   }
 }
 
+.activeLink {
+  color: #00aeef;
+}
+
 @media (max-width: 1023px) {
   .nav {  
-    &.expanded{
+    &.expanded {
       background: white;
-      color : #141414
-
+      color : #141414;
     }
     &.active {
-      background: #fff;
+      background: #FFFFFF;
       border: 0 !important;
       box-shadow: 0px 2px 10px rgba(15, 32, 64, 0.06);
     }

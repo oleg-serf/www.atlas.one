@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import Swiper from 'react-id-swiper'
-import SwiperCore, { EffectFade } from 'swiper'
+import Swiper from "react-id-swiper"
+import SwiperCore, { EffectFade } from "swiper"
 import "./Industries.scss"
 
 export default function Industries() {
-  const [swiper, setSwiper] = useState(null);
+  const [swiper, setSwiper] = useState(null)
 
   const params = {
     slidesPerView: 1,
@@ -26,16 +26,15 @@ export default function Industries() {
     },
     spaceBetween: 30,
     runCallbacksOnInit: true,
-    onInit: (swiper) => {     
+    onInit: swiper => {
       setSwiper(swiper)
-    }    
+    }
   }
 
   SwiperCore.use([EffectFade])
-  useEffect(()=>{
-    setInterval(()=>{
-      if(swiper && swiper.params)
-      swiper.slideNext(1000)
+  useEffect(() => {
+    setInterval(() => {
+      if(swiper && swiper.params) swiper.slideNext(1000)
     },10000)
   })
 
@@ -47,8 +46,8 @@ export default function Industries() {
             title
             subTitle
             images {
-              file {
-                url
+              fixed {
+                srcSet
               }
             }
             description {
@@ -71,7 +70,7 @@ export default function Industries() {
   `)
   
   const contentData = data.allContentfulIndustries.edges[0].node
-  const images = contentData.images.map(v => v.file?.url)
+  const images = contentData.images.map(v => v.fixed?.srcSet)
   
   return (
     <div className="bg-even px-5 py-24" id="industries">
@@ -85,17 +84,18 @@ export default function Industries() {
         <span className="block text-18xl font-medium pt-5 max-w-2xl md:text-base">
           {contentData.description.description}
         </span>
-        <div className="flex flex-wrap mt-20">
+        <div className="flex flex-wrap items-center mt-20">
           <div className="w-full flex flex-wrap justify-between lg:w-2/3 py-1">
             {contentData.industries.map((v,i) => (
               /* eslint-disable-next-line */
               <div
                 className="shadow-base flex items-center bg-white rounded my-2 industry-box p-3 cursor-pointer"
-                onClick={()=>{
+                onClick={() => {
                   if(swiper && swiper.params){
                     swiper.slideTo(i,1000)
                   }
                 }}
+                key={i}
               >
                 <div
                   className="box rounded-md flex items-center justify-center"
@@ -120,12 +120,12 @@ export default function Industries() {
 
           <div className="w-full lg:w-1/3 px-2 flex">            
             <Swiper {...params} ref={node => {if (node) setSwiper(node.swiper)}}>
-              {images.map(image=>(
-                <div className="bg-even h-full">
+              {images.map((image,i)=>(
+                <div className="bg-even h-full" key={i}>
                   <img
-                    src={image}
+                    srcSet={image}
                     alt="Altas Logo"
-                    className={`w-full h-full  rounded p-4 `}
+                    className={`w-full rounded p-4`}
                   />
                 </div>
               ))}

@@ -23,12 +23,19 @@ module.exports = {
         grey: "#999DB2",
         menu: "#CBD0EC",
       },
+      borderColor: {
+        "grey": "#999DB2",
+        "grey-20": "#999DB233",
+      },
       fontWeight: {
         600: "600",
       },
       letterSpacing: {
         title: "1px",
         subtitle: "-0.3px"
+      },
+      padding: {
+        11: "2.75rem"
       }
     },
   },

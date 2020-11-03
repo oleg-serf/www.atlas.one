@@ -18,8 +18,8 @@ export default function Benifits() {
               featuredTitle
             }
             icons {
-              file {
-                url
+              fluid {
+                srcSet
               }
             }
           }
@@ -47,8 +47,12 @@ export default function Benifits() {
 
       <div className="flex flex-wrap py-2 mt-20">
         {content.benefits.map((v, i) => (
-          <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 md:pr-8 pb-4 ">
-            <img src={content.icons[i]?.file?.url} alt="Icon" />
+          <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 md:pr-8 pb-4" key={i}>
+            <img
+              style={{ height: "60px", width: "60px" }}
+              srcSet={content.icons[i]?.fluid?.srcSet}
+              alt="Icon"
+            />
             <h3 className="block xl:text-25xl text-2xl font-bold pt-5 pr-5">
               {v.title} <span className="text-blue">{v.featuredTitle}</span>
             </h3>

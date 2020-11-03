@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { BsArrowRight } from "react-icons/bs"
-import BlogImage from "./../../images/blog.png"
 import "./resources.scss"
 
 export default function Resources() {
@@ -17,6 +16,11 @@ export default function Resources() {
             resources {
               description
               buttonText
+            }
+            images {
+              fixed {
+                srcSet
+              }
             }
           }
         }
@@ -45,18 +49,18 @@ export default function Resources() {
 
         <div className="flex flex-wrap mt-10">
           {componentData.resources.map((v, i) => (
-            <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1">
+            <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1" key={i}>
               <div className="w-full h-full p-5">
                 <div className="bg-white resource-box rounded-xl">
                   <div className="pb-5">
                     <img
-                      src={BlogImage}
+                      srcSet={componentData.images[i].fixed.srcSet}
                       alt="Altas Logo"
                       className="w-full"
                     />
                   </div>
                   <div className="p-4">
-                    <button className="bg-ebook text-blue bg-blue-200 font-medim py-2 px-8 border">
+                    <button className="bg-ebook text-blue bg-blue-200 font-medim py-1 px-3 border rounded-sm">
                       {v.buttonText}
                     </button>
 
@@ -64,8 +68,8 @@ export default function Resources() {
                       {v.description}
                     </h2>
 
-                    <button className="flex py-5 outline-none">
-                      <span className="font-bold text-lightblue pr-1">Explore </span>
+                    <button className="flex py-5 focus:outline-none">
+                      <span className="font-bold text-lightblue pr-1 ">Explore </span>
                       <BsArrowRight size={28} color="#1F76FF" />
                     </button>
                   </div>

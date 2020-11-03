@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
-import { AnchorLink } from "gatsby-plugin-anchor-links"
+import { Link } from "react-scroll"
+import { Link as GatsbyLink } from "gatsby"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { AiOutlineClose } from "react-icons/ai"
 import LogoWhite from "./../../images/logo.png"
@@ -42,8 +43,14 @@ export default function Header() {
   const [isExpanded, toggleExpansion] = useState(false)
   const [currentLogo, setLogo] = useState(LogoWhite)
   const [isOffset, setIsOffset] = useState(false)
+  const [width, setWidth] = useState(1440)
+
   useEffect(() => {
     if (typeof window != "undefined") {
+      const handleWindowResize = () => setWidth(window.innerWidth);
+
+      window.addEventListener("resize", handleWindowResize);
+
       window.addEventListener("scroll", function () {
         if (nav && nav.current) {
           if (window.pageYOffset > 0) {
@@ -57,9 +64,12 @@ export default function Header() {
             setLogo(LogoWhite)
           }
         }
-      })
+      });
+
+      return () => window.removeEventListener("resize", handleWindowResize)
     }
   }, [])
+
   const checkOffset = () => {
     if (typeof window != "undefined") {
       if (window.pageYOffset > 0) {
@@ -89,12 +99,12 @@ export default function Header() {
           isExpanded ? "expanded" : ""
         } ${isOffset ? "active" : ""}`}
       >
-        <AnchorLink
+        <GatsbyLink
+          className="flex items-center flex-shrink-0 text-white mr-6 pl-3 lg:pl-0 cursor-pointer"
           to="/"
-          className="flex items-center flex-shrink-0 text-white mr-6 pl-3 lg:pl-0"
         >
           <img src={currentLogo} alt="Altas Logo" />
-        </AnchorLink>
+        </GatsbyLink>
         <div className="block lg:hidden">
           {!isExpanded ? (
             <button
@@ -131,17 +141,22 @@ export default function Header() {
         >
           <div className="lg:inline-flex border-t py-4 lg:py-0 lg:border-0 mt-2 lg:mt-0 lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-1 justify-center flex-col lg:h-auto">
             {navLinks.map((item, i) => (
-              <AnchorLink
+              <Link
+                activeClass="activeLink"
                 key={i}
-                to={`/#${item.path}`}
-                className="lg:inline-flex lg:w-auto w-full font-600 px-3 py-2 rounded items-center justify-center"
-                activeClassName="activeLink"
+                spy={true}
+                smooth={true}
+                offset={width > 767 ? -100 : -50}
+                duration={100}
+                hashSpy={true}
+                to={item.path}
+                className="lg:inline-flex cursor-pointer lg:w-auto w-full font-600 px-3 py-2 rounded items-center justify-center"
               >
                 {/* eslint-disable-next-line */}
                 <span onClick={() => toggleExpansion(false)}>
                   {item.name}
                 </span>
-              </AnchorLink>
+              </Link>
             ))}
           </div>
           <div>

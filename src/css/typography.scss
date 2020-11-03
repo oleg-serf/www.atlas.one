@@ -23,6 +23,7 @@ button {
   background-color: #00aeef;
   border: none;
   color: white;
+  border-radius: 2px;
 }
 .blue-button:hover {
   background-color: #0098d1;
@@ -33,6 +34,7 @@ button {
   transition: all 0.2s ease-in;
   background-color: transparent;
   border: 1px solid #00aeef;
+  border-radius: 2px;
 }
 .transparent-button:hover {
   background-color: #0098d1;

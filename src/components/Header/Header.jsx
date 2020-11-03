@@ -39,11 +39,12 @@ export default function Header() {
           </p>
           <br />
           <div className="mt-6">
-            {componentData.heroButtons.map(v => (
+            {componentData.heroButtons.map((v, i) => (
               <button
                 className={`${
                   v.bg === "#00AEEF" ? "blue-button" : "transparent-button"
                 } w-full lg:w-40 m-2 text-white font-semibold py-3 px-4 border`}
+                key={i}
               >
                 {v.text}
               </button>
