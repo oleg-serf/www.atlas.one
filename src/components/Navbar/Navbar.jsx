@@ -8,7 +8,7 @@ import LogoBlack from "../../images/black-blue.png"
 import AnnoucementIcon from "../../images/annoucement-icon.png"
 import "./navbar.scss"
 
-export default function Header() {
+export default function Header({ isTransparentHeader=false }) {
   const navLinks = [
     {
       name: "Case Studies",
@@ -46,10 +46,17 @@ export default function Header() {
   const [width, setWidth] = useState(1440)
 
   useEffect(() => {
-    if (typeof window != "undefined") {
-      const handleWindowResize = () => setWidth(window.innerWidth);
+    if (!isTransparentHeader) {
+      if (nav && nav.current) {
+        nav.current.classList.add("active")
+        setLogo(LogoBlack)
+      }
+    }
 
-      window.addEventListener("resize", handleWindowResize);
+    if (typeof window != "undefined") {
+      const handleWindowResize = () => setWidth(window.innerWidth)
+
+      window.addEventListener("resize", handleWindowResize())
 
       window.addEventListener("scroll", function () {
         if (nav && nav.current) {
@@ -64,10 +71,18 @@ export default function Header() {
             setLogo(LogoWhite)
           }
         }
-      });
+
+        if (!isTransparentHeader) {
+          if (nav && nav.current) {
+            nav.current.classList.add("active")
+            setLogo(LogoBlack)
+          }
+        }
+      })
 
       return () => window.removeEventListener("resize", handleWindowResize)
-    }
+    }    
+  /* eslint-disable-next-line */
   }, [])
 
   const checkOffset = () => {
@@ -78,6 +93,13 @@ export default function Header() {
       } else {
         setIsOffset(false)
         setLogo(LogoWhite)
+      }
+    }
+
+    if (!isTransparentHeader) {
+      if (nav && nav.current) {
+        nav.current.classList.add("active")
+        setLogo(LogoBlack)
       }
     }
   }
@@ -142,14 +164,14 @@ export default function Header() {
           <div className="lg:inline-flex border-t py-4 lg:py-0 lg:border-0 mt-2 lg:mt-0 lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-1 justify-center flex-col lg:h-auto">
             {navLinks.map((item, i) => (
               <Link
-                activeClass="activeLink"
+                to={item.path}
                 key={i}
                 spy={true}
                 smooth={true}
-                offset={width > 767 ? -100 : -50}
                 duration={100}
                 hashSpy={true}
-                to={item.path}
+                offset={width > 767 ? -100 : -50}
+                activeClass="activeLink"
                 className="lg:inline-flex cursor-pointer lg:w-auto w-full font-600 px-3 py-2 rounded items-center justify-center"
               >
                 {/* eslint-disable-next-line */}

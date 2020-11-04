@@ -53,9 +53,6 @@ export default function CaseStudies() {
               position
             }
             images {
-              file {
-                url
-              }
               fixed {
                 srcSet
               }
@@ -86,7 +83,7 @@ export default function CaseStudies() {
   }
 
   return (
-    <div className="py-12 md:py-24 bg-even" id="case-studies">
+    <div className="py-24 bg-even relative" id="case-studies">
       <div className="max-w-6xl container mx-auto">
         <div className="flex flex-wrap-reverse mb-4 px-5 w-full">
           <div className="xl:w-1/3 lg:w-1/2 lg:justify-center">
@@ -120,11 +117,11 @@ export default function CaseStudies() {
                     className="border-r-2 px-2 cursor-pointer"
                     onClick={slideLeft}
                   >
-                    <BsArrowLeft size={30} color={"#22A7F0"} />
+                    <BsArrowLeft size={20} color={"#22A7F0"} />
                   </div>
                   {/* eslint-disable-next-line */}
                   <div className="px-2 cursor-pointer" onClick={slideRight}>
-                    <BsArrowRight size={30} color={"#22A7F0"} />
+                    <BsArrowRight size={20} color={"#22A7F0"} />
                   </div>
                 </div>
               </div>
@@ -140,7 +137,7 @@ export default function CaseStudies() {
                     {edge.comment}
                   </div>
                   <div className="flex">
-                    <hr className="w-8 mx-0 my-auto border border-black"/>
+                    <hr className="w-8 mx-0 my-auto border border-black" />
                     <span className="block md:text-xl pl-3" style={{fontFamily: "Gilroy-Bold"}}>
                       {edge.author}
                     </span>
@@ -152,24 +149,26 @@ export default function CaseStudies() {
               ))}
             </Swiper>
             <br />
-            <hr />
-            <div className="flex py-3">
-              {detail.map((item, i) => (
-                /* eslint-disable-next-line */
-                <div
-                  className={`h-2 w-2 cursor-pointer border rounded-full m-1 ${
-                    index === i ? "bg-lightblue" : "bg-white"
-                  }`}
-                  onClick={async () => {
-                    if (swiper1.current && swiper1.current.swiper) {
-                      await swiper1.current.swiper.slideTo(i + 1, 1000)
-                      await swiper2.current.swiper.slideTo(i + 1, 1000)
-                      setIndex(i)
-                    }
-                  }}
-                  key={i}
-                />
-              ))}
+            <div className="absolute lg:relative right-0 left-0 pagination-dots">
+              <hr />
+              <div className="flex justify-center lg:justify-start pt-5">
+                {detail.map((item, i) => (
+                  /* eslint-disable-next-line */
+                  <div
+                    className={`h-2 w-2 cursor-pointer border rounded-full m-1 ${
+                      index === i ? "bg-lightblue" : "bg-white"
+                    }`}
+                    onClick={async () => {
+                      if (swiper1.current && swiper1.current.swiper) {
+                        await swiper1.current.swiper.slideTo(i + 1, 1000)
+                        await swiper2.current.swiper.slideTo(i + 1, 1000)
+                        setIndex(i)
+                      }
+                    }}
+                    key={i}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

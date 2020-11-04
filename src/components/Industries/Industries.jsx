@@ -59,8 +59,8 @@ export default function Industries() {
               description
             }
             icons {
-              file {
-                url
+              fluid {
+                srcSet
               }
             }
           }
@@ -104,7 +104,7 @@ export default function Industries() {
                     verticalAlign: "middle",
                   }}
                 >
-                  <img src={contentData.icons[i]?.file?.url} alt="icons" />
+                  <img srcSet={contentData.icons[i]?.fluid?.srcSet} alt="icons" />
                 </div>
                 <div className="w-2/3 pl-4">
                   <span className="font-600 text-lg">

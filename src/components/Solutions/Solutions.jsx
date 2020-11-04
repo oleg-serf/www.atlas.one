@@ -1,5 +1,8 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import Communication from "../Communication/Communication"
+import Reporting from "../Reporting/Reporting"
+import ContentCreation from "../ContentCreation/ContentCreation"
 import "./solutions.scss"
 
 export default function Solutions() {
@@ -81,6 +84,9 @@ export default function Solutions() {
           </div>
         </div>
       </div>
+      <Communication />
+      <Reporting />
+      <ContentCreation />
     </div>
   )
 }

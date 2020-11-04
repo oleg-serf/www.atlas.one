@@ -25,9 +25,26 @@ body {
   bottom: 30px;
   z-index: 9999;
 }
+
 @media (max-width:1024px) {
   .scrolltop {
     right: 15px;
     bottom : 15px;
   }
+
+  .pagination-dots {
+    bottom: 40px;
+  }
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
 }

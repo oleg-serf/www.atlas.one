@@ -5,7 +5,7 @@ import SEO from "./seo"
 import Navbar from "./Navbar/Navbar"
 import Footer from "./Footer/Footer"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isTransparentHeader }) => {
   const button = useRef(null)
   useEffect(() => {
     if (typeof window != "undefined") {
@@ -23,9 +23,9 @@ const Layout = ({ children }) => {
   }, [])
 
   return (
-    <>
+    <React.Fragment>
       <SEO />
-      <div className="flex flex-col min-h-screen">
+      <div className="app">
         <Link to="/">
           <div
             ref={button}
@@ -35,12 +35,14 @@ const Layout = ({ children }) => {
           </div>
         </Link>
         <div className="fixed w-full z-10 top-0">
-          <Navbar />
+          <Navbar isTransparentHeader={isTransparentHeader} />
         </div>
-        {children}
-        <Footer />
+        <div className="main">
+          {children}
+        </div>
       </div>
-    </>
+      <Footer />
+    </React.Fragment>
   )
 }
 

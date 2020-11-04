@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import { BsArrowRight } from "react-icons/bs"
 import "./resources.scss"
 
@@ -14,8 +14,10 @@ export default function Resources() {
             featuredSubtitle
             description
             resources {
+              title
               description
               buttonText
+              slug
             }
             images {
               fixed {
@@ -49,7 +51,11 @@ export default function Resources() {
 
         <div className="flex flex-wrap mt-10">
           {componentData.resources.map((v, i) => (
-            <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1" key={i}>
+            <Link
+              to={`/resource/${v.slug}`}
+              className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1"
+              key={i}
+            >
               <div className="w-full h-full p-5">
                 <div className="bg-white resource-box rounded-xl">
                   <div className="pb-5">
@@ -65,17 +71,17 @@ export default function Resources() {
                     </button>
 
                     <h2 className="block font-bold py-3 text-xl resource-description">
-                      {v.description}
+                      {v.title}
                     </h2>
 
-                    <button className="flex py-5 focus:outline-none">
+                    <button className="flex items-center py-5 focus:outline-none">
                       <span className="font-bold text-lightblue pr-1 ">Explore </span>
-                      <BsArrowRight size={28} color="#1F76FF" />
+                      <BsArrowRight size={20} color="#1F76FF" />
                     </button>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

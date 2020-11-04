@@ -36,9 +36,9 @@ export default function Communication() {
         <span className="block pt-5 font-medium md:text-base">
           {componentData.description}
         </span>
-        <button className="flex py-5 focus:outline-none">
+        <button className="flex py-5 focus:outline-none items-center">
           <span className="font-bold text-lightblue pr-2">Learn More </span>
-          <BsArrowRight size={28} color="#1F76FF" />
+          <BsArrowRight size={20} color="#1F76FF" />
         </button>
       </div>
       <div className="xl:w-1/2 max-w-2xl m-auto">

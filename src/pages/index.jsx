@@ -9,9 +9,9 @@ import {
   Pricing,
   GetStart,
   Resources,
-  Communication,
-  ContentCreation,
-  Reporting,
+  // Communication,
+  // ContentCreation,
+  // Reporting,
   Apply,
 } from "../components"
 import Layout from "../components/layout"
@@ -19,7 +19,7 @@ import Layout from "../components/layout"
 export default () => {
   return (
     <div>
-      <Layout>
+      <Layout isTransparentHeader>
         {/*  ********************* Header Section  ********************* */}
         <Header />
         {/*   *******************  BRANDS SECTION   *******************  */}
@@ -31,11 +31,11 @@ export default () => {
         {/* *********************  SOLUTION SECTION  ********************** */}
         <Solutions />
         {/********************* COMMUNICATION SECTION *********************/}
-        <Communication />
+        {/* <Communication /> */}
         {/********************* Reporting SECTION *********************/}
-        <Reporting />
+        {/* <Reporting /> */}
         {/* ContentCreation Section */}
-        <ContentCreation />
+        {/* <ContentCreation /> */}
         {/* ***************** INDUSTRIES SECTION *************  */}
         <Industries />
         {/* PRICING SECTION */}
