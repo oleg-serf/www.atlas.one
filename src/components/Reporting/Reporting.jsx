@@ -1,6 +1,7 @@
-import React from "react"
-import { BsArrowRight } from "react-icons/bs"
+import React, { useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { BsArrowRight } from "react-icons/bs"
+import { useWindowSize } from "../../hooks/getwidth"
 
 export default function Reporting() {
   const data = useStaticQuery(graphql`
@@ -11,8 +12,8 @@ export default function Reporting() {
         featuredSubtitle
         description
         image {
-          fixed {
-            srcSet
+          file {
+            url
           }
         }
       }
@@ -20,14 +21,17 @@ export default function Reporting() {
   `)
 
   const componentData = data.contentfulReporting
+  const imgRef = useRef(null);
+  const comSize = useWindowSize(imgRef);
 
   return (
     <div className="flex flex-wrap-reverse container m-auto max-w-6xl py-12 lg:py-24 px-5 flex items-center">
       <div className="lg:w-1/2 w-full lg:pr-8">
         <img
-          srcSet={componentData.image?.fixed?.srcSet}
+          src={`${componentData.image?.file?.url}?w=${comSize.width}`}
           alt="Altas Logo"
           className="w-full"
+          ref={imgRef}
         />
       </div>
       <div className="lg:w-1/2 w-full lg:p-5">

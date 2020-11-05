@@ -1,6 +1,6 @@
-import React from "react"
+import React, { useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import HeroImage from "./../../images/header-placeholder.png"
+import { useWindowSize } from "../../hooks/getwidth"
 import "./header.scss"
 
 export default function Header() {
@@ -18,6 +18,11 @@ export default function Header() {
               borderColor
               bg
             }
+            bannerImage {
+              file {
+                url
+              }
+            }
           }
         }
       }
@@ -25,6 +30,8 @@ export default function Header() {
   `)
 
   const componentData = data.allContentfulLandingHero.edges[0].node
+  const imgRef = useRef(null);
+  const windowSize = useWindowSize(imgRef)
 
   return (
     <div className="header relative" style={{ minHeight: "600px" }}>
@@ -50,9 +57,10 @@ export default function Header() {
               </button>
             ))}
             <img
-              src={HeroImage}
+              src={`${componentData.bannerImage?.file?.url}?w=${windowSize?.width}`}
               className="m-auto h-auto heroimage absolute right-0 left-0 bottom-0"
               alt="Hero"
+              ref={imgRef}
             />
           </div>
         </div>

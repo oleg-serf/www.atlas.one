@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Swiper from "react-id-swiper"
 import SwiperCore, { EffectFade } from "swiper"
+import { useWindowSize } from "../../hooks/getwidth"
 import "./Industries.scss"
 
 export default function Industries() {
@@ -46,8 +47,8 @@ export default function Industries() {
             title
             subTitle
             images {
-              fixed {
-                srcSet
+              file {
+                url
               }
             }
             description {
@@ -59,8 +60,8 @@ export default function Industries() {
               description
             }
             icons {
-              fluid {
-                srcSet
+              file {
+                url
               }
             }
           }
@@ -68,9 +69,9 @@ export default function Industries() {
       }
     }
   `)
-  
+
   const contentData = data.allContentfulIndustries.edges[0].node
-  const images = contentData.images.map(v => v.fixed?.srcSet)
+  const windowSize = useWindowSize()
   
   return (
     <div className="bg-even px-5 py-24" id="industries">
@@ -104,7 +105,7 @@ export default function Industries() {
                     verticalAlign: "middle",
                   }}
                 >
-                  <img srcSet={contentData.icons[i]?.fluid?.srcSet} alt="icons" />
+                  <img src={`${contentData.icons[i]?.file?.url}?w=${windowSize?.width}`} alt="icons" />
                 </div>
                 <div className="w-2/3 pl-4">
                   <span className="font-600 text-lg">
@@ -120,10 +121,10 @@ export default function Industries() {
 
           <div className="w-full lg:w-1/3 px-2 flex">            
             <Swiper {...params} ref={node => {if (node) setSwiper(node.swiper)}}>
-              {images.map((image,i)=>(
+              {contentData.images.map((image,i)=>(
                 <div className="bg-even h-full" key={i}>
                   <img
-                    srcSet={image}
+                    src={`${image.file?.url}?w=${windowSize.width}`}
                     alt="Altas Logo"
                     className={`w-full rounded p-4`}
                   />

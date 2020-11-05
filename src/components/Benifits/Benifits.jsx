@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { useWindowSize } from "../../hooks/getwidth"
 
 export default function Benifits() {
   const data = useStaticQuery(graphql`
@@ -18,8 +19,8 @@ export default function Benifits() {
               featuredTitle
             }
             icons {
-              fluid {
-                srcSet
+              file {
+                url
               }
             }
           }
@@ -28,6 +29,7 @@ export default function Benifits() {
     }
   `)
   const content = data.allContentfulBenefits.edges[0].node
+  const windowSize = useWindowSize()
 
   return (
     <div
@@ -50,7 +52,7 @@ export default function Benifits() {
           <div className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 md:pr-8 pb-4" key={i}>
             <img
               style={{ height: "60px", width: "60px" }}
-              srcSet={content.icons[i]?.fluid?.srcSet}
+              src={`${content.icons[i]?.file?.url}?w=${windowSize?.width}`}
               alt="Icon"
             />
             <h3 className="block xl:text-25xl text-2xl font-bold pt-5 pr-5">

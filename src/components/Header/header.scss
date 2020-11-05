@@ -4,6 +4,7 @@
 }
 .heroimage {
   transform: translateY(50%);
+  width: 50vw;
   @media (max-width:767px) {
     width: 90%;
   }

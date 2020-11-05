@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { BsArrowRight } from "react-icons/bs"
+import { useWindowSize } from "../../hooks/getwidth"
 
 export default function Communication() {
   const data = useStaticQuery(graphql`
@@ -11,8 +12,8 @@ export default function Communication() {
         featuredSubtitle
         description
         image {
-          fluid {
-            srcSet
+          file {
+            url
           }
         }
       }
@@ -20,6 +21,7 @@ export default function Communication() {
   `)
 
   const componentData = data.contentfulCommmunications
+  const windowSize = useWindowSize()
 
   return (
     <div className="lg:flex flex-warp container m-auto max-w-6xl py-12 lg:py-24 px-5 items-center">
@@ -43,7 +45,7 @@ export default function Communication() {
       </div>
       <div className="xl:w-1/2 max-w-2xl m-auto">
         <img
-          srcSet={ componentData.image?.fluid?.srcSet }
+          src={`${componentData.image?.file?.url}?w=${windowSize?.width}`}
           alt="Altas Logo"
           className="w-full"
         />

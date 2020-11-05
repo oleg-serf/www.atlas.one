@@ -1,48 +1,51 @@
 import React, { useState, useEffect, useRef } from "react"
 import { Link } from "react-scroll"
-import { Link as GatsbyLink } from "gatsby"
+import { graphql, Link as GatsbyLink, useStaticQuery } from "gatsby"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { AiOutlineClose } from "react-icons/ai"
-import LogoWhite from "./../../images/logo.png"
-import LogoBlack from "../../images/black-blue.png"
+import { useWindowSize } from "../../hooks/getwidth"
 import AnnoucementIcon from "../../images/annoucement-icon.png"
 import "./navbar.scss"
 
 export default function Header({ isTransparentHeader=false }) {
-  const navLinks = [
-    {
-      name: "Case Studies",
-      path: "case-studies",
-    },
-    {
-      name: "Benefits",
-      path: "benifits",
-    },
-    {
-      name: "Solutions",
-      path: "solutions",
-    },
-    {
-      name: "Industries",
-      path: "industries",
-    },
-    {
-      name: "Pricing",
-      path: "pricing",
-    },
-    {
-      name: "Resources",
-      path: "resources",
-    },
-    {
-      name: "Contact Us",
-      path: "contact-us",
-    },
-  ]
+  const data = useStaticQuery(graphql`
+    query {
+      contentfulNavigation {
+        logoWhite {
+          file {
+            url
+          }
+        }
+        logoBlack {
+          file {
+            url
+          }
+        }
+        menus {
+          items {
+            name
+            path
+          }
+        }
+        buttonText
+        buttonBg
+        announcementText {
+          announcementText
+        }
+        showAnnouncement
+      }
+    }
+  `)
+  const componentData = data.contentfulNavigation
+  const navLinks = componentData.menus.items
   const nav = useRef(null)
+
   const [isExpanded, toggleExpansion] = useState(false)
+  const LogoWhite = `${componentData.logoWhite?.file?.url}`
+  const LogoBlack = `${componentData.logoBlack?.file?.url}`
   const [currentLogo, setLogo] = useState(LogoWhite)
   const [isOffset, setIsOffset] = useState(false)
+
   const [width, setWidth] = useState(1440)
 
   useEffect(() => {
@@ -103,18 +106,22 @@ export default function Header({ isTransparentHeader=false }) {
       }
     }
   }
+  const logoRef = useRef(null);
+  const logoSize = useWindowSize(logoRef);
 
   return (
     <React.Fragment>
-      <div className="w-full hidden lg:flex h-auto py-3 bg-lightblue text-white font-medium items-center justify-center">
-        <div className="flex items-center">
-          <img src={AnnoucementIcon} alt="Annoucement Icon" />
-          <span className="ml-2 text-white">
-            Keep the community informed of nearby public safety alerts.
-          </span>
+      {componentData?.showAnnouncement && (
+        <div className="w-full hidden lg:flex h-auto py-3 bg-lightblue text-white font-medium items-center justify-center">
+          <div className="flex items-center">
+            <img src={AnnoucementIcon} alt="Annoucement Icon" />
+            <span className="ml-2 text-white">
+              {componentData.announcementText?.announcementText}
+            </span>
+          </div>
+          <button className="mx-1">Book a demo today!</button>
         </div>
-        <button className="mx-1">Book a demo today!</button>
-      </div>
+      )}
       <nav
         ref={nav}
         className={`flex nav items-center justify-between absolute w-full z-30 flex-wrap px-0 py-5 lg:px-10 border-b border-gray-700 ${
@@ -125,7 +132,12 @@ export default function Header({ isTransparentHeader=false }) {
           className="flex items-center flex-shrink-0 text-white mr-6 pl-3 lg:pl-0 cursor-pointer"
           to="/"
         >
-          <img src={currentLogo} alt="Altas Logo" />
+          <img
+            className="logo"
+            src={`${currentLogo}?w=${logoSize.width}`}
+            alt="Altas Logo"
+            ref={logoRef}
+          />
         </GatsbyLink>
         <div className="block lg:hidden">
           {!isExpanded ? (

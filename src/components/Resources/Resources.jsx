@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { BsArrowRight } from "react-icons/bs"
+import { useWindowSize } from "../../hooks/getwidth"
 import "./resources.scss"
 
 export default function Resources() {
@@ -20,8 +21,8 @@ export default function Resources() {
               slug
             }
             images {
-              fixed {
-                srcSet
+              file {
+                url
               }
             }
           }
@@ -31,6 +32,7 @@ export default function Resources() {
   `)
 
   const componentData = data.allContentfulResources.edges[0].node
+  const windowSize = useWindowSize()
 
   return (
     <div className="px-5 py-24 resources-main" id="resources">
@@ -60,7 +62,7 @@ export default function Resources() {
                 <div className="bg-white resource-box rounded-xl">
                   <div className="pb-5">
                     <img
-                      srcSet={componentData.images[i].fixed.srcSet}
+                      src={`${componentData.images[i].file?.url}?w=${windowSize?.width}`}
                       alt="Altas Logo"
                       className="w-full"
                     />

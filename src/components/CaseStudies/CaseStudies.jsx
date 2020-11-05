@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs"
 import Swiper from "react-id-swiper"
 import SwiperCore, { EffectFade } from "swiper"
+import { useWindowSize } from "../../hooks/getwidth"
 
 export default function CaseStudies() {
   const [index, setIndex] = useState(0)
@@ -53,8 +54,8 @@ export default function CaseStudies() {
               position
             }
             images {
-              fixed {
-                srcSet
+              file {
+                url
               }
             }
           }
@@ -65,6 +66,7 @@ export default function CaseStudies() {
 
   const detail = data.allContentfulCaseStudies.edges[0].node.caseStudies
   const images = data.allContentfulCaseStudies.edges[0].node.images
+  const windowSize = useWindowSize()
 
   const slideRight = () => {
     if (swiper1.current && swiper1.current.swiper) {
@@ -86,7 +88,7 @@ export default function CaseStudies() {
     <div className="py-24 bg-even relative" id="case-studies">
       <div className="max-w-6xl container mx-auto">
         <div className="flex flex-wrap-reverse mb-4 px-5 w-full">
-          <div className="xl:w-1/3 lg:w-1/2 lg:justify-center">
+          <div className="w-full xl:w-1/3 lg:w-1/2 lg:justify-center">
             <Swiper
               effect="fade"
               fadeEffect={{
@@ -97,7 +99,7 @@ export default function CaseStudies() {
             >
               {images.map((image, i) => (
                 <img
-                  srcSet={image.fixed.srcSet}
+                  src={`${image?.file?.url}?w=${windowSize?.width}`}
                   alt="Altas Logo"
                   className="rounded-lg h-full"
                   key={i}

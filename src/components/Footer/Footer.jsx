@@ -1,63 +1,61 @@
-import React, { useEffect, useState } from "react"
+import React, { useRef } from "react"
 import { Link } from "react-scroll"
-import { Link as GatsbyLink } from "gatsby"
+import { Link as GatsbyLink, useStaticQuery } from "gatsby"
 import {
   FaFacebookSquare,
   FaTwitterSquare,
   // FaInstagram
 } from "react-icons/fa"
-import Logo from "./../../images/logo.png"
+import { useWindowSize } from "../../hooks/getwidth"
 import "./footer.scss"
 
 export default function Footer() {
-  const [width, setWidth] = useState(1440)
-
-  useEffect(() => {
-    if (typeof window != "undefined") {
-      const handleWindowResize = () => setWidth(window.innerWidth)
-
-      window.addEventListener("resize", handleWindowResize)
-      return () => window.removeEventListener("resize", handleWindowResize)
+  const data = useStaticQuery(graphql`
+    query {
+      contentfulNavigation {
+        logoWhite {
+          file {
+            url
+          }
+        }
+        logoBlack {
+          file {
+            url
+          }
+        }
+        menus {
+          items {
+            name
+            path
+          }
+        }
+        buttonText
+        buttonBg
+        announcementText {
+          announcementText
+        }
+        showAnnouncement
+      }
     }
-  }, [])
+  `)
+  const componentData = data.contentfulNavigation
+  const navLinks = componentData.menus.items
 
-  const navLinks = [
-    {
-      name: "Case Studies",
-      path: "case-studies",
-    },
-    {
-      name: "Benefits",
-      path: "benifits",
-    },
-    {
-      name: "Solutions",
-      path: "solutions",
-    },
-    {
-      name: "Industries",
-      path: "industries",
-    },
-    {
-      name: "Pricing",
-      path: "pricing",
-    },
-    {
-      name: "Resources",
-      path: "resources",
-    },
-    {
-      name: "Contact Us",
-      path: "contact-us",
-    },
-  ]
+  const logoRef = useRef(null)
+  const logoSize = useWindowSize(logoRef)
+  const windowSize = useWindowSize()
 
   return (
     <div className="footer py-10">
       <div className="container m-auto">
         <nav className="flex items-center justify-between flex-wrap p-5 ">
           <div className="flex items-center flex-shrink-0 text-white mr-6">
-            <img src={Logo} alt="Altas Logo" />
+            <img 
+              src={`${componentData.logoWhite?.file?.url}?w=${logoSize.width}`}
+              className="logo"
+              alt="Altas Logo"
+              ref={logoRef}
+            />
           </div>
 
           <div
@@ -72,7 +70,7 @@ export default function Footer() {
                   className="lg:inline-flex cursor-pointer lg:w-auto w-full font-600 px-3 py-2 rounded items-center justify-center"
                   spy={true}
                   smooth={true}
-                  offset={width > 767 ? -100 : -50}
+                  offset={windowSize.width > 767 ? -100 : -50}
                   duration={100}
                   hashSpy={true}
                   to={item.path}

@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Communication from "../Communication/Communication"
 import Reporting from "../Reporting/Reporting"
 import ContentCreation from "../ContentCreation/ContentCreation"
+import { useWindowSize } from "../../hooks/getwidth"
 import "./solutions.scss"
 
 export default function Solutions() {
@@ -19,13 +20,13 @@ export default function Solutions() {
               title
             }
             images {
-              fixed {
-                srcSet
+              file {
+                url
               }
             }
             icons {
-              fluid {
-                srcSet
+              file {
+                url
               }
             }
           }
@@ -33,7 +34,8 @@ export default function Solutions() {
       }
     }
   `)
-
+  
+  const windowSize = useWindowSize()
   const componentData = data.allContentfulSolutions.edges[0].node
 
   return (
@@ -42,12 +44,12 @@ export default function Solutions() {
         <div className="w-full lg:w-1/2 images-parent mt-8 lg:mt-0 relative">
             <img
               className="absolute image1"
-              srcSet={componentData.images[0]?.fixed?.srcSet}
+              src={`${componentData.images[0]?.file?.url}?w=${windowSize?.width}`}
               alt="image1"
             />
             <img
               className="absolute image2"
-              srcSet={componentData.images[1]?.fixed?.srcSet}
+              src={`${componentData.images[1]?.file?.url}?w=${windowSize?.width}`}
               alt="image2"
             />
         </div>
@@ -70,7 +72,7 @@ export default function Solutions() {
               <div className="flex py-2" key={index}>
                 <img
                   style={{ height: "30px", width: "30px" }}
-                  srcSet={componentData.icons[index]?.fluid?.srcSet}
+                  src={`${componentData.icons[index]?.file?.url}?w=${windowSize?.width}`}
                   alt="icon"
                 />
                 <span
