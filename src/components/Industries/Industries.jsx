@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Swiper from "react-id-swiper"
 import SwiperCore, { EffectFade } from "swiper"
@@ -73,6 +73,9 @@ export default function Industries() {
   const contentData = data.allContentfulIndustries.edges[0].node
   const windowSize = useWindowSize()
   
+  const imgRef = useRef(null)
+  const imgSize = useWindowSize(imgRef)
+  
   return (
     <div className="bg-even px-5 py-24" id="industries">
       <div className="container max-w-6xl m-auto">
@@ -105,7 +108,7 @@ export default function Industries() {
                     verticalAlign: "middle",
                   }}
                 >
-                  <img src={`${contentData.icons[i]?.file?.url}?w=${windowSize?.width}`} alt="icons" />
+                  <img src={`${contentData.icons[i]?.file?.url}?w=${windowSize.width || 1000}`} alt="icons" />
                 </div>
                 <div className="w-2/3 pl-4">
                   <span className="font-600 text-lg">
@@ -119,14 +122,14 @@ export default function Industries() {
             ))}
           </div>
 
-          <div className="w-full lg:w-1/3 px-2 flex">            
+          <div className="w-full lg:w-1/3 px-2 flex" ref={imgRef}>
             <Swiper {...params} ref={node => {if (node) setSwiper(node.swiper)}}>
               {contentData.images.map((image,i)=>(
                 <div className="bg-even h-full" key={i}>
                   <img
-                    src={`${image.file?.url}?w=${windowSize.width}`}
+                    src={`${image.file?.url}?w=${(imgSize.width||400)-48}`}
                     alt="Altas Logo"
-                    className={`w-full rounded p-4`}
+                    className="w-full rounded p-4"
                   />
                 </div>
               ))}
