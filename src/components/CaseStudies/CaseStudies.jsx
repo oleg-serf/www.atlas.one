@@ -99,7 +99,7 @@ export default function CaseStudies() {
             >
               {images.map((image, i) => (
                 <img
-                  src={`${image?.file?.url}?w=${windowSize?.width}`}
+                  src={`${image?.file?.url}?w=${windowSize.width||1000}`}
                   alt="Altas Logo"
                   className="rounded-lg h-full"
                   key={i}
