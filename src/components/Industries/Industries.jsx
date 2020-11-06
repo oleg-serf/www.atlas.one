@@ -10,20 +10,20 @@ export default function Industries() {
 
   const params = {
     slidesPerView: 1,
-    effect : "fade",
+    effect: "fade",
     slidesPerGroup: 1,
     fadeEffect: {
-      crossFade: true
+      crossFade: true,
     },
-    speed : 1000,
-    loop : true,
+    speed: 1000,
+    loop: true,
     pagination: {
       el: ".swiper-pagination",
-      clickable: true
+      clickable: true,
     },
     navigation: {
       nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
+      prevEl: ".swiper-button-prev",
     },
     spaceBetween: 30,
     runCallbacksOnInit: true,
@@ -71,7 +71,7 @@ export default function Industries() {
   `)
 
   const contentData = data.allContentfulIndustries.edges[0].node
-  const windowSize = useWindowSize()
+  // const windowSize = useWindowSize()
   
   const imgRef = useRef(null)
   const imgSize = useWindowSize(imgRef)
@@ -108,7 +108,7 @@ export default function Industries() {
                     verticalAlign: "middle",
                   }}
                 >
-                  <img src={`${contentData.icons[i]?.file?.url}?w=${windowSize.width || 1000}`} alt="icons" />
+                  <img src={`${contentData.icons[i]?.file?.url}?w=20`} alt="icons" />
                 </div>
                 <div className="w-2/3 pl-4">
                   <span className="font-600 text-lg">

@@ -1,6 +1,6 @@
 import React, { useRef } from "react"
-import { Link } from "react-scroll"
-import { Link as GatsbyLink, useStaticQuery } from "gatsby"
+import { graphql, Link as GatsbyLink, useStaticQuery } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 import {
   FaFacebookSquare,
   FaTwitterSquare,
@@ -43,13 +43,13 @@ export default function Footer() {
 
   const logoRef = useRef(null)
   const logoSize = useWindowSize(logoRef)
-  const windowSize = useWindowSize()
+  // const windowSize = useWindowSize()
 
   return (
     <div className="footer py-10 p-5 lg:px-10">
-      <nav className="flex items-center justify-between flex-wrap py-5">          
-	      <div className="flex lg:w-1/5 justify-center flex-shrink-0 text-white">
-          <img 
+      <nav className="flex items-center justify-between flex-wrap py-5">
+        <div className="flex lg:w-1/5 justify-center flex-shrink-0 text-white">
+          <img
             src={`${componentData.logoWhite?.file?.url}?w=${logoSize.width}`}
             className="logo"
             alt="Altas Logo"
@@ -64,22 +64,18 @@ export default function Footer() {
         >
           <div className="lg:inline-flex lg:w-3/5 lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-1 justify-center flex-col lg:h-auto my-8 lg:my-0">
             {navLinks.map((item, i) => (
-              <Link
+              <AnchorLink
                 key={i}
+                to={`/#${item.path}`}
+                activeClassName="activeLink"
                 className="lg:inline-flex cursor-pointer lg:w-auto w-full font-600 px-3 py-2 rounded items-center justify-center"
-                spy={true}
-                smooth={true}
-                offset={windowSize.width > 767 ? -100 : -50}
-                duration={100}
-                hashSpy={true}
-                to={item.path}
               >
                 <span className="text-menu hover:text-blue">
                   {item.name}
                 </span>
-              </Link>
+              </AnchorLink>
             ))}
-          </div>            
+          </div>
         </div>
         <div className="flex lg:w-1/5 justify-center">
           {/* <div className="px-2">

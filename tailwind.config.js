@@ -26,6 +26,7 @@ module.exports = {
       borderColor: {
         "grey": "#999DB2",
         "grey-20": "#999DB233",
+        "field": "#BCCDE8",
       },
       fontWeight: {
         600: "600",

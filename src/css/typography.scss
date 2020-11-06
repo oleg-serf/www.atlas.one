@@ -12,6 +12,10 @@ h6 {
 
 button {
   font-family: "Gilroy-medium";
+  outline: none !important;
+  &:focus{
+    outline: none !important;
+  }
 }
 
 .font-medium {

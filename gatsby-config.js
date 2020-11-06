@@ -1,6 +1,10 @@
 const resolveConfig = require("tailwindcss/resolveConfig")
 const tailwindConfig = require("./tailwind.config.js")
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const { theme } = resolveConfig(tailwindConfig)
 
 module.exports = {
@@ -32,6 +36,19 @@ module.exports = {
       resolve: "gatsby-plugin-postcss",
       options: {
         postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -70,
+        duration: 100,
+      },
+    },
+    {
+      resolve: "gatsby-source-hubspot-forms",
+      options: {
+        apiKey: process.env.HUBSPOT_API_KEY,
       },
     },
   ],

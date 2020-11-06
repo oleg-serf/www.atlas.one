@@ -1,3 +1,4 @@
+import Layout from './layout'
 import Navbar from "./Navbar/Navbar"
 import CaseStudies from "./CaseStudies/CaseStudies"
 import Header from "./Header/Header"
@@ -8,12 +9,15 @@ import Solutions from "./Solutions/Solutions"
 import Industries from "./Industries/Industries"
 import Pricing from "./Pricing/Pricing"
 import Resources from "./Resources/Resources"
+import ResourceForm from "./ResourceForm"
 import GetStart from "./GetStart/GetStart"
 import Communication from "./Communication/Communication"
 import Reporting from "./Reporting/Reporting"
 import ContentCreation from "./ContentCreation/ContentCreation"
 import Apply from "./Apply/Apply"
+
 export {
+  Layout,
   Navbar,
   Header,
   CaseStudies,
@@ -24,6 +28,7 @@ export {
   Industries,
   Pricing,
   Resources,
+  ResourceForm,
   GetStart,
   Communication,
   Reporting,

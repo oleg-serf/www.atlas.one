@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react"
-import { Link } from "gatsby"
 import { BsArrowUpShort } from "react-icons/bs"
 import SEO from "./seo"
 import Navbar from "./Navbar/Navbar"
@@ -26,20 +25,18 @@ const Layout = ({ children, isTransparentHeader }) => {
     <React.Fragment>
       <SEO />
       <div className="app">
-        <Link to="/">
-          <div
-            ref={button}
-            className="fixed scrolltop w-12 h-12 bg-white flex items-center justify-center border opacity-0 cursor-pointer"
-          >
-            <BsArrowUpShort size={40} fill="#00AEEF" />
-          </div>
-        </Link>
+        {/* eslint-disable-next-line */}
+        <div
+          ref={button}
+          className="fixed scrolltop w-12 h-12 bg-white flex items-center justify-center border opacity-0 cursor-pointer"
+          onClick={()=>window.scrollTo(0,0)}
+        >
+          <BsArrowUpShort size={40} fill="#00AEEF" />
+        </div>
         <div className="fixed w-full z-10 top-0">
           <Navbar isTransparentHeader={isTransparentHeader} />
         </div>
-        <div className="main">
-          {children}
-        </div>
+        <div className="main">{children}</div>
       </div>
       <Footer />
     </React.Fragment>

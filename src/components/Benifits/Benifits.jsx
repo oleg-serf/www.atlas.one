@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { useWindowSize } from "../../hooks/getwidth"
+import SectionHeading from "../SectionHeading"
 
 export default function Benifits() {
   const data = useStaticQuery(graphql`
@@ -36,16 +37,13 @@ export default function Benifits() {
       className="px-5 py-12 lg:py-24 container m-auto max-w-6xl"
       id="benifits"
     >
-      <h2 className="text-blue uppercase tracking-title text-sm">
-        {content.title}
-      </h2>
-
-      <h2 className="block text-3xl lg:text-5xl max-w-3xl mt-4 sub-title font-bold">
-        {content.description.description}{" "}
-        <h2 className="text-blue inline-block">
-          {content.featuredSubtitle}
-        </h2>
-      </h2>
+      <SectionHeading
+        data={{
+          title: content.title,
+          description: content.description.description,
+          featuredSubtitle: content.featuredSubtitle,
+        }}
+      />
 
       <div className="flex flex-wrap py-2 mt-20">
         {content.benefits.map((v, i) => (

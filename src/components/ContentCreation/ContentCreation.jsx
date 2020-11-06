@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { BsArrowRight } from "react-icons/bs"
+import SectionHeading from "../SectionHeading"
 import { useWindowSize } from "../../hooks/getwidth"
 
 export default function ContentCreation() {
@@ -26,15 +27,13 @@ export default function ContentCreation() {
   return (
     <div className="lg:flex flex-warp container m-auto max-w-6xl py-12 lg:py-24 px-5 items-center">
       <div className="xl:w-1/2 lg:pr-8">
-        <h2 className="block text-blue uppercase tracking-title text-sm">
-          {componentData.title}
-        </h2>
-        <h2 className="block md:text-45xl text-25xl pt-5 sub-title font-bold">
-          {componentData.subtitle}{" "}
-          <h2 className="text-blue inline-flex">
-            {componentData.featuredSubtitle}
-          </h2>
-        </h2>
+        <SectionHeading
+          data={{
+            title: componentData.title,
+            description: componentData.subtitle,
+            featuredSubtitle: componentData.featuredSubtitle,
+          }}
+        />
         <span className="block text-18xl pt-5 font-medium md:text-base">
           {componentData.description}
         </span>

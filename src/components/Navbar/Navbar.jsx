@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
-import { Link } from "react-scroll"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { graphql, Link as GatsbyLink, useStaticQuery } from "gatsby"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { AiOutlineClose } from "react-icons/ai"
@@ -7,7 +7,7 @@ import { useWindowSize } from "../../hooks/getwidth"
 import AnnoucementIcon from "../../images/annoucement-icon.png"
 import "./navbar.scss"
 
-export default function Header({ isTransparentHeader=false }) {
+export default function Header({ isTransparentHeader = false }) {
   const data = useStaticQuery(graphql`
     query {
       contentfulNavigation {
@@ -46,6 +46,7 @@ export default function Header({ isTransparentHeader=false }) {
   const [currentLogo, setLogo] = useState(LogoWhite)
   const [isOffset, setIsOffset] = useState(false)
 
+  /* eslint-disable-next-line */
   const [width, setWidth] = useState(1440)
 
   useEffect(() => {
@@ -84,8 +85,8 @@ export default function Header({ isTransparentHeader=false }) {
       })
 
       return () => window.removeEventListener("resize", handleWindowResize)
-    }    
-  /* eslint-disable-next-line */
+    }
+    /* eslint-disable-next-line */
   }, [])
 
   const checkOffset = () => {
@@ -106,8 +107,8 @@ export default function Header({ isTransparentHeader=false }) {
       }
     }
   }
-  const logoRef = useRef(null);
-  const logoSize = useWindowSize(logoRef);
+  const logoRef = useRef(null)
+  const logoSize = useWindowSize(logoRef)
 
   return (
     <React.Fragment>
@@ -175,22 +176,13 @@ export default function Header({ isTransparentHeader=false }) {
         >
           <div className="lg:inline-flex border-t py-4 lg:py-0 lg:border-0 mt-2 lg:mt-0 lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-1 justify-center flex-col lg:h-auto">
             {navLinks.map((item, i) => (
-              <Link
-                to={item.path}
+              <AnchorLink
                 key={i}
-                spy={true}
-                smooth={true}
-                duration={100}
-                hashSpy={true}
-                offset={width > 767 ? -100 : -50}
-                activeClass="activeLink"
+                to={`/#${item.path}`}
+                title={item.name}
                 className="lg:inline-flex cursor-pointer lg:w-auto w-full font-600 px-3 py-2 rounded items-center justify-center"
-              >
-                {/* eslint-disable-next-line */}
-                <span onClick={() => toggleExpansion(false)}>
-                  {item.name}
-                </span>
-              </Link>
+                onAnchorLinkClick={() => toggleExpansion(false)}
+              />
             ))}
           </div>
           <div>

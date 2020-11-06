@@ -1,0 +1,11 @@
+.resource-main{
+    min-height: 600px;
+    height: 70vh;
+    .resource-image{
+        background-image: url(../../images/Ellipse.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        height: 100%;
+    }
+}
