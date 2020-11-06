@@ -22,7 +22,8 @@ export default function ResourceForm({ fields, id }) {
     const hutk = isBrowser ? Cookies.get("hubspotutk") : null
     const pageUri = isBrowser ? window.location.href : null
     const pageName = isBrowser ? document.title : null
-    const url = `${process.env.BASE_URL}/submissions/v3/integration/submit/${process.env.PORTAL_ID}/${id}`
+    const url = `${process.env.GATSBY_BASE_URL}/submissions/v3/integration/submit/${process.env.GATSBY_PORTAL_ID}/${id}`
+    console.log(url)
     const body = {
       submittedAt: Date.now(),
       fields: getFields(),
