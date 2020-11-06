@@ -130,12 +130,12 @@ export default function Header({ isTransparentHeader = false }) {
         } ${isOffset ? "active" : ""}`}
       >
         <GatsbyLink
-          className="flex items-center flex-shrink-0 text-white mr-6 pl-3 lg:pl-0 cursor-pointer"
+          className="flex items-center flex-shrink-0 text-white mr-6 pl-3 lg:pl-0 cursor-pointer lg:w-1/5"
           to="/"
         >
           <img
             className="logo"
-            src={`${currentLogo}?w=${logoSize.width}`}
+            srcSet={`${currentLogo}?w=${logoSize.width} 1x, ${currentLogo}?w=${logoSize.width*2} 2x, ${currentLogo}?w=${logoSize.width*3} 3x`}
             alt="Altas Logo"
             ref={logoRef}
           />
@@ -174,7 +174,7 @@ export default function Header({ isTransparentHeader = false }) {
             isExpanded ? `block` : `hidden`
           } w-full block flex-grow lg:flex lg:items-center lg:w-auto p-5 lg:p-0`}
         >
-          <div className="lg:inline-flex border-t py-4 lg:py-0 lg:border-0 mt-2 lg:mt-0 lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-1 justify-center flex-col lg:h-auto">
+          <div className="lg:inline-flex border-t py-4 lg:py-0 lg:border-0 mt-2 lg:mt-0 lg:flex-row lg:ml-auto lg:w-3/5 w-full lg:items-center items-start flex flex-1 justify-center flex-col lg:h-auto">
             {navLinks.map((item, i) => (
               <AnchorLink
                 key={i}
@@ -184,12 +184,17 @@ export default function Header({ isTransparentHeader = false }) {
                 onAnchorLinkClick={() => toggleExpansion(false)}
               />
             ))}
+             <div>
+              <button className="blue-button text-white font-medium lg:mx-0 w-full lg:hidden py-3 px-6 mt-8 lg:mt-0">
+                Book a demo
+              </button>
+            </div>
           </div>
-          <div>
-            <button className="blue-button text-white font-medium lg:mx-0 w-full lg:w-auto py-3 px-6 mt-8 lg:mt-0">
-              Book a demo
-            </button>
-          </div>
+        </div>
+        <div className="hidden lg:w-1/5 lg:flex justify-end">
+          <button className="blue-button text-white font-medium lg:mx-0 w-full lg:w-auto py-3 px-6 mt-8 lg:mt-0">
+            Book a demo
+          </button>
         </div>
       </nav>
     </React.Fragment>
