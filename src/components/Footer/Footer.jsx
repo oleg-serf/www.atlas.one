@@ -6,7 +6,7 @@ import {
   FaTwitterSquare,
   // FaInstagram
 } from "react-icons/fa"
-import { useWindowSize } from "../../hooks/getwidth"
+import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
 import "./footer.scss"
 
 export default function Footer() {
@@ -43,14 +43,13 @@ export default function Footer() {
 
   const logoRef = useRef(null)
   const logoSize = useWindowSize(logoRef)
-  // const windowSize = useWindowSize()
 
   return (
     <div className="footer py-10 p-5 lg:px-10">
       <nav className="flex items-center justify-between flex-wrap py-5">
         <div className="flex lg:w-1/5 justify-center flex-shrink-0 text-white">
           <img
-            src={`${componentData.logoWhite?.file?.url}?w=${logoSize.width}`}
+            srcSet={ getSrcSet(componentData.logoWhite?.file?.url, logoSize.width) }
             className="logo"
             alt="Altas Logo"
             ref={logoRef}

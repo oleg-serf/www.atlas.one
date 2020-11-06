@@ -1,6 +1,6 @@
 import React, { useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { useWindowSize } from "../../hooks/getwidth"
+import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
 import "./header.scss"
 
 export default function Header() {
@@ -57,7 +57,7 @@ export default function Header() {
               </button>
             ))}
             <img
-              src={`${componentData.bannerImage?.file?.url}?w=${windowSize?.width}`}
+              srcSet={ getSrcSet(componentData.bannerImage?.file?.url, windowSize?.width) }
               className="m-auto h-auto heroimage absolute right-0 left-0 bottom-0"
               alt="Hero"
               ref={imgRef}

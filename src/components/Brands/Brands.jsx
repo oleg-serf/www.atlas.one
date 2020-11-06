@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { useWindowSize } from "../../hooks/getwidth"
 import "./index.scss"
 
 export default function Brands() {
@@ -21,8 +20,7 @@ export default function Brands() {
   `)
 
   const componentData = data.allContentfulTrustedPartners.edges[0].node
-  const windowSize = useWindowSize()
-
+  
   return (
     <>
       <div className="mt-40 lg:pt-24"> </div>
@@ -32,7 +30,12 @@ export default function Brands() {
           {componentData.partnersImages.map((v, i) => (
             <div className="p-5 lg:mx-5 w-1/2 lg:w-auto" key={i}>
               <img
-                src={`${v?.file?.url}?w=${windowSize?.width}`}
+                srcSet={
+                  `${v?.file?.url}?h=40 1x,
+                   ${v?.file?.url}?h=60 1.5x,
+                   ${v?.file?.url}?h=80 2x,
+                   ${v?.file?.url}?h=120 3x`
+                }
                 className="brand-image"
                 alt="Altas Logo" />
             </div>

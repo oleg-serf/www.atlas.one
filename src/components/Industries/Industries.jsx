@@ -71,7 +71,6 @@ export default function Industries() {
   `)
 
   const contentData = data.allContentfulIndustries.edges[0].node
-  // const windowSize = useWindowSize()
   
   const imgRef = useRef(null)
   const imgSize = useWindowSize(imgRef)
@@ -108,7 +107,7 @@ export default function Industries() {
                     verticalAlign: "middle",
                   }}
                 >
-                  <img src={`${contentData.icons[i]?.file?.url}?w=20`} alt="icons" />
+                  <img srcSet={ getSrcSet(contentData.icons[i]?.file?.url, 20) } alt="icons" />
                 </div>
                 <div className="w-2/3 pl-4">
                   <span className="font-600 text-lg">
@@ -127,7 +126,7 @@ export default function Industries() {
               {contentData.images.map((image,i)=>(
                 <div className="bg-even h-full" key={i}>
                   <img
-                    src={`${image.file?.url}?w=${(imgSize.width||400)-48}`}
+                    srcSet={ getSrcSet(image.file?.url, (imgSize.width||400)-48) }
                     alt="Altas Logo"
                     className="w-full rounded p-4"
                   />
