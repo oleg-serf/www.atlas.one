@@ -1,62 +1,36 @@
 import React, { useState } from "react"
-// import Axios from "axios"
 import Cookies from "js-cookie"
+import querystring from "querystring"
 import "./index.scss"
 
 export default function ResourceForm({ fields, id }) {
   const [form, setform] = useState({})
-
-  const getFields = () => {
-    const Fields = Object.keys(form).map(key => {
-      let field = {
-        name: key,
-        value: form[key],
-      }
-      return field
-    })
-    return Fields
-  }
 
   const submitFormData = () => {
     const isBrowser = typeof window !== "undefined"
     const hutk = isBrowser ? Cookies.get("hubspotutk") : null
     const pageUri = isBrowser ? window.location.href : null
     const pageName = isBrowser ? document.title : null
-    const url = `${process.env.GATSBY_BASE_URL}/submissions/v3/integration/submit/${process.env.GATSBY_PORTAL_ID}/${id}`
-    console.log(url)
-    const body = {
+    const url = `${process.env.GATSBY_BASE_URL}/uploads/form/v2/${process.env.GATSBY_PORTAL_ID}/${id}`
+    const body = querystring.stringify({
       submittedAt: Date.now(),
-      fields: getFields(),
-      context: {
-        hutk,
-        pageUri,
-        pageName,
-      },
-      legalConsentOptions: {
-        // Include this object when GDPR options are enabled
-        consent: {
-          consentToProcess: true,
-          text:
-            "I agree to allow Example Company to store and process my personal data.",
-          communications: [
-            {
-              value: true,
-              subscriptionTypeId: 999,
-              text:
-                "I agree to receive marketing communications from Example Company.",
-            },
-          ],
-        },
-      },
-    }
+      email: form.email,
+      firstname: form.firstname,
+      lastname: form.lastname,
+      jobtitle: form.jobtitle,
+      hs_context: JSON.stringify({
+        hutk: hutk,
+        pageUrl: pageUri,
+        pageName: pageName,
+      }),
+    })
+
     fetch(url, {
       method: "post",
-      body: JSON.stringify(body),
-      contentType: "application/json",
-      dataType: "json",
+      body: body,
       headers: {
-        accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Length": body.length,
       },
     }).then(response => {
       console.log(response.data)

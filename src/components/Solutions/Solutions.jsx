@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Communication from "../Communication/Communication"
 import Reporting from "../Reporting/Reporting"
 import ContentCreation from "../ContentCreation/ContentCreation"
-import { useWindowSize } from "../../hooks/getwidth"
+import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
 import "./solutions.scss"
 
 export default function Solutions() {
@@ -72,7 +72,7 @@ export default function Solutions() {
               <div className="flex py-2" key={index}>
                 <img
                   style={{ height: "30px", width: "30px" }}
-                  src={`${componentData.icons[index]?.file?.url}?w=${windowSize?.width}`}
+                  srcSet={ getSrcSet(componentData.icons[index]?.file?.url, 30)}
                   alt="icon"
                 />
                 <span

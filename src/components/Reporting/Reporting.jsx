@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { BsArrowRight } from "react-icons/bs"
 import SectionHeading from "../SectionHeading"
-import { useWindowSize } from "../../hooks/getwidth"
+import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
 
 export default function Reporting() {
   const data = useStaticQuery(graphql`
@@ -29,7 +29,7 @@ export default function Reporting() {
     <div className="flex flex-wrap-reverse container m-auto max-w-6xl py-12 lg:py-24 px-5 flex items-center">
       <div className="lg:w-1/2 w-full lg:pr-8">
         <img
-          src={`${componentData.image?.file?.url}?w=${imgSize.width}`}
+          srcSet={ getSrcSet(componentData.image?.file?.url, imgSize.width) }
           alt="Altas Logo"
           className="w-full"
           ref={imgRef}

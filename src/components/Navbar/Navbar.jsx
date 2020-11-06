@@ -3,7 +3,7 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { graphql, Link as GatsbyLink, useStaticQuery } from "gatsby"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { AiOutlineClose } from "react-icons/ai"
-import { useWindowSize } from "../../hooks/getwidth"
+import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
 import AnnoucementIcon from "../../images/annoucement-icon.png"
 import "./navbar.scss"
 
@@ -130,12 +130,12 @@ export default function Header({ isTransparentHeader = false }) {
         } ${isOffset ? "active" : ""}`}
       >
         <GatsbyLink
-          className="flex items-center flex-shrink-0 text-white mr-6 pl-3 lg:pl-0 cursor-pointer lg:w-1/5"
+          className="flex items-center flex-shrink-0 text-white pl-3 lg:pl-0 cursor-pointer lg:w-1/5"
           to="/"
         >
           <img
             className="logo"
-            srcSet={`${currentLogo}?w=${logoSize.width} 1x, ${currentLogo}?w=${logoSize.width*2} 2x, ${currentLogo}?w=${logoSize.width*3} 3x`}
+            srcSet={ getSrcSet(currentLogo, logoSize.width) }
             alt="Altas Logo"
             ref={logoRef}
           />

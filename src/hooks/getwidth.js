@@ -32,3 +32,12 @@ export function useWindowSize(imgRef=null) {
 
   return windowSize
 }
+
+export function getSrcSet(src, width) {
+  const ratioArry = [1, 1.5, 2, 3]
+
+  let srcSet = ""
+  ratioArry.forEach(ratio => srcSet += `${src}?w=${width * ratio} ${ratio}x, `)
+
+  return srcSet
+}

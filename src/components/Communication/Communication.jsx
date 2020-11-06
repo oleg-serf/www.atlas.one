@@ -1,8 +1,8 @@
-import React from "react"
+import React, { useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { BsArrowRight } from "react-icons/bs"
 import SectionHeading from "../SectionHeading"
-import { useWindowSize } from "../../hooks/getwidth"
+import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
 
 export default function Communication() {
   const data = useStaticQuery(graphql`
@@ -22,7 +22,8 @@ export default function Communication() {
   `)
 
   const componentData = data.contentfulCommmunications
-  const windowSize = useWindowSize()
+  const imgRef = useRef(null);
+  const imgSize = useWindowSize(imgRef);
 
   return (
     <div className="lg:flex flex-warp container m-auto max-w-6xl py-12 lg:py-24 px-5 items-center">
@@ -44,9 +45,10 @@ export default function Communication() {
       </div>
       <div className="xl:w-1/2 max-w-2xl m-auto">
         <img
-          src={`${componentData.image?.file?.url}?w=${windowSize?.width}`}
+          srcSet={ getSrcSet(componentData.image?.file?.url, imgSize.width) }
           alt="Altas Logo"
           className="w-full"
+          ref={imgRef}
         />
       </div>
     </div>

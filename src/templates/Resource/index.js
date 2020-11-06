@@ -10,11 +10,11 @@ import {
 import { useWindowSize } from "../../hooks/getwidth"
 import "./index.scss"
 
-const Resource = ({ pathContext, data }) => {
+const Resource = ({ pageContext, data }) => {
   const windowSize = useWindowSize()
 
   const { formFieldGroups } = data?.hubspotForm
-  const { pageResource } = pathContext
+  const { pageResource } = pageContext
 
   return (
     <Layout isTransparentHeader={false}>
@@ -53,7 +53,7 @@ const Resource = ({ pathContext, data }) => {
             </p>
           </div>
           <div className="w-full lg:w-1/2 lg:p-5">
-            <ResourceForm fields={formFieldGroups} id={pathContext?.formId} />
+            <ResourceForm fields={formFieldGroups} id={pageContext?.formId} />
           </div>
         </div>
       </div>

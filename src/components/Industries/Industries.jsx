@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Swiper from "react-id-swiper"
 import SwiperCore, { EffectFade } from "swiper"
-import { useWindowSize } from "../../hooks/getwidth"
+import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
 import "./Industries.scss"
 
 export default function Industries() {

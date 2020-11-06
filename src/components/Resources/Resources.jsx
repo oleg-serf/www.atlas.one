@@ -6,6 +6,7 @@ import { useWindowSize } from "../../hooks/getwidth"
 import "./resources.scss"
 
 export default function Resources({ data: parentData }) {
+  console.log(parentData, "resource");
   const data = useStaticQuery(graphql`
     query {
       allContentfulResources {
