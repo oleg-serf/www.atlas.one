@@ -1,40 +1,49 @@
 import React, { useState } from "react"
-import Cookies from "js-cookie"
-import querystring from "querystring"
+// import Cookies from "js-cookie"
 import "./index.scss"
 
 export default function ResourceForm({ fields, id }) {
   const [form, setform] = useState({})
 
   const submitFormData = () => {
-    const isBrowser = typeof window !== "undefined"
-    const hutk = isBrowser ? Cookies.get("hubspotutk") : null
-    const pageUri = isBrowser ? window.location.href : null
-    const pageName = isBrowser ? document.title : null
-    const url = `${process.env.GATSBY_BASE_URL}/uploads/form/v2/${process.env.GATSBY_PORTAL_ID}/${id}`
-    const body = querystring.stringify({
-      submittedAt: Date.now(),
-      email: form.email,
-      firstname: form.firstname,
-      lastname: form.lastname,
-      jobtitle: form.jobtitle,
-      hs_context: JSON.stringify({
-        hutk: hutk,
-        pageUrl: pageUri,
-        pageName: pageName,
-      }),
-    })
+    const url = `${process.env.GATSBY_BASE_URL}/submissions/v3/integration/submit/${process.env.GATSBY_PORTAL_ID}/${id}`
+    // const isBrowser = typeof window !== "undefined"
+    // const hutk = isBrowser ? Cookies.get("hubspotutk") : null
+    // const pageUri = isBrowser ? window.location.href : null
+    // const pageName = isBrowser ? document.title : null
+  
+    const data = {
+      "submittedAt": Date.now(),
+      "fields": [
+        {
+          "name": "email",
+          "value": form.email
+        },
+        {
+          "name": "firstname",
+          "value": form.firstname
+        },
+        {
+          "name": "lastname",
+          "value": form.lastname,
+        },
+        {
+          "name": "jobtitle",
+          "value": form.jobtitle,
+        }
+      ],
+      "skipValidation": true,
+    }
 
     fetch(url, {
-      method: "post",
-      body: body,
+      method: "POST",
+      body: JSON.stringify(data),
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Content-Length": body.length,
+        "Content-Type": "application/json; charset=utf8",
+        "accept": "application/json",
+        "Access-Control-Allow-Origin":"*"
       },
-    }).then(response => {
-      console.log(response.data)
-    })
+    }).then(response => response.json()).then(re => console.log(re))
   }
 
   return (

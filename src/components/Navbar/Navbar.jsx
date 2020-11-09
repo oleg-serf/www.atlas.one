@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
-import { graphql, Link as GatsbyLink, useStaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { AiOutlineClose } from "react-icons/ai"
 import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
@@ -129,7 +129,7 @@ export default function Header({ isTransparentHeader = false }) {
           isExpanded ? "expanded" : ""
         } ${isOffset ? "active" : ""}`}
       >
-        <GatsbyLink
+        <Link
           className="flex items-center flex-shrink-0 text-white pl-3 lg:pl-0 cursor-pointer lg:w-1/5"
           to="/"
         >
@@ -139,7 +139,7 @@ export default function Header({ isTransparentHeader = false }) {
             alt="Altas Logo"
             ref={logoRef}
           />
-        </GatsbyLink>
+        </Link>
         <div className="block lg:hidden">
           {!isExpanded ? (
             <button
@@ -178,7 +178,7 @@ export default function Header({ isTransparentHeader = false }) {
             {navLinks.map((item, i) => (
               <AnchorLink
                 key={i}
-                to={`/#${item.path}`}
+                to={item.path}
                 title={item.name}
                 className="lg:inline-flex cursor-pointer lg:w-auto w-full font-600 px-3 py-2 rounded items-center justify-center"
                 onAnchorLinkClick={() => toggleExpansion(false)}
