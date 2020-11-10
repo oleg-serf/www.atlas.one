@@ -25,6 +25,10 @@ export default function ResourceForm({ fields, id }) {
           "value": form.lastname,
         },
         {
+          "name": "company",
+          "value": form.company,
+        },
+        {
           "name": "jobtitle",
           "value": form.jobtitle,
         }
@@ -63,7 +67,7 @@ export default function ResourceForm({ fields, id }) {
           e.preventDefault()
           submitFormData()
         }}
-        className="resource-form p-8 px-20 text-white flex justify-center flex-col rounded-md"
+        className="resource-form p-8 px-10 lg:px-20 text-white flex justify-center flex-col rounded-md"
       >
         <h2 className="text-3xl my-1 text-center">Get your copy</h2>
         <p className="text-menu my-1 text-center text-base">

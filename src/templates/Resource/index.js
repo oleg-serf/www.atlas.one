@@ -20,8 +20,8 @@ const Resource = ({ pageContext, data }) => {
   return (
     <Layout isTransparentHeader={false}>
       <div className="flex flex-col justify-center resource-main bg-even">
-        <div className="px-5 max-w-6xl mx-auto flex flex-wrap mt-20">
-          <div className="w-full lg:w-1/2 py-12">
+        <div className="w-full px-5 max-w-6xl mx-auto flex flex-wrap mt-2 lg:mt-32">
+          <div className="w-full lg:w-1/2 py-24">
             <span className="border-none rounded-sm p-1 px-3 text-blue bg-ebook text-base font-600">
               {pageResource?.buttonText}
             </span>
@@ -32,7 +32,7 @@ const Resource = ({ pageContext, data }) => {
           <div className="w-full lg:w-1/2 flex items-center justify-center">
             <div className="w-4/5 rounded-full resource-image flex items-center justify-center py-12">
               <img
-                className="w-1/3"
+                className="w-1/2"
                 srcSet={getSrcSet(pageResource?.image?.file?.url, imgSize.width)}
                 alt="resourcesimage"
                 ref={imgRef}

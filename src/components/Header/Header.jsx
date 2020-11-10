@@ -37,7 +37,7 @@ export default function Header() {
     <div className="header relative" style={{ minHeight: "600px" }}>
       <div className="container px-5 m-auto pt-24 lg:pt-40">
         <div className="text-center max-w-4xl m-auto content">
-          <h1 className="lg:text-6xl text-3xl font-bold text-white pt-5">
+          <h1 className="lg:text-6xl text-3xl font-bold text-white pt-24">
             {componentData.title}
           </h1>
 

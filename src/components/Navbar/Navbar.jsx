@@ -39,6 +39,7 @@ export default function Header({ isTransparentHeader = false }) {
   const componentData = data.contentfulNavigation
   const navLinks = componentData.menus.items
   const nav = useRef(null)
+  const demoBtn = useRef(null)
 
   const [isExpanded, toggleExpansion] = useState(false)
   const LogoWhite = `${componentData.logoWhite?.file?.url}`
@@ -82,6 +83,10 @@ export default function Header({ isTransparentHeader = false }) {
             setLogo(LogoBlack)
           }
         }
+      })
+
+      window.addEventListener("wheel", function () {
+        if(demoBtn && demoBtn.current) demoBtn.current.focus()
       })
 
       return () => window.removeEventListener("resize", handleWindowResize)
@@ -192,7 +197,7 @@ export default function Header({ isTransparentHeader = false }) {
           </div>
         </div>
         <div className="hidden lg:w-1/5 lg:flex justify-end">
-          <button className="blue-button text-white font-medium lg:mx-0 w-full lg:w-auto py-3 px-6 mt-8 lg:mt-0">
+          <button className="blue-button text-white font-medium lg:mx-0 w-full lg:w-auto py-3 px-6 mt-8 lg:mt-0" ref={demoBtn}>
             Book a demo
           </button>
         </div>
