@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import {
@@ -7,11 +7,12 @@ import {
   Resources,
   ResourceForm
 } from "../../components"
-import { useWindowSize } from "../../hooks/getwidth"
+import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
 import "./index.scss"
 
 const Resource = ({ pageContext, data }) => {
-  const windowSize = useWindowSize()
+  const imgRef = useRef(null)
+  const imgSize = useWindowSize(imgRef)
 
   const { formFieldGroups } = data?.hubspotForm
   const { pageResource } = pageContext
@@ -24,7 +25,7 @@ const Resource = ({ pageContext, data }) => {
             <span className="border-none rounded-sm p-1 px-3 text-blue bg-ebook text-base font-600">
               {pageResource?.buttonText}
             </span>
-            <h1 className="text-3xl lg:text-5xl sub-title mt-5">
+            <h1 className="text-3xl lg:text-45xl tracking-subtitle mt-5">
               {pageResource?.title?.title}
             </h1>
           </div>
@@ -32,14 +33,15 @@ const Resource = ({ pageContext, data }) => {
             <div className="w-4/5 rounded-full resource-image flex items-center justify-center py-12">
               <img
                 className="w-1/3"
-                src={`${pageResource?.image?.file?.url}?w=${windowSize?.width}`}
+                srcSet={getSrcSet(pageResource?.image?.file?.url, imgSize.width)}
                 alt="resourcesimage"
+                ref={imgRef}
               />
             </div>
           </div>
         </div>
       </div>
-      <div className="bg-white py-12 lg:py-24">
+      <div className="bg-white py-12 lg:py-24" style={{minHeight: "80vh"}}>
         <div className="max-w-6xl mx-auto flex flex-wrap px-5">
           <div className="w-full lg:w-1/2 py-12">
             <h2 className="text-blue block uppercase tracking-title text-sm">
@@ -57,7 +59,11 @@ const Resource = ({ pageContext, data }) => {
           </div>
         </div>
       </div>
-      <Resources data={{ mainHeading: "You may also like" }} />
+      <Resources
+        data={{ mainHeading: "You may also like" }}
+        showTitle
+        showThree
+      />
       <GetStart />
     </Layout>
   )

@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import { AiFillCheckCircle } from "react-icons/ai"
 import "./pricing.scss"
 
@@ -59,13 +59,15 @@ export default function Pricing() {
                       </span>
                     </div>
                   ))}
-                  <button
-                    className={`${
-                      item.bg === "#00AEEF" ? "blue-button" : "transparent-button"
-                    } hover:text-white font-semibold mt-4 py-3 px-8 border border-blue-500 w-full lg:w-auto`}
-                  >
-                    {item.buttonText}
-                  </button>
+                  <Link to="/pricing">
+                    <button
+                      className={`${
+                        item.bg === "#00AEEF" ? "blue-button" : "transparent-button"
+                      } hover:text-white font-semibold mt-4 py-3 px-8 border border-blue-500 w-full lg:w-auto`}
+                    >
+                      {item.buttonText}
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

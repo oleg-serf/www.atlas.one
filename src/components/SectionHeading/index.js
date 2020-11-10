@@ -1,8 +1,10 @@
 import React from "react"
 
-function SectionHeading({ data }) {
+function SectionHeading({ data, isHero = false }) {
   return (
-    <div>
+    <div
+      className={isHero ? "flex flex-col items-center text-center lg:block lg:text-left" : ""}
+    >
       <h2 className="text-blue uppercase tracking-title text-sm">
         {data?.title}
       </h2>

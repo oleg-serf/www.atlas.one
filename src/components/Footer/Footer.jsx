@@ -58,14 +58,14 @@ export default function Footer() {
 
         <div
           className={`${
-            true ? `block` : `hidden`
+            true ? 'block' : 'hidden'
           } w-full block flex-grow lg:flex lg:items-center lg:w-auto`}
         >
           <div className="lg:inline-flex lg:w-3/5 lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-1 justify-center flex-col lg:h-auto my-8 lg:my-0">
             {navLinks.map((item, i) => (
               <AnchorLink
                 key={i}
-                to={`/#${item.path}`}
+                to={item.path}
                 activeClassName="activeLink"
                 className="lg:inline-flex cursor-pointer lg:w-auto w-full font-600 px-3 py-2 rounded items-center justify-center"
               >

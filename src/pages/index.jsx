@@ -43,7 +43,7 @@ export default () => {
         {/* ************* Apply Section  ************** */}
         <Apply />
         {/* ***********************  RESOURCES SECTION ***************************/}
-        <Resources />
+        <Resources showTitle showThree />
         {/* ***********************  GET STARTED SECTION ***********************  */}
         <GetStart />
         {/* ********************  Footer Section ******************** */}
