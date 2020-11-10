@@ -3,14 +3,14 @@
   background-size: cover !important; 
 }
 .heroimage {
-  transform: translateY(50%);
+  transform: translateY(45%);
   width: 50vw;
   @media (max-width:767px) {
     width: 90%;
   }
 }
 .content {
-  padding-bottom: 300px;
+  padding-bottom: 320px;
   @media (max-width:767px) {
     padding-bottom: 200px;
   }

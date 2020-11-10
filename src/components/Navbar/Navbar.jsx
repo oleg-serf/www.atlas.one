@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react"
-import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { graphql, Link, useStaticQuery } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { AiOutlineClose } from "react-icons/ai"
+import { VscMegaphone } from "react-icons/vsc"
 import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
-import AnnoucementIcon from "../../images/annoucement-icon.png"
 import "./navbar.scss"
 
 export default function Header({ isTransparentHeader = false }) {
@@ -29,6 +29,7 @@ export default function Header({ isTransparentHeader = false }) {
         }
         buttonText
         buttonBg
+        buttonLink
         announcementText {
           announcementText
         }
@@ -47,9 +48,6 @@ export default function Header({ isTransparentHeader = false }) {
   const [currentLogo, setLogo] = useState(LogoWhite)
   const [isOffset, setIsOffset] = useState(false)
 
-  /* eslint-disable-next-line */
-  const [width, setWidth] = useState(1440)
-
   useEffect(() => {
     if (!isTransparentHeader) {
       if (nav && nav.current) {
@@ -59,10 +57,6 @@ export default function Header({ isTransparentHeader = false }) {
     }
 
     if (typeof window != "undefined") {
-      const handleWindowResize = () => setWidth(window.innerWidth)
-
-      window.addEventListener("resize", handleWindowResize())
-
       window.addEventListener("scroll", function () {
         if (nav && nav.current) {
           if (window.pageYOffset > 0) {
@@ -70,7 +64,6 @@ export default function Header({ isTransparentHeader = false }) {
             nav.current.classList.add("active")
             setLogo(LogoBlack)
           } else {
-            //remove the background property so it comes transparent again (defined in your css)
             setIsOffset(false)
             nav.current.classList.remove("active")
             setLogo(LogoWhite)
@@ -88,8 +81,6 @@ export default function Header({ isTransparentHeader = false }) {
       window.addEventListener("wheel", function () {
         if(demoBtn && demoBtn.current) demoBtn.current.focus()
       })
-
-      return () => window.removeEventListener("resize", handleWindowResize)
     }
     /* eslint-disable-next-line */
   }, [])
@@ -119,13 +110,15 @@ export default function Header({ isTransparentHeader = false }) {
     <React.Fragment>
       {componentData?.showAnnouncement && (
         <div className="w-full hidden lg:flex h-auto py-3 bg-lightblue text-white font-medium items-center justify-center">
-          <div className="flex items-center">
-            <img src={AnnoucementIcon} alt="Annoucement Icon" />
+          <div className="flex items-center">        
+            <VscMegaphone size="20" fill="#ffffff" />
             <span className="ml-2 text-white">
               {componentData.announcementText?.announcementText}
             </span>
           </div>
-          <button className="mx-1">Book a demo today!</button>
+          <Link to="/request-demo">
+            <button className="mx-1" style={{fontFamily: "Gilroy-Bold"}}>Book a demo today!</button>
+          </Link>
         </div>
       )}
       <nav
@@ -189,17 +182,21 @@ export default function Header({ isTransparentHeader = false }) {
                 onAnchorLinkClick={() => toggleExpansion(false)}
               />
             ))}
-             <div>
-              <button className="blue-button text-white font-medium lg:mx-0 w-full lg:hidden py-3 px-6 mt-8 lg:mt-0">
-                Book a demo
-              </button>
+            <div>
+              <Link to={componentData.buttonLink}>
+                <button className="blue-button text-white font-medium lg:mx-0 w-full lg:hidden py-3 px-6 mt-8 lg:mt-0">
+                  {componentData.buttonText}
+                </button>
+              </Link>
             </div>
           </div>
         </div>
         <div className="hidden lg:w-1/5 lg:flex justify-end">
-          <button className="blue-button text-white font-medium lg:mx-0 w-full lg:w-auto py-3 px-6 mt-8 lg:mt-0" ref={demoBtn}>
-            Book a demo
-          </button>
+          <Link to={componentData.buttonLink}>
+            <button className="blue-button text-white font-medium lg:mx-0 w-full lg:w-auto py-3 px-6 mt-8 lg:mt-0" ref={demoBtn}>
+              {componentData.buttonText}
+            </button>
+          </Link>
         </div>
       </nav>
     </React.Fragment>

@@ -23,7 +23,7 @@ export default () => {
         {/*  ********************* Header Section  ********************* */}
         <Header />
         {/*   *******************  BRANDS SECTION   *******************  */}
-        <Brands />
+        <Brands isLanding />
         {/* ***************  CASE STUDIES SECTION  ***************  */}
         <CaseStudies />
         {/* *********************  BENIFITS SECTION  ********************* */}

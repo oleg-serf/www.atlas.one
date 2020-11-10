@@ -1,5 +1,5 @@
 import React, { useRef } from "react"
-import { graphql, Link as GatsbyLink, useStaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import {
   FaFacebookSquare,
@@ -96,16 +96,16 @@ export default function Footer() {
           @ 2020 Atlas One. All right reserved.
         </span>
         <div className="text-center md:text-left">
-          <GatsbyLink to="/privacy-policy">
+          <Link to="/privacy-policy">
             <span className="text-sm px-4 text-grey border-0 md:border-l border-grey-20 hover:text-blue">
               Privacy Policy
             </span>
-          </GatsbyLink>
-          <GatsbyLink to="/terms-and-condition">
+          </Link>
+          <Link to="/terms">
             <span className="text-sm px-4 text-grey border-l border-grey-20 hover:text-blue">
               Terms of Services
             </span>
-          </GatsbyLink>
+          </Link>
         </div>
       </div>
     </div>

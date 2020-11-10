@@ -1,18 +1,20 @@
-import React from "react"
+import React, { useRef } from "react"
 import { BsArrowRight } from "react-icons/bs"
-import { useWindowSize } from "../../hooks/getwidth"
+import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
 
 const ResourceCard = ({ data: { overviewImage, title, type } }) => {
-  const windowSize = useWindowSize()
+  const imgRef = useRef(null)
+  const imgSize = useWindowSize(imgRef)
 
   return (
     <div className="w-full h-full p-5">
       <div className="bg-white resource-box rounded-xl">
         <div>
           <img
-            src={`${overviewImage.file?.url}?w=${windowSize.width || 1000}`}
+            srcSet={getSrcSet(overviewImage.file?.url, imgSize.width)}
             alt="Altas Logo"
             className="w-full"
+            ref={imgRef}
           />
         </div>
         <div className="p-4 white-content">

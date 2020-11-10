@@ -19,6 +19,7 @@ export default function Pricing() {
               borderColor
               bg
               color
+              buttonLink
             }
           }
         }
@@ -59,7 +60,7 @@ export default function Pricing() {
                       </span>
                     </div>
                   ))}
-                  <Link to="/pricing">
+                  <Link to={item.buttonLink}>
                     <button
                       className={`${
                         item.bg === "#00AEEF" ? "blue-button" : "transparent-button"

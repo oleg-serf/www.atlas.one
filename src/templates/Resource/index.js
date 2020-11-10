@@ -1,5 +1,7 @@
 import React, { useRef } from "react"
 import { graphql } from "gatsby"
+import { BsArrowLeft } from "react-icons/bs"
+import { AiFillCheckCircle } from "react-icons/ai"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import {
   Layout,
@@ -22,9 +24,12 @@ const Resource = ({ pageContext, data }) => {
       <div className="flex flex-col justify-center resource-main bg-even">
         <div className="w-full px-5 max-w-6xl mx-auto flex flex-wrap mt-2 lg:mt-32">
           <div className="w-full lg:w-1/2 py-24">
-            <span className="border-none rounded-sm p-1 px-3 text-blue bg-ebook text-base font-600">
-              {pageResource?.buttonText}
-            </span>
+            <div className="flex items-center -ml-6">
+              <BsArrowLeft size={20} color="#141414" />
+              <span className="border-none rounded-sm ml-3 p-1 px-3 text-blue bg-ebook text-base font-600">
+                {pageResource?.type?.types[0]}
+              </span>
+            </div>
             <h1 className="text-3xl lg:text-45xl tracking-subtitle mt-5">
               {pageResource?.title?.title}
             </h1>
@@ -53,6 +58,18 @@ const Resource = ({ pageContext, data }) => {
             <p className="text-base text-black font-medium">
               {documentToReactComponents(pageResource?.description?.json)}
             </p>
+            {pageResource?.features && (
+              <ul className="my-8 flex flex-col ">
+                {pageResource?.features?.features?.map(feature => (
+                  <li className="flex  lg:items-start items-center py-2">
+                    <span>
+                      <AiFillCheckCircle size={28} fill="#00AEEF" />
+                    </span>
+                    <span className="text-1xl font-medium pl-3">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
           <div className="w-full lg:w-1/2 lg:p-5">
             <ResourceForm fields={formFieldGroups} id={pageContext?.formId} />

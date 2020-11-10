@@ -5,7 +5,7 @@ import ResourceCard from "../ResourceCard"
 import Hero from "../Hero"
 import "./resources.scss"
 
-export default function Resources({ 
+export default function Resources({
   data: parentData,
   showTitle = false,
   showThree = false,
@@ -77,12 +77,12 @@ export default function Resources({
         <div className="flex flex-wrap">
           {(!showThree ? allResources : allResources?.slice(0, 3)).map(({ node }, i) => 
             (showHeroes && i % 4 === 0) ? (
-              <Link to={`/resource/${node.slug}`} key={i}>
+              <Link to={`/resources/${node.slug}`} key={i}>
                 <Hero data={node} />
               </Link>
             ) : (
               <Link
-                to={`/resource/${node.slug}`}
+                to={`/resources/${node.slug}`}
                 className="w-full lg:w-1/3 md:w-2/4 sm:w-1/1 h-full"
                 key={i}
               >

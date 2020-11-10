@@ -10,11 +10,13 @@ import Industries from "./Industries/Industries"
 import Pricing from "./Pricing/Pricing"
 import Resources from "./Resources/Resources"
 import ResourceForm from "./ResourceForm"
+import RequestForm from "./RequestForm"
 import GetStart from "./GetStart/GetStart"
 import Communication from "./Communication/Communication"
 import Reporting from "./Reporting/Reporting"
 import ContentCreation from "./ContentCreation/ContentCreation"
 import Apply from "./Apply/Apply"
+import Chat from "./Chat"
 
 export {
   Layout,
@@ -29,9 +31,11 @@ export {
   Pricing,
   Resources,
   ResourceForm,
+  RequestForm,
   GetStart,
   Communication,
   Reporting,
   ContentCreation,
   Apply,
+  Chat,
 }

@@ -1,63 +1,31 @@
 import React, { useState } from "react"
 import { navigate } from "gatsby"
+import { submitForm } from "../../functions/submit-form"
 import "./index.scss"
 
 export default function ResourceForm({ fields, id }) {
   const [form, setform] = useState({})
   const [message, setMessage] = useState(null)
 
-  const submitFormData = () => {
-    const url = `${process.env.GATSBY_BASE_URL}/submissions/v3/integration/submit/${process.env.GATSBY_PORTAL_ID}/${id}`
-    
-    const data = {
-      "submittedAt": Date.now(),
-      "fields": [
-        {
-          "name": "email",
-          "value": form.email
-        },
-        {
-          "name": "firstname",
-          "value": form.firstname
-        },
-        {
-          "name": "lastname",
-          "value": form.lastname,
-        },
-        {
-          "name": "company",
-          "value": form.company,
-        },
-        {
-          "name": "jobtitle",
-          "value": form.jobtitle,
-        }
-      ],
-      "skipValidation": true,
-    }
-
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json; charset=utf8",
-        "Accept": "application/json",
-        "Access-Control-Allow-Origin":"*"
-      },
-    })
-    .then(response => response.json())
-    .then(res => {
-      if (res.inlineMessage) {
-        setMessage(res.inlineMessage)
-      } else {
-        if (typeof window != "undefined") {
-          navigate("/success")
-          // window.open(res.redirectUri, "_blank")
-          setMessage("File has been opened on new tab")
-
-        }
+  const getFields = () => {
+    return Object.keys(form).map(key => {
+      return {
+        name: key,
+        value: form[key],
       }
     })
+  }
+  const submitFormData = async () => {
+    let data = await submitForm(id, getFields(), Date.now(), true)
+    if (data.inlineMessage) {
+      setMessage(data.inlineMessage)
+    } else {
+      if (typeof window != "undefined") {
+        navigate("/success")
+        // window.open(data.redirectUri, "_blank")
+        setMessage("File has been opened on new tab")
+      }
+    }
   }
 
   return (
@@ -71,9 +39,9 @@ export default function ResourceForm({ fields, id }) {
       >
         <h2 className="text-3xl my-1 text-center">Get your copy</h2>
         <p className="text-menu my-1 text-center text-base">
-          Fill the form to get your ebook
+          Please fill in the form below
         </p>
-        {message && 
+        {message &&
           <div
             className="my-4 text-center"
             dangerouslySetInnerHTML={{ __html: message }}
@@ -95,8 +63,8 @@ export default function ResourceForm({ fields, id }) {
                     {`${label}${required ? "*" : ""}`}
                   </label>
                   <input
-                    placeholder={placeholder}
                     className="border border-field rounded p-2 my-2 font-medium"
+                    placeholder={placeholder}
                     type={fieldType}
                     name={name}
                     required={required}

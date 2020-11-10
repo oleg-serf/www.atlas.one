@@ -16,6 +16,12 @@ module.exports.createPages = async ({ graphql, actions }) => {
           node {
             slug
             formId
+            type {
+              types
+            }
+            features {
+              features
+            }
             title {
               title
             }
@@ -48,7 +54,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   edges.forEach(({ node }, index) => {
     createPage({
       component: ResourceTemplate,
-      path: `/resource/${node.slug}`,
+      path: `/resources/${node.slug}`,
       context: {
         pageResource: node,
         formId: node.formId,

@@ -6,9 +6,10 @@ import {
   RequestForm,
   Chat
 } from "../../components"
+import Mac from "../../images/mac2.png"
 import "./index.scss"
 
-const RequestPage = ({
+const RequestDemo = ({
   data: {
     hubspotForm: { formFieldGroups, guid },
   },
@@ -21,9 +22,10 @@ const RequestPage = ({
             formFieldGroups={formFieldGroups}
             id={guid}
             data={{
-              title: "Request Price Quote",
-              jsx: `<p>Explore Pricing options</p>`,
+              title: "Request a Demo",
+              jsx: `<p>Reach out to schedule a personalized demo with our team. We will show you an Enterprise SaaS solution to governments and public safety agencies to help improve communications with their community</p>`,
               buttonText: "Request Demo",
+              image: Mac,
             }}
           />
         </div>
@@ -35,7 +37,7 @@ const RequestPage = ({
 }
 export const query = graphql`
   query {
-    hubspotForm(id: { eq: "cd4e4702-8537-4150-b840-13a6c172e74e" }) {
+    hubspotForm(id: { eq: "c6a3e9be-76a2-4bd9-8164-7bde5d1ce220" }) {
       guid
       portalId
       name
@@ -57,5 +59,4 @@ export const query = graphql`
     }
   }
 `
-
-export default RequestPage
+export default RequestDemo

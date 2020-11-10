@@ -1,0 +1,20 @@
+.form-left {
+  background: linear-gradient(107.23deg, #0d1835 0%, #16375f 100%);
+}
+
+.form-right {
+  box-shadow: 0px 4px 30px rgba(64, 89, 224, 0.1);
+  border-radius: 0px 5px 5px 0px;
+  .field-half {
+    min-width: 48%;
+    @media (max-width: "767px") {
+      width: 100%;
+    }
+  }
+  .field-full {
+    width: 100%;
+  }
+  select {
+    background: none;
+  }
+}
