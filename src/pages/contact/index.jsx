@@ -25,7 +25,7 @@ const Contact = ({
         <div className="px-5 max-w-6xl mx-auto w-full mt-20">
           <div className="flex items-center contact-main lg:mt-24">
             <div className="px-5 max-w-6xl mx-auto w-full">
-              <div className="w-full p-12 flex flex-col items-center">
+              <div className="w-full p-12 flex flex-col lg:items-center">
                 <h1 className="text-black tracking-subtitle text-2xl lg:text-45xl my-2">
                   Contact our sales team
                 </h1>

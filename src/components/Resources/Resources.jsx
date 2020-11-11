@@ -68,13 +68,13 @@ export default function Resources({
                 featuredSubtitle: componentData.featuredSubtitle,
               }}
             />
-            <span className="block font-medium text-xl pt-5 max-w-2xl pl-2 md:text-base">
+            <span className="block font-medium text-xl pt-5 max-w-2xl md:text-base">
               {componentData.description}
             </span>
           </React.Fragment>
         )}
 
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap py-8">
           {(!showThree ? allResources : allResources?.slice(0, 3)).map(({ node }, i) => 
             (showHeroes && i % 4 === 0) ? (
               <Link to={`/resources/${node.slug}`} key={i}>

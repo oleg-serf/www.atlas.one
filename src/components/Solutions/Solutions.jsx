@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { AiFillCheckCircle } from "react-icons/ai"
 import Communication from "../Communication/Communication"
 import Reporting from "../Reporting/Reporting"
 import ContentCreation from "../ContentCreation/ContentCreation"
@@ -35,21 +36,23 @@ export default function Solutions() {
     }
   `)
   
-  const windowSize = useWindowSize()
   const componentData = data.allContentfulSolutions.edges[0].node
-
+  const imgRef = useRef(null)
+  const imgSize = useWindowSize(imgRef)
+  
   return (
     <div className="py-12 lg:py-24" id="solutions">
       <div className="flex flex-wrap-reverse items-center container m-auto max-w-6xl px-5">
         <div className="w-full lg:w-1/2 images-parent mt-8 lg:mt-0 relative">
           <img
             className="absolute image1"
-            src={`${componentData.images[0]?.file?.url}?w=${windowSize?.width}`}
+            srcSet={ getSrcSet(componentData.images[0]?.file?.url, imgSize.width || 300) }
             alt="image1"
+            ref={imgRef}
           />
           <img
             className="absolute image2"
-            src={`${componentData.images[1]?.file?.url}?w=${windowSize?.width}`}
+            srcSet={ getSrcSet(componentData.images[1]?.file?.url, imgSize.width || 300) }
             alt="image2"
           />
         </div>
@@ -70,11 +73,7 @@ export default function Solutions() {
           <div className="pt-5">
             {componentData.solutions.map((solution, index) => (
               <div className="flex py-2" key={index}>
-                <img
-                  style={{ height: "30px", width: "30px" }}
-                  srcSet={ getSrcSet(componentData.icons[index]?.file?.url, 30)}
-                  alt="icon"
-                />
+                <span><AiFillCheckCircle size={25} fill="#00AEEF" /></span>
                 <span className="font-600 pl-5 text-base tracking-subtitle">
                   {solution.title}
                 </span>

@@ -44,7 +44,9 @@ const RequestForm = ({ formFieldGroups, id, data }) => {
             <ul className="my-8 px-2 flex flex-col ">
               {features.map(feature => (
                 <li className="flex items-start my-3">
-                  <AiFillCheckCircle size={25} fill="#ffffff" />
+                  <span>
+                    <AiFillCheckCircle size={25} fill="#ffffff" />
+                  </span>
                   <span className="px-2">{feature}</span>
                 </li>
               ))}

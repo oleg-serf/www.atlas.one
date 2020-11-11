@@ -1,5 +1,5 @@
 import React, { useRef } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import { BsArrowRight } from "react-icons/bs"
 import SectionHeading from "../SectionHeading"
 import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
@@ -46,10 +46,12 @@ export default function Reporting() {
         <span className="block text-18xl pt-5 font-medium md:text-base">
           {componentData.description}
         </span>
-        <button className="flex items-center py-5 focus:outline-none">
-          <span className="font-bold text-lightblue pr-2">Learn about our chat </span>
-          <BsArrowRight size={20} color="#1F76FF" />
-        </button>
+        <Link to="/request-demo">
+          <button className="flex items-center py-5 focus:outline-none">
+            <span className="font-bold text-lightblue pr-2">Learn more </span>
+            <BsArrowRight size={20} color="#1F76FF" />
+          </button>
+        </Link>
       </div>
     </div>
   )

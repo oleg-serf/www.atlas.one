@@ -31,11 +31,11 @@ export default function Brands() {
             className="lg:m-4"
           />
           <div className="px-6 w-full lg:w-auto">
-            <h2 className="block lg:text-5xl text-2xl text-white text-center lg:text-left mt-4 lg:mt-0">
+            <h2 className="block lg:text-45xl text-25xl text-white text-center lg:text-left mt-4 lg:mt-0">
               {componentData.title}
             </h2>
             <div>
-              <span className="block text-xl py-6 max-w-3xl text-white text-center lg:text-left md:text-base">
+              <span className="block text-base py-6 max-w-3xl text-white text-center lg:text-left">
                 {componentData.description}
               </span>
             </div>

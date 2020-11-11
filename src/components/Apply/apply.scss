@@ -1,4 +1,8 @@
-.apply-main{
+.apply-main {
     background: url('../../images/sponsored-bg.png') no-repeat;
     background-size: cover !important;
+    img {
+        width: 60px;
+        height: 60px;
+    }
 }
