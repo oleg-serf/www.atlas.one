@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 
 export default function GetStart() {
   const data = useStaticQuery(graphql`
@@ -28,10 +28,11 @@ export default function GetStart() {
           {componentData.description}
         </span>
       </div>
-
-      <button className="blue-button text-white font-semibold py-3 px-8 w-full lg:w-auto">
-        {componentData.buttonText}
-      </button>
+      <Link to="/request-demo">
+        <button className="blue-button text-white font-semibold py-3 px-8 w-full lg:w-auto">
+          {componentData.buttonText}
+        </button>
+      </Link>
     </div>
   )
 }
