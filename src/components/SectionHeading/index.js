@@ -9,7 +9,7 @@ function SectionHeading({ data, isHero = false }) {
         {data?.title}
       </h2>
 
-      <h2 className="block text-3xl lg:text-5xl max-w-3xl mt-4 sub-title font-bold">
+      <h2 className="block text-3xl lg:text-45xl max-w-3xl mt-4 sub-title font-bold">
         {data?.description}{" "}
         <h2 className="text-blue inline">
           {data?.featuredSubtitle}

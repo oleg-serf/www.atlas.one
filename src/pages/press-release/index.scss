@@ -1,0 +1,31 @@
+.privacy-main {
+    min-height: 400px;
+    height: 40vh;
+}
+
+.policies {
+    p {
+        margin: 20px 0;
+    }
+    h2 {
+        font-size: 1.75rem;
+        @media(max-width : 767px){
+            font-size: 1.25rem;
+        }
+    }
+    h3 {
+        font-size: 1.25rem;
+        @media(max-width : 767px){
+            font-size: 1rem;
+        }
+    }
+    code {
+        font-size: 1rem;
+        color: #1F76FF;
+        font-family: "Gilroy-Regular";
+        white-space: pre-line;
+    }
+    a {
+        color: #1F76FF;
+    }
+}

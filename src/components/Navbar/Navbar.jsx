@@ -112,12 +112,14 @@ export default function Header({ isTransparentHeader = false }) {
         <div className="w-full hidden lg:flex h-auto py-3 bg-lightblue text-white font-medium items-center justify-center">
           <div className="flex items-center">        
             <VscMegaphone size="20" fill="#ffffff" />
-            <span className="ml-2 text-white">
+            <span className="mx-3 text-white text-base">
               {componentData.announcementText?.announcementText}
             </span>
           </div>
-          <Link to="/request-demo">
-            <button className="mx-1" style={{fontFamily: "Gilroy-Bold"}}>Book a demo today!</button>
+          <Link to={componentData.buttonLink}>
+            <button className="font-base font-600 underline">
+              {componentData.buttonText}
+            </button>
           </Link>
         </div>
       )}
@@ -183,18 +185,18 @@ export default function Header({ isTransparentHeader = false }) {
               />
             ))}
             <div>
-              <Link to={componentData.buttonLink}>
+              <Link to="/request-demo">
                 <button className="blue-button text-white font-medium lg:mx-0 w-full lg:hidden py-3 px-6 mt-8 lg:mt-0">
-                  {componentData.buttonText}
+                  Book a demo
                 </button>
               </Link>
             </div>
           </div>
         </div>
         <div className="hidden lg:w-1/5 lg:flex justify-end">
-          <Link to={componentData.buttonLink}>
+          <Link to="/request-demo">
             <button className="blue-button text-white font-medium lg:mx-0 w-full lg:w-auto py-3 px-6 mt-8 lg:mt-0" ref={demoBtn}>
-              {componentData.buttonText}
+              Book a demo
             </button>
           </Link>
         </div>
