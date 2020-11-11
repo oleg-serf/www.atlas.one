@@ -53,8 +53,8 @@ export default function Pricing() {
                     {item.subTitle}
                   </h3>
                   {item.properties.map((property, index) => (
-                    <div className="flex justify-center lg:justify-start py-2" key={index}>
-                      <AiFillCheckCircle size={30} fill="#00AEEF" />
+                    <div className="flex justify-center items-center lg:justify-start py-2" key={index}>
+                      <AiFillCheckCircle size={25} fill="#00AEEF" />
                       <span className="text-1xl font-medium pl-3">
                         {property}
                       </span>
