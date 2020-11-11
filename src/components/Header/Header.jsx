@@ -42,7 +42,7 @@ export default function Header() {
             {componentData.title}
           </h1>
 
-          <p className="mt-8 xl:text-1xl lg:text-xl text-lg text-menu max-w-xl mx-auto">
+          <p className="mt-8 xl:text-1xl lg:text-xl text-lg text-menu max-w-2xl mx-auto">
             {componentData.description.description}
           </p>
           <br />
