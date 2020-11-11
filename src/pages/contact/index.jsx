@@ -24,12 +24,12 @@ const Contact = ({
       <div className="flex items-center bg-even">
         <div className="px-5 max-w-6xl mx-auto w-full mt-20">
           <div className="flex items-center contact-main lg:mt-24">
-            <div className="px-5 max-w-6xl mx-auto w-full">
-              <div className="w-full p-12 flex flex-col lg:items-center">
-                <h1 className="text-black tracking-subtitle text-2xl lg:text-45xl my-2">
+            <div className="px-5 max-w-xl mx-auto w-full">
+              <div className="w-full py-12 lg:px-6 flex flex-col">
+                <h1 className="text-black lg:text-center tracking-subtitle text-2xl lg:text-45xl my-2">
                   Contact our sales team
                 </h1>
-                <p className="text-base text-center">
+                <p className="text-base lg:text-center">
                   Our experienced sales team can help you find the right solution.
                   Please fill out the form and we’ll be in touch shortly.
                 </p>
