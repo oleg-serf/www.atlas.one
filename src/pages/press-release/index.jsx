@@ -11,7 +11,7 @@ const PressRelease = ({ data }) => {
 
   return (
     <Layout isTransparentHeader={false}>
-      <div className="flex items-center privacy-main">
+      <div className="flex items-center press-main">
         <div className="px-5 max-w-6xl mx-auto w-full mt-20">
           <div className="w-full py-12 flex flex-col items-center">
             <h1 className="text-black tracking-subtitle text-2xl lg:text-45xl my-2">
@@ -23,7 +23,7 @@ const PressRelease = ({ data }) => {
           </div>
         </div>
       </div>
-      <div className="max-w-5xl mx-auto policies px-5">
+      <div className="max-w-5xl mx-auto contents px-5">
         {documentToReactComponents(contents.json)}
       </div>
     </Layout>

@@ -80,14 +80,16 @@ export default function Footer() {
           {/* <div className="px-2">
             <FaInstagram size={30} color="#fff" />
           </div> */}
-
-          <div className="px-2 social-icon">
-            <FaFacebookSquare size={30} />
-          </div>
-
-          <div className="px-2 social-icon">
-            <FaTwitterSquare size={30} />
-          </div>
+          <a href="https://www.facebook.com/Atlas-One-2021939574684766/" target="_blank" rel="noopener noreferrer">
+            <div className="px-2 social-icon">
+              <FaFacebookSquare size={30} />
+            </div>
+          </a>
+          <a href="https://twitter.com/atlasoneapp/" target="_blank" rel="noopener noreferrer">
+            <div className="px-2 social-icon">
+              <FaTwitterSquare size={30} />
+            </div>
+          </a>
         </div>
       </nav>
 

@@ -16,10 +16,10 @@ const Chat = () => {
           </div>
           <button
             className="blue-button text-white font-medium lg:mx-0 py-3 px-6 mt-4 h-12 flex justify-between items-center"
-            onClick={()=>window.open("tel:8886462358", "_self")}
+            onClick={()=>typeof window !== 'undefined' && window.open("tel:8553929377", "_self")}
           >
             <span><ImPhone size={20} fill="#ffffff" /></span>
-            <span className="px-2">+1 888-646-2358</span>
+            <span className="px-2">+1 855-392-9377</span>
           </button>
         </div>
       </div>

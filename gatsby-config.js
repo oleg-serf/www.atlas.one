@@ -25,12 +25,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-plugin-manifest",
-      options: {
-        name: "Gatsby Starter Tailwind CSS",
-        short_name: "Gatsby Starter Tailwind CSS",
-        start_url: "/",
-        icon: "static/icon.svg",
-      },
     },
     {
       resolve: "gatsby-plugin-postcss",

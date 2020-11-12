@@ -1,11 +1,14 @@
-.press-main {
+.terms-main {
     min-height: 400px;
     height: 40vh;
 }
 
-.contents {
+.terms {
     p {
-        margin: 20px 0;
+        margin: 0;
+        b {
+            font-family: "Gilroy-Bold";
+        }
     }
     h2 {
         font-size: 1.75rem;

@@ -7,7 +7,7 @@ const ResourceCard = ({ data: { overviewImage, title, type } }) => {
   const imgSize = useWindowSize(imgRef)
 
   return (
-    <div className="w-full h-full py-5 lg:p-5">
+    <div className="w-full h-full py-5 lg:p-3">
       <div className="bg-white resource-box rounded-xl">
         <div>
           <img

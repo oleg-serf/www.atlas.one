@@ -57,8 +57,8 @@ export default function Resources({
   const allResources = data.allContentfulResource.edges
 
   return (
-    <div className={`${!showHeroes ? "py-24" : "pb-24"} resources-main`} id={parentData ? "#" : "resources"}>
-      <div className="container px-5 m-auto max-w-6xl">
+    <div className={`${!showHeroes ? "py-24" : "pb-24"} px-5 resources-main`} id={parentData ? "#" : "resources"}>
+      <div className="container m-auto max-w-6xl">
         {showTitle && (
           <React.Fragment>
             <SectionHeading
@@ -74,7 +74,7 @@ export default function Resources({
           </React.Fragment>
         )}
 
-        <div className="flex flex-wrap py-8">
+        <div className="flex flex-wrap py-8 lg:-mx-3">
           {(!showThree ? allResources : allResources?.slice(0, 3)).map(({ node }, i) => 
             (showHeroes && i % 4 === 0) ? (
               <Link to={`/resources/${node.slug}`} key={i}>

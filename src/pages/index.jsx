@@ -3,13 +3,13 @@ import {
   Header,
   Brands,
   Benifits,
-  CaseStudies,
+  // CaseStudies,
   Solutions,
   Industries,
   Pricing,
   GetStart,
   Resources,
-  Apply,
+  // Apply,
 } from "../components"
 import Layout from "../components/layout"
 
@@ -22,7 +22,7 @@ export default () => {
         {/*   *******************  BRANDS SECTION   *******************  */}
         <Brands isLanding />
         {/* ***************  CASE STUDIES SECTION  ***************  */}
-        <CaseStudies />
+        {/* <CaseStudies /> */}
         {/* *********************  BENIFITS SECTION  ********************* */}
         <Benifits />
         {/* *********************  SOLUTION SECTION  ********************** */}
@@ -32,7 +32,7 @@ export default () => {
         {/* PRICING SECTION */}
         <Pricing />
         {/* ************* Apply Section  ************** */}
-        <Apply />
+        {/* <Apply /> */}
         {/* ***********************  RESOURCES SECTION ***************************/}
         <Resources showTitle showThree />
         {/* ***********************  GET STARTED SECTION ***********************  */}
