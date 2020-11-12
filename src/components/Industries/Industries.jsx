@@ -74,7 +74,7 @@ export default function Industries() {
   
   const imgRef = useRef(null)
   const imgSize = useWindowSize(imgRef)
-  
+
   return (
     <div className="bg-even px-5 py-24" id="industries">
       <div className="container max-w-6xl m-auto">
@@ -95,7 +95,7 @@ export default function Industries() {
                 className="shadow-base flex items-center bg-white rounded my-2 industry-box p-3 cursor-pointer"
                 onClick={() => {
                   if(swiper && swiper.params){
-                    swiper.slideTo(i,1000)
+                    swiper.slideTo(i+1,1000)
                   }
                 }}
                 key={i}

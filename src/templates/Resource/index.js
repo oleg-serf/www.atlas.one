@@ -30,7 +30,7 @@ const Resource = ({ pageContext, data }) => {
       ),
     },
   }
-console.log(pageResource)
+
   return (
     <Layout isTransparentHeader={false}>
       <div className="flex flex-col justify-center resource-main bg-even">
@@ -70,9 +70,6 @@ console.log(pageResource)
             <h2 className="text-blue block uppercase tracking-title text-sm">
               Description
             </h2>
-            {/* <h1 className="text-2xl lg:text-4xl my-4">
-              {pageResource.subtitle?.subtitle}
-            </h1> */}
             <div className="text-base text-black font-medium my-4">
               {documentToReactComponents(
                 pageResource?.description?.json,
