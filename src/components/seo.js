@@ -145,9 +145,9 @@ const SEO = () => {
       <meta property="og:site_name" content="Atlas One" />
       <meta property="og:image" content="{IMAGE URL}" />
       <meta property="og:type" content="article" />
-      <meta property="og:url" content="{ALERT URL}" />
-      <meta property="og:title" content="{TITLE}" />
-      <meta property="og:description" content="{DESCRIPTION}" />
+      <meta property="og:url" content="https://atlas.one" />
+      <meta property="og:title" content="Atlas One" />
+      <meta property="og:description" content="The all-in-one digital citizen engagement platform" />
       <meta property="og:locale" content="en_US" />
       <meta
         property="article:published_time"

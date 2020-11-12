@@ -94,11 +94,7 @@ const Resource = ({ pageContext, data }) => {
           </div>
         </div>
       </div>
-      <Resources
-        data={{ mainHeading: "You may also like" }}
-        showTitle
-        showThree
-      />
+      <Resources showTitle showThree />
       <GetStart />
     </Layout>
   )
