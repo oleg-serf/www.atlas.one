@@ -1,18 +1,18 @@
-.resource-main{
-    min-height: 500px;
-    height: 60vh;
-    .resource-image{
-        background-image: url(../../images/Ellipse.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        img {
-            width: 300px;
-        }
+.resource-main {
+    min-height: 700px;
+    height: 50vh;
+    .resource-image {
+      background-image: url(../../images/Ellipse.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      img {
+        width: 250px;
+      }
     }
-}
-
-.main404 {
+  }
+  
+  .main404 {
     min-height: 550px;
     height: 100vh;
-}
+  }

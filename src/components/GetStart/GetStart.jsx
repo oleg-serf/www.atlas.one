@@ -29,7 +29,12 @@ export default function GetStart() {
         </span>
       </div>
       <Link to="/request-demo">
-        <button className="blue-button text-white font-semibold py-3 px-8 w-full lg:w-auto">
+        <button className="blue-button text-white font-semibold py-3 px-8 w-full lg:w-auto lg:mr-8 mb-6 lg:mb-0">
+          Book a demo
+        </button>
+      </Link>
+      <Link to="/contact">
+        <button className="transparent-button hover:text-white font-semibold py-3 px-8 w-full lg:w-auto">
           {componentData.buttonText}
         </button>
       </Link>

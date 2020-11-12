@@ -23,9 +23,10 @@ export default function Resources({
           }
         }
       }
-      allContentfulResource {
+      allContentfulResource(sort: { fields: rank }) {
         edges {
           node {
+            rank
             slug
             title {
               title

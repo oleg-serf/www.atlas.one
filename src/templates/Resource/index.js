@@ -34,8 +34,8 @@ const Resource = ({ pageContext, data }) => {
   return (
     <Layout isTransparentHeader={false}>
       <div className="flex flex-col justify-center resource-main bg-even">
-        <div className="w-full px-5 max-w-6xl mx-auto flex flex-wrap mt-2 lg:mt-32">
-          <div className="w-full lg:w-1/2 py-24">
+        <div className="px-5 max-w-6xl mx-auto flex flex-wrap mt-10 lg:mt-32 items-center">
+          <div className="w-full lg:w-1/2 py-12 lg:h-full">
             <div className="flex items-center lg:-ml-6">
               {/* eslint-disable-next-line */}
               <span
@@ -53,7 +53,7 @@ const Resource = ({ pageContext, data }) => {
             </h1>
           </div>
           <div className="w-full lg:w-1/2 flex items-center justify-center">
-            <div className="w-4/5 rounded-full resource-image flex items-center justify-center py-12">
+            <div className="w-4/5 rounded-full resource-image flex items-center justify-center">
               <img
                 className="w-1/2"
                 srcSet={getSrcSet(pageResource?.image?.file?.url, imgSize.width)}
