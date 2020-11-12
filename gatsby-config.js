@@ -45,5 +45,26 @@ module.exports = {
         apiKey: process.env.GATSBY_HUBSPOT_API_KEY,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GATSBY_GOOGLE_ANALYTICS_ID,
+        head: true,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: process.env.GATSBY_GOOGLE_ANALYTICS_ID,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-hubspot",
+      options: {
+        trackingCode: process.env.GATSBY_HUBSPOT_TRACKING_CODE,
+        respectDNT: true,
+        productionOnly: true,
+      },
+    },
   ],
 }
