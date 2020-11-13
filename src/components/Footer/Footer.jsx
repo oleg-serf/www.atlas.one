@@ -98,7 +98,7 @@ export default function Footer() {
           @ 2020 Atlas One. All right reserved.
         </span>
         <div className="text-center md:text-left">
-          <Link to="/privacy-policy">
+          <Link to="/privacy">
             <span className="text-sm px-4 text-grey border-0 md:border-l border-grey-20 hover:text-blue">
               Privacy Policy
             </span>
