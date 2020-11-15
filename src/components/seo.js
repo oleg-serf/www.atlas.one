@@ -143,7 +143,7 @@ const SEO = () => {
       {/* <!-- Open Graph --> */}
 
       <meta property="og:site_name" content="Atlas One" />
-      <meta property="og:image" content="{IMAGE URL}" />
+      <meta property="og:image" content="/image/og_image.png" />
       <meta property="og:type" content="article" />
       <meta property="og:url" content="https://atlas.one" />
       <meta property="og:title" content="Atlas One" />

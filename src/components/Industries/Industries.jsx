@@ -113,7 +113,7 @@ export default function Industries() {
                   <span className="font-600 text-lg">
                     {v.title}
                   </span>
-                  <span className="block pt-1 font-medium text-grey text-16xl md:text-md">
+                  <span className="block pt-1 font-medium text-grey text-16xl md:text-md" style={{lineHeight:"1.2"}}>
                     {v.description}
                   </span>
                 </div>

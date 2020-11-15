@@ -3,7 +3,7 @@ import {
   Header,
   Brands,
   Benifits,
-  // CaseStudies,
+  CaseStudies,
   Solutions,
   Industries,
   Pricing,
@@ -22,7 +22,7 @@ export default () => {
         {/*   *******************  BRANDS SECTION   *******************  */}
         <Brands isLanding />
         {/* ***************  CASE STUDIES SECTION  ***************  */}
-        {/* <CaseStudies /> */}
+        <CaseStudies />
         {/* *********************  BENIFITS SECTION  ********************* */}
         <Benifits />
         {/* *********************  SOLUTION SECTION  ********************** */}
