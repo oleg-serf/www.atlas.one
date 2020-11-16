@@ -35,6 +35,7 @@ export default function Resources({
               subtitle
             }
             buttonText
+            callToActionText
             image {
               file {
                 url

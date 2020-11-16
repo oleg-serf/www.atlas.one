@@ -6,12 +6,12 @@ import {
   RequestForm,
   Chat
 } from "../../components"
-import Mac from "../../images/mac2.png"
 import "./index.scss"
 
 const RequestDemo = ({
   data: {
     hubspotForm: { formFieldGroups, guid },
+    contentfulForms: { title, description, image, features, callToActionText },
   },
 }) => {
   return (
@@ -22,10 +22,11 @@ const RequestDemo = ({
             formFieldGroups={formFieldGroups}
             id={guid}
             data={{
-              title: "Request a Demo",
-              jsx: `<p>Reach out to schedule a personalized demo with our team. We will show you an Enterprise SaaS solution to governments and public safety agencies to help improve communications with their community</p>`,
-              buttonText: "Request Demo",
-              image: Mac,
+              title,
+              description,
+              image,
+              features,
+              callToActionText,
             }}
           />
         </div>
@@ -56,6 +57,22 @@ export const query = graphql`
           }
         }
       }
+    }
+    contentfulForms(slug: { eq: "request-demo" }) {
+      slug
+      title
+      description {
+        json
+      }
+      image {
+        file {
+          url
+        }
+      }
+      features {
+        features
+      }
+      callToActionText
     }
   }
 `

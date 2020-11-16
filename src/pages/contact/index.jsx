@@ -11,14 +11,9 @@ import "./index.scss"
 const Contact = ({
   data: {
     hubspotForm: { formFieldGroups, guid },
+    contentfulForms: { title, description, image, features, callToActionText },
   },
 }) => {
-  const features = [
-    "Learn how to improve communications with your community",
-    "Get pricing information",
-    "Find the right solutions for your needs",
-  ]
-
   return (
     <Layout isTransparentHeader={false}>
       <div className="flex items-center bg-even">
@@ -40,10 +35,11 @@ const Contact = ({
             formFieldGroups={formFieldGroups}
             id={guid}
             data={{
-              title: "We’re here to help",
-              jsx: "<div><p>We're happy to answer questions and get you acquainted with Atlas One.</p></div>",
-              buttonText: "Talk to our Sales Team",
-              features
+              title,
+              description,
+              image,
+              features,
+              callToActionText,
             }}
           />
         </div>
@@ -75,6 +71,22 @@ export const query = graphql`
           }
         }
       }
+    }
+    contentfulForms(slug: { eq: "contact" }) {
+      slug
+      title
+      description {
+        json
+      }
+      image {
+        file {
+          url
+        }
+      }
+      features {
+        features
+      }
+      callToActionText
     }
   }
 `

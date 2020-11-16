@@ -1,17 +1,20 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "gatsby"
 import { AiFillCheckCircle } from "react-icons/ai"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { submitForm } from "../../functions/submit-form"
 import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
 import "./index.scss"
 
-const RequestForm = ({ formFieldGroups, id, data }) => {
+const RequestForm = ({
+  formFieldGroups,
+  id,
+  data: { title, description, image, features, callToActionText },
+}) => {
   const [form, setform] = useState({})
   const [message, setMessage] = useState(null)
   const imgRef = useRef(null)
   const imgSize = useWindowSize(imgRef)
-
-  const { title, jsx, image, buttonText, features } = data
  
   const getFields = () => {
     return Object.keys(form).map(key => {
@@ -38,11 +41,15 @@ const RequestForm = ({ formFieldGroups, id, data }) => {
     <div className="w-full py-12 lg:py-24">
       <div className="flex flex-wrap">
         <div className="w-full lg:w-1/2 p-8 text-white form-left rounded">
-          <h1 className="text-3xl lg:text-45xl tracking-subtitle p-2 lg:p-5">{title}</h1>
-          <div className="my-6 px-2 lg:px-5" dangerouslySetInnerHTML={{ __html: jsx }} />
+          <h1 className="text-3xl lg:text-45xl tracking-subtitle p-2 lg:p-5">
+            {title}
+          </h1>
+          <div className="my-6 px-2 lg:px-5">
+            {documentToReactComponents(description?.json)}
+          </div>
           {features && (
             <ul className="my-8 px-2 flex flex-col ">
-              {features.map(feature => (
+              {features?.features.map(feature => (
                 <li className="flex items-start my-3">
                   <span>
                     <AiFillCheckCircle size={25} fill="#ffffff" />
@@ -55,7 +62,7 @@ const RequestForm = ({ formFieldGroups, id, data }) => {
           {image && (
             <div className="my-8 flex justify-center">
               <img
-                srcSet={getSrcSet(image, imgSize.width)}
+                srcSet={getSrcSet(image?.file?.url, imgSize.width)}
                 alt="requestimage"
                 ref={imgRef}
               />
@@ -175,7 +182,7 @@ const RequestForm = ({ formFieldGroups, id, data }) => {
                   className="blue-button text-white font-medium lg:mx-0 py-3 px-6 mt-2"
                   type="submit"
                 >
-                  {buttonText}
+                  {callToActionText}
                 </button>
               </div>
             )}

@@ -2,7 +2,9 @@ import React, { useRef } from "react"
 import { BsArrowRight } from "react-icons/bs"
 import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
 
-const ResourceCard = ({ data: { overviewImage, title, type } }) => {
+const ResourceCard = ({
+  data: { overviewImage, title, type, callToActionText }
+}) => {
   const imgRef = useRef(null)
   const imgSize = useWindowSize(imgRef)
 
@@ -29,7 +31,9 @@ const ResourceCard = ({ data: { overviewImage, title, type } }) => {
             {title.title}
           </h2>
           <button className="flex items-center py-5 outline-none">
-            <span className="font-bold text-lightblue pr-1">Explore </span>
+            <span className="font-bold text-lightblue pr-1">
+              {callToActionText} 
+            </span>
             <BsArrowRight size={20} color="#1F76FF" />
           </button>
         </div>

@@ -4,4 +4,8 @@
         outline: none;
         color: #141414;
     }
+    input:focus{
+        outline: #00AEEF;
+        border: 1px solid #00AEEF;
+    }
 }

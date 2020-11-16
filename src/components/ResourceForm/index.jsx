@@ -3,7 +3,7 @@ import { navigate } from "gatsby"
 import { submitForm } from "../../functions/submit-form"
 import "./index.scss"
 
-export default function ResourceForm({ fields, id }) {
+export default function ResourceForm({ fields, id, callToActionText }) {
   const [form, setform] = useState({})
   const [message, setMessage] = useState(null)
 
@@ -41,12 +41,12 @@ export default function ResourceForm({ fields, id }) {
         <p className="text-menu my-1 text-center text-base">
           Please fill in the form below
         </p>
-        {message &&
+        {message && (
           <div
             className="my-4 text-center"
             dangerouslySetInnerHTML={{ __html: message }}
           />
-        }
+        )}
         {!message && (
           <div className="my-6">
             {fields.map(({ fields }) => {
@@ -82,7 +82,7 @@ export default function ResourceForm({ fields, id }) {
               className="blue-button text-white font-medium lg:mx-0 w-full py-3 px-6 mt-2"
               type="submit"
             >
-              Download
+              {callToActionText}
             </button>
           </div>
         )}

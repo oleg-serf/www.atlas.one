@@ -30,7 +30,7 @@ export default function Brands({ isLanding = false }) {
         </p>
         <div className="flex flex-wrap justify-center items-center p-6 w-full lg:w-auto">
           {componentData.partnersImages.map((v, i) => (
-            <div className="p-5 lg:mx-5 w-1/2 lg:w-auto" key={i}>
+            <div className="p-5 lg:mx-5 w-1/2 lg:w-auto flex justify-center" key={i}>
               <img
                 srcSet={
                   `${v?.file?.url}?h=80 1x,

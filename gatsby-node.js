@@ -42,6 +42,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
               }
             }
             buttonText
+            callToActionText
           }
         }
       }

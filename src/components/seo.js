@@ -141,14 +141,14 @@ const SEO = () => {
       <meta name="twitter:app:id:googleplay" content="app.atlasone" />
 
       {/* <!-- Open Graph --> */}
-
       <meta property="og:site_name" content="Atlas One" />
-      <meta property="og:image" content="/image/og_image.png" />
+      <meta property="og:image" content="/images/og_image.png" />
       <meta property="og:type" content="article" />
       <meta property="og:url" content="https://atlas.one" />
       <meta property="og:title" content="Atlas One" />
       <meta property="og:description" content="The all-in-one digital citizen engagement platform" />
       <meta property="og:locale" content="en_US" />
+
       <meta
         property="article:published_time"
         content="{ENTER PUBLISHED TIME}"
@@ -162,6 +162,10 @@ const SEO = () => {
         property="article:author"
         content="https://www.facebook.com/Atlas-One-2021939574684766/"
       />
+
+      {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-R6RWRPWEN0" />
+      {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
     </Helmet>
   )
 }

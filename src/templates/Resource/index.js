@@ -3,7 +3,9 @@ import { graphql } from "gatsby"
 import { BsArrowLeft } from "react-icons/bs"
 import { AiFillCheckCircle } from "react-icons/ai"
 import { BLOCKS } from "@contentful/rich-text-types"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import {
+  documentToReactComponents
+} from "@contentful/rich-text-react-renderer"
 import {
   Layout,
   GetStart,
@@ -90,7 +92,11 @@ const Resource = ({ pageContext, data }) => {
             )}
           </div>
           <div className="w-full lg:w-1/2 lg:p-5">
-            <ResourceForm fields={formFieldGroups} id={pageContext?.formId} />
+            <ResourceForm
+              fields={formFieldGroups}
+              id={pageContext?.formId}
+              callToActionText={pageResource?.callToActionText}
+            />
           </div>
         </div>
       </div>

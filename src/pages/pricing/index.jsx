@@ -11,6 +11,7 @@ import "./index.scss"
 const RequestPage = ({
   data: {
     hubspotForm: { formFieldGroups, guid },
+    contentfulForms: { title, description, image, features, callToActionText },
   },
 }) => {
   return (
@@ -21,9 +22,11 @@ const RequestPage = ({
             formFieldGroups={formFieldGroups}
             id={guid}
             data={{
-              title: "Request Price Quote",
-              jsx: `<p>Explore Pricing options</p>`,
-              buttonText: "Request Demo",
+              title,
+              description,
+              image,
+              features,
+              callToActionText,
             }}
           />
         </div>
@@ -54,6 +57,22 @@ export const query = graphql`
           }
         }
       }
+    }
+    contentfulForms(slug: { eq: "pricing" }) {
+      slug
+      title
+      description {
+        json
+      }
+      image {
+        file {
+          url
+        }
+      }
+      features {
+        features
+      }
+      callToActionText
     }
   }
 `
