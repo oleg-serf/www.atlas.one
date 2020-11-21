@@ -1,6 +1,6 @@
 const { useState, useEffect } = require("react")
 
-export function useWindowSize(imgRef=null) {
+export function useWindowSize(imgRef = null) {
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
@@ -8,13 +8,12 @@ export function useWindowSize(imgRef=null) {
 
   useEffect(() => {
     function handleResize() {
-      if(imgRef && imgRef.current){
+      if(imgRef && imgRef.current && imgRef.current.clientWidth>0){
         setWindowSize({
           width: imgRef.current.clientWidth,
           height: imgRef.current.clientHeight,
         })
-      }
-      else {
+      } else {
         setWindowSize({
           width: window.innerWidth,
           height: window.innerHeight,

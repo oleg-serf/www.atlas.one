@@ -40,16 +40,16 @@ export default function Pricing() {
             {componentData.subtitle}
           </h2>
         </div>
-
         <div className="flex flex-wrap pricing-main mt-20">
           {componentData.packages.map((item, i) => (
             <div 
-              className={`w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4
-                  ${i < componentData.packages.length-1 ? "lg:border-r border-b lg:border-b-0" : ""}
-              `}
-              key={`p_${i}`}>
-              <div className="bg-white w-full h-full rounded">
-                <div className="">
+              className={`w-full lg:w-1/3 md:w-2/4 sm:w-1/1 pb-4 ${
+                (i<componentData.packages.length-1) ? "lg:border-r border-b lg:border-b-0" : ""
+              }`}
+              key={`p_${i}`}
+            >
+              <div className="bg-white w-full h-full">
+                <div>
                   <h2 className="block text-3xl text-center lg:text-left p-5 pb-0">
                     {item.title}
                   </h2>

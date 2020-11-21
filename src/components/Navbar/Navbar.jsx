@@ -43,8 +43,8 @@ export default function Header({ isTransparentHeader = false }) {
   const demoBtn = useRef(null)
 
   const [isExpanded, toggleExpansion] = useState(false)
-  const LogoWhite = `${componentData.logoWhite?.file?.url}`
-  const LogoBlack = `${componentData.logoBlack?.file?.url}`
+  const LogoWhite = componentData.logoWhite?.file?.url
+  const LogoBlack = componentData.logoBlack?.file?.url
   const [currentLogo, setLogo] = useState(LogoWhite)
   const [isOffset, setIsOffset] = useState(false)
 
@@ -110,7 +110,7 @@ export default function Header({ isTransparentHeader = false }) {
     <React.Fragment>
       {componentData?.showAnnouncement && (
         <div className="w-full hidden lg:flex h-auto py-3 bg-lightblue text-white font-medium items-center justify-center">
-          <div className="flex items-center">        
+          <div className="flex items-center">
             <VscMegaphone size="20" fill="#ffffff" />
             <span className="mx-3 text-white text-base">
               {componentData.announcementText?.announcementText}
@@ -125,12 +125,12 @@ export default function Header({ isTransparentHeader = false }) {
       )}
       <nav
         ref={nav}
-        className={`flex nav items-center justify-between absolute w-full z-30 flex-wrap px-0 py-5 lg:px-10 border-b border-gray-700 ${
+        className={`flex nav items-center justify-between absolute w-full z-30 flex-wrap lg:flex-nowrap px-0 py-5 lg:px-5 xl:px-10 border-b border-gray-700 ${
           isExpanded ? "expanded" : ""
         } ${isOffset ? "active" : ""}`}
       >
         <Link
-          className="flex items-center flex-shrink-0 text-white pl-3 lg:pl-0 cursor-pointer lg:w-1/5"
+          className="flex items-center flex-shrink-0 text-white pl-3 lg:pl-0 cursor-pointer w-auto xl:w-1/5"
           to="/"
         >
           <img
@@ -180,7 +180,7 @@ export default function Header({ isTransparentHeader = false }) {
                 key={i}
                 to={item.path}
                 title={item.name}
-                className="lg:inline-flex cursor-pointer lg:w-auto w-full font-600 px-3 py-2 rounded items-center justify-center"
+                className="lg:inline-flex cursor-pointer lg:w-auto w-full font-600 px-2 xl:px-3 py-2 rounded items-center justify-center"
                 onAnchorLinkClick={() => toggleExpansion(false)}
               />
             ))}
@@ -193,7 +193,7 @@ export default function Header({ isTransparentHeader = false }) {
             </div>
           </div>
         </div>
-        <div className="hidden lg:w-1/5 lg:flex justify-end">
+        <div className="hidden xl:w-1/5 lg:flex justify-end">
           <Link to="/request-demo">
             <button className="blue-button text-white font-medium lg:mx-0 w-full lg:w-auto py-3 px-6 mt-8 lg:mt-0" ref={demoBtn}>
               Book a demo
