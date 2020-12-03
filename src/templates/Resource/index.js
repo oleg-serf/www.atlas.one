@@ -95,6 +95,8 @@ const Resource = ({ pageContext, data }) => {
             <ResourceForm
               fields={formFieldGroups}
               id={pageContext?.formId}
+              title={pageResource?.formTitle}
+              description={pageResource?.formDescription}
               callToActionText={pageResource?.callToActionText}
             />
           </div>

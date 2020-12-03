@@ -42,6 +42,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
               }
             }
             buttonText
+            formTitle
+            formDescription
             callToActionText
           }
         }

@@ -3,7 +3,13 @@ import { navigate } from "gatsby"
 import { submitForm } from "../../functions/submit-form"
 import "./index.scss"
 
-export default function ResourceForm({ fields, id, callToActionText }) {
+export default function ResourceForm({ 
+  fields, 
+  id,
+  title,
+  description,
+  callToActionText
+}) {
   const [form, setform] = useState({})
   const [message, setMessage] = useState(null)
 
@@ -37,9 +43,11 @@ export default function ResourceForm({ fields, id, callToActionText }) {
         }}
         className="resource-form p-8 px-10 lg:px-20 text-white flex justify-center flex-col rounded-md"
       >
-        <h2 className="text-3xl my-1 text-center">Get your copy</h2>
+        <h2 className="text-3xl my-1 text-center">
+          { title }
+        </h2>
         <p className="text-menu my-1 text-center text-base">
-          Please fill in the form below
+          { description }
         </p>
         {message && (
           <div

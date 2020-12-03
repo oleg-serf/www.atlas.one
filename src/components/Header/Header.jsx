@@ -52,7 +52,7 @@ export default function Header() {
                 <button
                   className={`${
                     v.bg === "#00AEEF" ? "blue-button" : "transparent-button"
-                  } w-full lg:w-40 m-2 text-white font-semibold py-3 px-4 border`}
+                  } w-full lg:w-40 my-2 lg:m-2 text-white font-semibold py-3 px-4 border`}
                   key={i}
                 >
                   {v.text}
