@@ -24,9 +24,6 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: "gatsby-plugin-manifest",
-    },
-    {
       resolve: "gatsby-plugin-postcss",
       options: {
         postCssPlugins: [require("tailwindcss"), require("autoprefixer")],

@@ -9,7 +9,7 @@ import {
   Pricing,
   GetStart,
   Resources,
-  // Apply,
+  Apply,
 } from "../components"
 import Layout from "../components/layout"
 
@@ -21,7 +21,7 @@ export default () => {
         <Header />
         {/*   *******************  BRANDS SECTION   *******************  */}
         <Brands isLanding />
-        {/* ***************  CASE STUDIES SECTION  ***************  */}
+        {/*   ***************  CASE STUDIES SECTION  ***************  */}
         <CaseStudies />
         {/* *********************  BENIFITS SECTION  ********************* */}
         <Benifits />
@@ -32,7 +32,7 @@ export default () => {
         {/* PRICING SECTION */}
         <Pricing />
         {/* ************* Apply Section  ************** */}
-        {/* <Apply /> */}
+        <Apply />
         {/* ***********************  RESOURCES SECTION ***************************/}
         <Resources showTitle showThree />
         {/* ***********************  GET STARTED SECTION ***********************  */}

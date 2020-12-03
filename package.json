@@ -16,6 +16,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
     "animate.css": "^4.1.1",
+    "compass-mixins": "^0.12.10",
     "gatsby": "^2.21.0",
     "gatsby-plugin-anchor-links": "^1.2.0",
     "gatsby-plugin-google-analytics": "^2.4.1",

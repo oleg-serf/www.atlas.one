@@ -1,0 +1,253 @@
+@import "../../../node_modules/compass-mixins/lib/compass/css3";
+
+@mixin animation($animation) {
+  -webkit-animation: $animation;
+  -moz-animation: $animation;
+  -ms-animation: $animation;
+  -o-animation: $animation;
+  animation: $animation;
+}
+
+@mixin animation-duration($duration) {
+  -webkit-animation-duration: $duration;
+  -moz-animation-duration: $duration;
+  -ms-animation-duration: $duration;
+  -o-animation-duration: $duration;
+  animation-duration: $duration;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+* {
+  @include box-sizing(border-box);
+  margin: 0;
+  padding: 0;
+}
+
+#christmas {
+  position: relative;
+  overflow: hidden;
+
+  .flake {
+    @include animation(snow infinite linear 30s);    
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: white;
+
+    &.large {
+      @include border-radius(50%);
+      width: 4px;
+      height: 4px;
+    }
+
+    &.f-1 {
+      @include animation-duration(20s);
+      left: 15px;
+      margin-top: 86px;
+    }
+
+    &.f-2 {
+      @include animation-duration(23s);
+      left: 32px;
+      margin-top: 52px;
+    }
+
+    &.f-3 {
+      @include animation-duration(32s);
+      left: 64px;
+      margin-top: 15px;
+    }
+
+    &.f-4 {
+      @include animation-duration(21s);
+      left: 69px;
+      margin-top: 34px;
+    }
+
+    &.f-5 {
+      @include animation-duration(24s);
+      left: 70px;
+      margin-top: 72px;
+    }
+
+    &.f-6 {
+      @include animation-duration(16s);
+      left: 90px;
+      margin-top: 97px;
+    }
+
+    &.f-7 {
+      @include animation-duration(34s);
+      left: 102px;
+      margin-top: 81px;
+    }
+
+    &.f-8 {
+      @include animation-duration(37s);
+      left: 102px;
+      margin-top: 40px;
+    }
+
+    &.f-9 {
+      @include animation-duration(35s);
+      left: 108px;
+      margin-top: 67px;
+    }
+
+    &.f-10 {
+      @include animation-duration(23s);
+      left: 90px;
+      margin-top: 11px;
+    }
+
+    &.f-11 {
+      @include animation-duration(27s);
+      left: 126px;
+      margin-top: 55px;
+    }
+
+    &.f-12 {
+      @include animation-duration(29s);
+      left: 131px;
+      margin-top: 27px;
+    }
+
+    &.f-13 {
+      @include animation-duration(24s);
+      left: 128px;
+      margin-top: 112px;
+    }
+
+    &.f-14 {
+      @include animation-duration(23s);
+      left: 146px;
+      margin-top: 72px;
+    }
+
+    &.f-15 {
+      @include animation-duration(19s);
+      left: 147px;
+      margin-top: 102px;
+    }
+
+    &.f-16 {
+      @include animation-duration(22s);
+      left: 166px;
+      margin-top: 100px;
+    }
+
+    &.f-17 {
+      @include animation-duration(18s);
+      left: 177px;
+      margin-top: 73px;
+    }
+
+    &.f-18 {
+      @include animation-duration(26s);
+      left: 22px;
+      margin-top: 79px;
+    }
+
+    &.f-19 {
+      @include animation-duration(20s);
+      left: 31px;
+      margin-top: 41px;
+    }
+
+    &.f-20 {
+      @include animation-duration(19s);
+      left: 38px;
+      margin-top: 56px;
+    }
+
+    &.f-21 {
+      @include animation-duration(31s);
+      left: 56px;
+      margin-top: 43px;
+    }
+
+    &.f-22 {
+      @include animation-duration(20s);
+      left: 89px;
+      margin-top: 57px;
+    }
+
+    &.f-23 {
+      @include animation-duration(18s);
+      left: 90px;
+      margin-top: 30px;
+    }
+
+    &.f-24 {
+      @include animation-duration(28s);
+      left: 100px;
+      margin-top: 119px;
+    }
+
+    &.f-25 {
+      @include animation-duration(29s);
+      left: 114px;
+      margin-top: 14px;
+    }
+
+    &.f-26 {
+      @include animation-duration(25s);
+      left: 127px;
+      margin-top: 84px;
+    }
+
+    &.f-27 {
+      @include animation-duration(26s);
+      left: 134px;
+      margin-top: 114px;
+    }
+
+    &.f-28 {
+      @include animation-duration(34s);
+      left: 145px;
+      margin-top: 49px;
+    }
+
+    &.f-29 {
+      @include animation-duration(29s);
+      left: 148px;
+      margin-top: 42px;
+    }
+
+    &.f-30 {
+      @include animation-duration(23s);
+      left: 157px;
+      margin-top: 70px;
+    }
+
+    &.f-31 {
+      @include animation-duration(18s);
+      left: 165px;
+      margin-top: 78px;
+    }
+  }
+}
+
+@include keyframes(snow) {
+  0% {
+    @include translateY(-110px);
+  }
+
+  100% {
+    @include translateY(160px);
+  }
+}

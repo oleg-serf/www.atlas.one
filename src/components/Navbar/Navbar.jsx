@@ -4,6 +4,7 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { AiOutlineClose } from "react-icons/ai"
 import { VscMegaphone } from "react-icons/vsc"
+import SnowAnimation from "../SnowAnimation"
 import { useWindowSize, getSrcSet } from "../../hooks/getwidth"
 import "./navbar.scss"
 
@@ -133,12 +134,22 @@ export default function Header({ isTransparentHeader = false }) {
           className="flex items-center flex-shrink-0 text-white pl-3 lg:pl-0 cursor-pointer w-auto xl:w-1/5"
           to="/"
         >
-          <img
-            className="logo"
-            srcSet={ getSrcSet(currentLogo, logoSize.width) }
-            alt="Altas Logo"
-            ref={logoRef}
-          />
+          { isOffset ?  
+            <img
+              className="logo"
+              srcSet={ getSrcSet(currentLogo, logoSize.width) }
+              alt="Altas Logo"
+              ref={logoRef}
+            /> : 
+            <SnowAnimation>
+              <img
+                className="logo"
+                srcSet={ getSrcSet(currentLogo, logoSize.width) }
+                alt="Altas Logo"
+                ref={logoRef}
+              />
+            </SnowAnimation>
+          }
         </Link>
         <div className="block lg:hidden">
           {!isExpanded ? (
